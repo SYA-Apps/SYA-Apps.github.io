@@ -8,11 +8,11 @@
 <style>
   :root{
     --bg:#fbfaf8; --fg:#1c1b19; --muted:#6b6862; --line:#e6e2db;
-    --card:#ffffff; --accent:#7b5ea7;
+    --card:#ffffff; --accent:#6d4f9c; --accent-fg:#ffffff; --soft:#f2eff9;
   }
   @media (prefers-color-scheme: dark){
     :root{ --bg:#16151a; --fg:#eceaf0; --muted:#9a96a3; --line:#2c2a33;
-           --card:#1e1d24; --accent:#b79cdf; }
+           --card:#1e1d24; --accent:#b79cdf; --accent-fg:#1a1620; --soft:#272233; }
   }
   *{ box-sizing:border-box; }
   body{
@@ -21,7 +21,7 @@
          "Apple SD Gothic Neo","Malgun Gothic",sans-serif;
     -webkit-text-size-adjust:100%;
   }
-  .wrap{ max-width:640px; margin:0 auto; padding:56px 24px 72px; }
+  .wrap{ max-width:660px; margin:0 auto; padding:56px 24px 72px; }
   header{ margin-bottom:44px; }
   h1{ font-size:30px; margin:0 0 6px; letter-spacing:-.4px; }
   h1 .ko{ color:var(--muted); font-size:19px; font-weight:600; margin-left:8px; }
@@ -33,12 +33,25 @@
   ul{ list-style:none; padding:0; margin:0; }
   .apps li{
     border:1px solid var(--line); background:var(--card);
-    border-radius:12px; padding:14px 16px; margin-bottom:10px;
+    border-radius:12px; padding:16px 18px; margin-bottom:10px;
+    display:flex; align-items:center; gap:16px; flex-wrap:wrap;
   }
-  .apps a{ color:var(--accent); text-decoration:none; font-weight:600; }
-  .apps a:hover{ text-decoration:underline; }
-  .apps .name{ font-weight:600; }
+  .apps .info{ flex:1 1 240px; min-width:0; }
+  .apps .name{ font-weight:700; }
   .apps .desc{ color:var(--muted); font-size:14px; display:block; margin-top:2px; }
+  .btn{
+    flex:0 0 auto; display:inline-block; text-decoration:none;
+    background:var(--accent); color:var(--accent-fg);
+    font-size:14px; font-weight:600; padding:9px 16px; border-radius:999px;
+    white-space:nowrap;
+  }
+  .btn:hover{ filter:brightness(1.08); }
+  .btn.ghost{ background:var(--soft); color:var(--accent); }
+  .soon{
+    flex:0 0 auto; color:var(--muted); font-size:13px;
+    border:1px dashed var(--line); border-radius:999px; padding:8px 15px;
+    white-space:nowrap;
+  }
   dl{ margin:0; display:grid; grid-template-columns:auto 1fr; gap:8px 18px; }
   dt{ color:var(--muted); font-size:14px; white-space:nowrap; }
   dd{ margin:0; font-size:14px; }
@@ -51,6 +64,8 @@
     .wrap{ padding:36px 18px 56px; }
     h1{ font-size:25px; }
     h1 .ko{ display:block; margin:4px 0 0; }
+    .apps li{ gap:12px; }
+    .btn, .soon{ width:100%; text-align:center; }
     dl{ grid-template-columns:1fr; gap:2px; }
     dt{ margin-top:10px; }
   }
@@ -67,20 +82,32 @@
   <h2>앱</h2>
   <ul class="apps">
     <li>
-      <a href="./sarangnara/">사랑나라</a>
-      <span class="desc">피아노를 쳐서 회색이 된 마을에 색을 돌려주는 이야기 게임</span>
+      <span class="info">
+        <span class="name">나란히</span>
+        <span class="desc">읽은 책을 책장에 꽂아 두는 가벼운 독서기록 앱</span>
+      </span>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=app.sya.reading_log">Google Play</a>
     </li>
     <li>
-      <span class="name">나란히</span>
-      <span class="desc">아이와 함께 읽은 책을 나란히 쌓아 두는 독서 기록장</span>
+      <span class="info">
+        <span class="name">사랑나라</span>
+        <span class="desc">피아노를 쳐서 회색이 된 마을에 색을 돌려주는 이야기 게임</span>
+      </span>
+      <a class="btn ghost" href="./sarangnara/">웹에서 해보기</a>
     </li>
     <li>
-      <span class="name">학원비서</span>
-      <span class="desc">학원 운영에 드는 잔손을 줄이는 도구 · 준비 중</span>
+      <span class="info">
+        <span class="name">학원비서</span>
+        <span class="desc">학원 운영에 드는 잔손을 줄이는 도구</span>
+      </span>
+      <span class="soon">준비 중</span>
     </li>
     <li>
-      <span class="name">쿵짝</span>
-      <span class="desc">폰 한 대를 가운데 두고 둘이 마주 앉아 겨루는 미니게임 · 준비 중</span>
+      <span class="info">
+        <span class="name">쿵짝</span>
+        <span class="desc">폰 한 대를 가운데 두고 둘이 마주 앉아 겨루는 미니게임</span>
+      </span>
+      <span class="soon">준비 중</span>
     </li>
   </ul>
 
