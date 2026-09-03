@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sodam Apps · 소담</title>
+<meta name="description" content="Sodam Apps(소담) — 모바일 앱을 만듭니다. 서울특별시 양천구.">
+<style>
+  :root{
+    --bg:#fbfaf8; --fg:#1c1b19; --muted:#6b6862; --line:#e6e2db;
+    --card:#ffffff; --accent:#7b5ea7;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#16151a; --fg:#eceaf0; --muted:#9a96a3; --line:#2c2a33;
+           --card:#1e1d24; --accent:#b79cdf; }
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",
+         "Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{ max-width:640px; margin:0 auto; padding:56px 24px 72px; }
+  header{ margin-bottom:44px; }
+  h1{ font-size:30px; margin:0 0 6px; letter-spacing:-.4px; }
+  h1 .ko{ color:var(--muted); font-size:19px; font-weight:600; margin-left:8px; }
+  .tag{ color:var(--muted); margin:0; }
+  h2{
+    font-size:13px; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--muted); margin:40px 0 14px; font-weight:700;
+  }
+  ul{ list-style:none; padding:0; margin:0; }
+  .apps li{
+    border:1px solid var(--line); background:var(--card);
+    border-radius:12px; padding:14px 16px; margin-bottom:10px;
+  }
+  .apps a{ color:var(--accent); text-decoration:none; font-weight:600; }
+  .apps a:hover{ text-decoration:underline; }
+  .apps .name{ font-weight:600; }
+  .apps .desc{ color:var(--muted); font-size:14px; display:block; margin-top:2px; }
+  dl{ margin:0; display:grid; grid-template-columns:auto 1fr; gap:8px 18px; }
+  dt{ color:var(--muted); font-size:14px; white-space:nowrap; }
+  dd{ margin:0; font-size:14px; }
+  dd a{ color:var(--accent); }
+  footer{
+    margin-top:48px; padding-top:20px; border-top:1px solid var(--line);
+    color:var(--muted); font-size:13px;
+  }
+  @media (max-width:480px){
+    .wrap{ padding:36px 18px 56px; }
+    h1{ font-size:25px; }
+    h1 .ko{ display:block; margin:4px 0 0; }
+    dl{ grid-template-columns:1fr; gap:2px; }
+    dt{ margin-top:10px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Sodam Apps<span class="ko">소담</span></h1>
+    <p class="tag">모바일 앱을 만듭니다. 작고 오래 쓰는 것들로.</p>
+  </header>
+
+  <h2>앱</h2>
+  <ul class="apps">
+    <li>
+      <a href="./sarangnara/">사랑나라</a>
+      <span class="desc">피아노를 쳐서 회색이 된 마을에 색을 돌려주는 이야기 게임</span>
+    </li>
+    <li>
+      <span class="name">나란히</span>
+      <span class="desc">아이와 함께 읽은 책을 나란히 쌓아 두는 독서 기록장</span>
+    </li>
+    <li>
+      <span class="name">학원비서</span>
+      <span class="desc">학원 운영에 드는 잔손을 줄이는 도구 · 준비 중</span>
+    </li>
+    <li>
+      <span class="name">쿵짝</span>
+      <span class="desc">폰 한 대를 가운데 두고 둘이 마주 앉아 겨루는 미니게임 · 준비 중</span>
+    </li>
+  </ul>
+
+  <h2>사업자 정보</h2>
+  <dl>
+    <dt>상호</dt><dd>소담 (Sodam Apps)</dd>
+    <dt>사업자등록번호</dt><dd>844-29-01813</dd>
+    <dt>주소</dt><dd>서울특별시 양천구 신목로 7<br>7 Sinmok-ro, Yangcheon-gu, Seoul, Republic of Korea</dd>
+    <dt>문의</dt><dd><a href="mailto:sya.apps.dev@gmail.com">sya.apps.dev@gmail.com</a></dd>
+  </dl>
+
+  <footer>
+    © 2026 Sodam Apps
+  </footer>
+
+</div>
+</body>
+</html>
