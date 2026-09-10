@@ -46,6 +46,13 @@
     display:flex; align-items:center; gap:16px; flex-wrap:wrap;
   }
   .apps .info{ flex:1 1 240px; min-width:0; }
+  /* 버튼이 둘 이상일 때 하나씩 따로 내려가지 않게 한 묶음으로 둔다.
+     (좁은 창에서 「Google Play」만 남고 「아이폰용(웹)」이 혼자 내려가던 문제) */
+  .apps .actions{
+    flex:0 0 auto; margin-left:auto;
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    justify-content:flex-end;
+  }
   .apps .name{ font-weight:400; font-size:17px; letter-spacing:.3px; }
   .apps .desc{ color:var(--muted); font-size:14px; display:block; margin-top:2px; }
   .btn{
@@ -75,6 +82,7 @@
     h1{ font-size:25px; }
     h1 .ko{ display:block; margin:4px 0 0; }
     .apps li{ gap:12px; }
+    .apps .actions{ width:100%; }
     .btn, .soon{ width:100%; text-align:center; }
     dl{ grid-template-columns:1fr; gap:2px; }
     dt{ margin-top:10px; }
@@ -96,36 +104,46 @@
         <span class="name">나란히</span>
         <span class="desc">읽은 책을 책장에 꽂아 두는 가벼운 독서기록 앱</span>
       </span>
-      <a class="btn" href="https://play.google.com/store/apps/details?id=app.sya.reading_log">Google Play</a>
-      <a class="btn ghost" href="./naranhi/">아이폰용(웹)</a>
+      <span class="actions">
+        <a class="btn" href="https://play.google.com/store/apps/details?id=app.sya.reading_log">Google Play</a>
+        <a class="btn ghost" href="./naranhi/">아이폰용(웹)</a>
+      </span>
     </li>
     <li>
       <span class="info">
         <span class="name">사랑나라</span>
         <span class="desc">피아노를 쳐서 회색이 된 마을에 색을 돌려주는 이야기 게임</span>
       </span>
-      <a class="btn ghost" href="./sarangnara/">웹에서 해보기</a>
+      <span class="actions">
+        <a class="btn ghost" href="./sarangnara/">웹에서 해보기</a>
+      </span>
     </li>
     <li>
       <span class="info">
         <span class="name">학원비서</span>
         <span class="desc">아이 학원 스케줄과 학원비를 한곳에서 챙기는 부모용 도구</span>
       </span>
-      <a class="btn ghost" href="./hakwon/">웹에서 해보기</a>
+      <span class="actions">
+        <a class="btn ghost" href="./hakwon/">웹에서 해보기</a>
+      </span>
     </li>
     <li>
       <span class="info">
         <span class="name">쿵짝</span>
         <span class="desc">폰 한 대를 가운데 두고 둘이 마주 앉아 겨루는 미니게임</span>
       </span>
-      <a class="btn ghost" href="./kungjjak/">웹에서 해보기</a>
+      <span class="actions">
+        <a class="btn ghost" href="./kungjjak/">웹에서 해보기</a>
+      </span>
     </li>
     <li>
       <span class="info">
         <span class="name">땀방울</span>
         <span class="desc">하루 10초, 버튼 하나로 오늘 운동을 남기고 친구와 나누는 습관 앱</span>
       </span>
-      <span class="soon">준비 중</span>
+      <span class="actions">
+        <span class="soon">준비 중</span>
+      </span>
     </li>
   </ul>
 
