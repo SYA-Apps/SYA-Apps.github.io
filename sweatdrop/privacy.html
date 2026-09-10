@@ -1,0 +1,213 @@
+<!--
+  땀방울 개인정보처리방침 — **이 파일이 원본이다.**
+  =====================================================================
+  구글은 두 곳을 다 요구한다(하나만 있으면 정책 위반):
+    1) 웹: https://sya-apps.github.io/sweatdrop/privacy.html → 플레이 콘솔 «개인정보처리방침» 칸
+    2) 앱 안 링크: 내정보 > 개인정보처리방침 (lib/core/app_info.dart 의 privacyPolicyUrl)
+  web/ 에 두었으므로 `flutter build web` 이 산출물에 그대로 실어 Pages 로 올라간다.
+  방침을 두 벌로 관리하면 앱은 살아 있는데 방침만 죽는 날이 온다 — 고칠 때는 여기만.
+
+  🚨 **땀방울은 SYA 앱 중 처음으로 서버에 데이터를 올린다.** 다른 앱 방침을 베끼면
+     «서버로 수집하지 않습니다» 라는 거짓말이 된다. 아래 내용은 실제 코드 기준이다:
+       · 서버로 가는 것  : lib/data/backend.dart 의 pushProfile / pushCheckin /
+                           uploadCheckinPhoto / createRoom / joinRoom
+       · 폰에만 남는 것  : 다짐(AppState 가 서버에 안 올린다) · 프로필 사진 · 인증샷 원본
+       · 누가 보나       : supabase/migrations/0001_init.sql 의 RLS 정책 (같은 방 사람만)
+       · 지우기          : AppState.clearAll → Backend.wipeMine
+
+  ⚠️ **코드를 고치면 여기도 고친다.** 특히 서버로 보내는 항목이 늘거나, 광고·분석 도구를
+     붙이거나, 권한을 추가할 때. 스토어의 «데이터 안전» 설문과도 어긋나면 반려된다.
+-->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>땀방울 개인정보처리방침</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 720px; margin: 0 auto; padding: 24px 18px 64px;
+         font: 16px/1.7 system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+         color: #1a1a1a; background: #fff; }
+  @media (prefers-color-scheme: dark) { body { color: #e6e6e6; background: #16171a; } }
+  h1 { font-size: 1.5rem; } h2 { font-size: 1.15rem; margin-top: 2em; }
+  .box { border: 1px solid currentColor; border-radius: 10px; padding: 12px 16px; opacity: .95; }
+  .muted { opacity: .7; font-size: .9rem; }
+  table { border-collapse: collapse; width: 100%; margin: .6em 0; }
+  th, td { border: 1px solid currentColor; padding: 8px 10px; text-align: left;
+           vertical-align: top; font-size: .95rem; }
+  th { opacity: .75; font-weight: 600; }
+  a { color: inherit; }
+  hr { border: none; border-top: 1px solid currentColor; opacity: .2; margin: 2.5em 0; }
+</style>
+</head>
+<body>
+
+<h1>땀방울 개인정보처리방침</h1>
+<p class="muted">시행일: 2026년 9월 10일 · 최종 수정: 2026년 9월 10일</p>
+
+<div class="box">
+  <strong>땀방울은 회원가입을 받지 않습니다.</strong> 이메일·전화번호·비밀번호를 묻지 않으며,
+  여러분이 누구인지 알지 못합니다.<br>
+  다만 <strong>친구와 오늘의 운동을 나누는 앱</strong>이라, 공유방에 올린 기록은
+  <strong>그 방에 있는 사람에게만</strong> 서버를 거쳐 전달됩니다.
+</div>
+
+<h2>1. 계정 — 이름도 이메일도 받지 않습니다</h2>
+<p>앱을 처음 켜면 서버가 <strong>임의의 식별자 하나</strong>를 만들어 줍니다. 이것이 계정의
+전부입니다. 이메일·전화번호·비밀번호·소셜 로그인 어느 것도 요구하지 않고, 여러분의 실명이나
+연락처를 알 방법이 없습니다.</p>
+<p class="muted">그래서 기기를 바꾸면 기록이 따라오지 않습니다. 편의 대신 익명을 택한 결과입니다.</p>
+
+<h2>2. 무엇이 어디에 저장되나</h2>
+<table>
+  <tr><th>내용</th><th>이 기기</th><th>서버</th></tr>
+  <tr><td>오늘 운동했다는 기록(날짜)</td><td>저장</td><td>공유방에 올린 것만</td></tr>
+  <tr><td>인증샷</td><td>저장</td><td>공유방에 올린 것만</td></tr>
+  <tr><td>«무슨 운동 했는지» 한 줄(40자 이내)</td><td>저장</td><td>공유방에 올린 것만</td></tr>
+  <tr><td><strong>오늘의 다짐</strong>(글·완료 여부)</td><td>저장</td><td><strong>올리지 않음</strong></td></tr>
+  <tr><td>닉네임, 아바타 모양</td><td>저장</td><td>저장(친구가 봐야 하므로)</td></tr>
+  <tr><td><strong>프로필 사진</strong></td><td>저장</td><td><strong>올리지 않음</strong></td></tr>
+  <tr><td>공유방 이름·초대 코드·참가 기록</td><td>저장</td><td>저장</td></tr>
+</table>
+<p><strong>다짐은 개인적인 것이라 서버에 올리지 않습니다.</strong> 프로필 사진도 마찬가지로
+이 기기 안에만 있습니다. 인증할 때 <strong>어느 공유방에 올릴지 직접 고르며</strong>,
+아무 방도 고르지 않으면 그 기록은 이 기기 밖으로 나가지 않습니다.</p>
+<p class="muted">인증샷은 저장·전송 전에 가로세로 1280픽셀·품질 72로 줄입니다.</p>
+
+<h2>3. 누가 볼 수 있나</h2>
+<ul>
+  <li><strong>같은 공유방에 있는 사람만</strong> 볼 수 있습니다. 공개 피드도, 이용자 검색도
+      없습니다. 초대 코드를 아는 사람만 방에 들어올 수 있습니다.</li>
+  <li>이 제한은 화면에서만이 아니라 <strong>데이터베이스 자체에 걸려 있습니다</strong>
+      (행 수준 보안). 앱에 버그가 있어도 남의 기록을 불러올 수 없습니다.</li>
+  <li>인증샷은 <strong>비공개 보관함</strong>에 들어가며, 같은 방 친구에게만
+      <strong>일정 시간만 열리는 주소</strong>로 전달됩니다. 주소를 아는 것만으로 아무나
+      볼 수 있는 공개 링크가 아닙니다.</li>
+  <li><strong>방에서 나가면</strong> 그 방 사람들에게 더 이상 보이지 않습니다.</li>
+</ul>
+
+<h2>4. 하지 않는 것</h2>
+<ul>
+  <li><strong>광고를 넣지 않습니다.</strong> 광고 식별자도 쓰지 않습니다.</li>
+  <li><strong>분석·추적 도구를 넣지 않습니다.</strong> 어느 화면을 얼마나 봤는지 수집하지 않습니다.</li>
+  <li><strong>어떤 정보도 팔거나 제3자에게 제공하지 않습니다.</strong>
+      (아래 6항의 서버 운영 위탁은 제외)</li>
+  <li>위치·연락처·주소록·통화기록을 읽지 않습니다.</li>
+</ul>
+
+<h2>5. 권한</h2>
+<p>앱이 요구하는 권한은 <strong>인터넷 연결 하나뿐</strong>입니다.</p>
+<p>인증샷은 <strong>안드로이드의 사진 선택기와 카메라 앱을 거쳐</strong> 받습니다.
+여러분이 고른 사진 한 장만 앱으로 넘어오며, 앨범 전체를 읽는 권한을 요구하지 않습니다.
+사진 없이 «완료»만 눌러도 인증은 끝납니다.</p>
+
+<h2>6. 서버 운영 위탁</h2>
+<table>
+  <tr><th>맡기는 곳</th><th>맡기는 일</th><th>서버 위치</th></tr>
+  <tr>
+    <td>Supabase, Inc.</td>
+    <td>익명 계정 발급, 데이터베이스, 인증샷 보관</td>
+    <td>대한민국(서울)</td>
+  </tr>
+</table>
+<p>서버 운영에 필요한 범위에서만 맡기며, 다른 용도로 쓰이지 않습니다.</p>
+
+<h2>7. 보관 기간과 삭제</h2>
+<ul>
+  <li>기록은 여러분이 지울 때까지 보관합니다.</li>
+  <li><strong>내정보 &gt; 전부 지우기</strong>를 누르면 이 기기의 기록과 함께
+      <strong>서버에 있는 인증 기록·인증샷·공유방 참가 기록이 모두 지워집니다.</strong>
+      남는 것은 이름도 내용도 없는 임의의 식별자뿐입니다.</li>
+  <li>🚨 <strong>앱만 삭제하면 서버 사본은 남습니다.</strong> 이 기기의 기록은 사라지지만,
+      공유방에 올린 것은 서버에 그대로 있습니다. 완전히 지우려면
+      <strong>앱을 지우기 전에 «전부 지우기»를 먼저</strong> 눌러 주세요.</li>
+  <li>이미 앱을 지우셨다면 아래 문의처로 알려 주시면 지워 드립니다. 다만 계정이 익명이라
+      <strong>어느 기록이 여러분 것인지 확인할 방법이 필요합니다</strong> — 공유방 이름과
+      초대 코드, 닉네임을 함께 알려 주세요.</li>
+</ul>
+
+<h2>8. 이용자의 권리</h2>
+<p>열람·정정·삭제·처리정지를 요구하실 수 있습니다. 닉네임과 아바타는 앱 안에서 바로 고칠 수
+있고, 기록 삭제는 위 7항의 방법으로 직접 하실 수 있습니다. 그 밖의 요청은 문의처로 보내
+주시면 처리합니다.</p>
+
+<h2>9. 아동의 개인정보</h2>
+<p>만 14세 미만 아동을 대상으로 하지 않으며, 그 나이의 아동으로부터 개인정보를 수집하지
+않습니다. 만 14세 미만임을 알게 되면 해당 기록을 지웁니다.</p>
+
+<h2>10. 안전조치</h2>
+<ul>
+  <li>기기와 서버 사이의 모든 통신은 암호화(HTTPS)됩니다.</li>
+  <li>서버에 저장된 기록은 <strong>행 수준 보안 정책</strong>으로 «같은 방 사람만» 읽도록
+      막혀 있습니다. 앱에 실려 나가는 접속 키로는 이 제한을 넘을 수 없습니다.</li>
+  <li>인증샷 보관함은 비공개이며, 경로만으로는 열리지 않습니다.</li>
+</ul>
+
+<h2>11. 방침의 변경</h2>
+<p>이 방침이 바뀌면 이 페이지에 시행일과 함께 알립니다. 서버로 보내는 항목이 늘어나는 등
+중요한 변경은 앱 안에서도 알려 드립니다.</p>
+
+<h2>12. 문의</h2>
+<p>문의: <a href="mailto:sya.apps.dev@gmail.com?subject=%5B%EB%95%80%EB%B0%A9%EC%9A%B8%5D%20%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%20%EB%AC%B8%EC%9D%98">sya.apps.dev@gmail.com</a></p>
+<p class="muted">소담 (Sodam Apps) · 사업자등록번호 844-29-01813 ·
+서울특별시 양천구 신목로 7</p>
+
+<hr>
+
+<h1 lang="en">Sweatdrop — Privacy Policy</h1>
+<p class="muted" lang="en">Effective: September 10, 2026</p>
+
+<div class="box" lang="en">
+  <strong>Sweatdrop has no sign-up.</strong> We never ask for your email, phone number, or a
+  password, and we do not know who you are. Because it is an app for sharing today's workout
+  with friends, what you post to a shared room is delivered through our server
+  <strong>to the members of that room only</strong>.
+</div>
+
+<p lang="en"><strong>1. Account —</strong> On first launch the server issues a random
+identifier. That is the entire account. No email, phone, password, or social login.</p>
+
+<p lang="en"><strong>2. What is stored where —</strong> Your check-in date, workout photo, and
+a short note (max 40 characters) are kept on your device, and are sent to the server
+<em>only for the rooms you choose to share with</em>. Your <strong>daily goals and your profile
+photo never leave the device</strong>. Your nickname and avatar are stored on the server so
+friends can see them. Photos are resized to 1280&nbsp;px at quality&nbsp;72 before storage.</p>
+
+<p lang="en"><strong>3. Who can see it —</strong> Only members of the same shared room. There is
+no public feed and no user search. This is enforced by row-level security in the database, not
+merely in the UI. Photos live in a private bucket and are served to room members through
+time-limited signed URLs. Leaving a room stops your records from being visible there.</p>
+
+<p lang="en"><strong>4. What we do not do —</strong> No advertising, no advertising identifiers,
+no analytics or tracking, and no sale or sharing of your information with third parties (other
+than the processor in section 6). We do not read your location, contacts, or call history.</p>
+
+<p lang="en"><strong>5. Permissions —</strong> Internet access only. Photos are received through
+Android's system photo picker and camera app; we do not request access to your whole gallery.</p>
+
+<p lang="en"><strong>6. Processor —</strong> Supabase, Inc. provides anonymous authentication,
+the database, and photo storage. Servers are located in Seoul, Republic of Korea.</p>
+
+<p lang="en"><strong>7. Retention and deletion —</strong> Records are kept until you delete them.
+<strong>Profile &gt; Delete everything</strong> removes your records from this device and your
+check-ins, photos, and room memberships from the server; only an empty random identifier remains.
+<strong>Uninstalling the app alone does not delete the server copy</strong> — please use
+"Delete everything" before uninstalling. If you have already uninstalled, contact us with the
+room name, invite code, and nickname so we can identify and delete your records.</p>
+
+<p lang="en"><strong>8. Your rights —</strong> You may request access, correction, deletion, or
+suspension of processing.</p>
+
+<p lang="en"><strong>9. Children —</strong> Not directed to children under 14; we do not
+knowingly collect their information.</p>
+
+<p lang="en"><strong>10. Security —</strong> All traffic is encrypted (HTTPS). Server records are
+protected by row-level security policies; the key shipped in the app cannot bypass them.</p>
+
+<p lang="en"><strong>11. Contact —</strong>
+<a href="mailto:sya.apps.dev@gmail.com?subject=%5BSweatdrop%5D%20Privacy%20Inquiry">sya.apps.dev@gmail.com</a><br>
+Sodam Apps · 7 Sinmok-ro, Yangcheon-gu, Seoul, Republic of Korea</p>
+
+</body>
+</html>
