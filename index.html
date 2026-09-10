@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sodam Apps · 소담</title>
 <meta name="description" content="Sodam Apps(소담) — 소소하게 담아냅니다. 모바일 앱을 만듭니다. 작고 오래 쓰는 것들로.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#fbfaf8; --fg:#1c1b19; --muted:#6b6862; --line:#e6e2db;
@@ -17,18 +20,18 @@
   *{ box-sizing:border-box; }
   body{
     margin:0; background:var(--bg); color:var(--fg);
-    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",
-         "Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    font:16px/1.75 "Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",
+         "Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     -webkit-text-size-adjust:100%;
   }
   .wrap{ max-width:660px; margin:0 auto; padding:56px 24px 72px; }
   header{ margin-bottom:44px; }
-  h1{ font-size:30px; margin:0 0 6px; letter-spacing:-.4px; }
-  h1 .ko{ color:var(--muted); font-size:19px; font-weight:600; margin-left:8px; }
+  h1{ font-size:32px; font-weight:400; margin:0 0 8px; letter-spacing:.4px; }
+  h1 .ko{ color:var(--muted); font-size:19px; font-weight:400; margin-left:9px; letter-spacing:.6px; }
   .tag{ color:var(--muted); margin:0; }
   h2{
-    font-size:13px; letter-spacing:.09em; text-transform:uppercase;
-    color:var(--muted); margin:40px 0 14px; font-weight:700;
+    font-size:14px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted); margin:42px 0 14px; font-weight:400;
   }
   ul{ list-style:none; padding:0; margin:0; }
   .apps li{
@@ -37,12 +40,13 @@
     display:flex; align-items:center; gap:16px; flex-wrap:wrap;
   }
   .apps .info{ flex:1 1 240px; min-width:0; }
-  .apps .name{ font-weight:700; }
+  .apps .name{ font-weight:400; font-size:17px; letter-spacing:.3px; }
   .apps .desc{ color:var(--muted); font-size:14px; display:block; margin-top:2px; }
   .btn{
     flex:0 0 auto; display:inline-block; text-decoration:none;
     background:var(--accent); color:var(--accent-fg);
-    font-size:14px; font-weight:600; padding:9px 16px; border-radius:999px;
+    font-size:15px; font-weight:400; letter-spacing:.3px;
+    padding:9px 17px; border-radius:999px;
     white-space:nowrap;
   }
   .btn:hover{ filter:brightness(1.08); }
