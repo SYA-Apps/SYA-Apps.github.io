@@ -32,7 +32,11 @@
   }
   .wrap{ max-width:660px; margin:0 auto; padding:56px 24px 72px; }
   header{ margin-bottom:44px; }
-  h1{ font-size:32px; font-weight:400; margin:0 0 8px; letter-spacing:.4px; }
+  h1{ font-size:32px; font-weight:400; margin:0 0 8px; letter-spacing:.4px;
+      display:flex; align-items:center; gap:14px; }
+  /* 홈아이콘과 같은 그릇. 글씨는 뺐다 — 제목이 이미 「소담」이라 겹치고,
+     이 크기에서는 아이콘 속 글씨가 읽히지도 않는다. */
+  h1 .mark{ flex:0 0 auto; width:46px; height:46px; display:block; }
   h1 .ko{ color:var(--muted); font-size:19px; font-weight:400; margin-left:9px; letter-spacing:.6px; }
   .tag{ color:var(--muted); margin:0; }
   h2{
@@ -79,7 +83,8 @@
   }
   @media (max-width:480px){
     .wrap{ padding:36px 18px 56px; }
-    h1{ font-size:25px; }
+    h1{ font-size:25px; gap:12px; }
+    h1 .mark{ width:42px; height:42px; }
     h1 .ko{ display:block; margin:4px 0 0; }
     .apps li{ gap:12px; }
     .apps .actions{ width:100%; }
@@ -93,7 +98,7 @@
 <div class="wrap">
 
   <header>
-    <h1>Sodam Apps<span class="ko">소담</span></h1>
+    <h1><svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><rect width="512" height="512" rx="116" fill="#6d4f9c"/><circle cx="196" cy="232" r="40" fill="#7FD1B9"/><circle cx="262" cy="196" r="48" fill="#FFD166"/><circle cx="330" cy="238" r="34" fill="#FF8FA3"/><path d="M122 262H390V328A66 66 0 0 1 324 394H188A66 66 0 0 1 122 328Z" fill="#fbfaf8"/><rect x="94" y="249" width="324" height="26" rx="13" fill="#fbfaf8"/></svg><span class="title">Sodam Apps<span class="ko">소담</span></span></h1>
     <p class="tag">소소하게 담아냅니다. 모바일 앱을 만듭니다. 작고 오래 쓰는 것들로.</p>
   </header>
 
