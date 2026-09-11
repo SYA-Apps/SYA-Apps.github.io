@@ -3,6 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  🚨 주소에 빗금이 두 개(`sya-apps.github.io//`)여도 링크가 바르게 가게 한다 (2026-09-11).
+
+  아이폰 홈화면 아이콘이 대문을 `//` 로 열고 있었다. 그러면 `./naranhi/` 같은 상대 링크가
+  `//naranhi/` 가 되고, Flutter 앱(나란히·학원비서·땀방울)은 그 주소를 «naranhi 라는 다른
+  사이트» 로 읽어 history.replaceState 에서 SecurityError 로 멈춘다 — 화면이 회색으로만 남는다.
+  사랑나라·쿵짝은 주소를 안 건드려서 멀쩡했다. 그래서 «셋만 안 된다» 로 보였다.
+
+  ① <base href="/"> — 이 페이지의 모든 상대 주소를 사이트 맨 위 기준으로 푼다(링크·아이콘·manifest)
+  ② 들어오자마자 주소창의 `//` 를 `/` 로 고친다 — 다음에 홈화면에 추가해도 바른 주소가 저장되게
+-->
+<base href="/">
+<script>
+  if (location.pathname.indexOf('//') === 0) {
+    history.replaceState(null, '', location.pathname.replace(/^\/+/, '/') + location.search + location.hash);
+  }
+</script>
 <title>Sodam Apps · 소담</title>
 <meta name="description" content="Sodam Apps(소담) — 소소하게 담아냅니다. 모바일 앱을 만듭니다. 작고 오래 쓰는 것들로.">
 <link rel="icon" href="./favicon.ico" sizes="any">

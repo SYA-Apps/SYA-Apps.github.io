@@ -4,6 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
+<!-- 대문과 같은 이유로 — 주소가 `//diag.html` 이어도 앱 주소가 `//앱/` 이 되지 않게(2026-09-11).
+     이 페이지는 «빗금 둘» 이 앱을 멈추게 한다는 걸 찾아낸 곳이라, 거꾸로 그걸 재현할 수 있게
+     원래 들어온 주소는 결과에 그대로 남긴다(아래 «기기» 줄). -->
+<base href="/">
+<script>
+  window.__diagEntryUrl = location.href;
+  if (location.pathname.indexOf('//') === 0) {
+    history.replaceState(null, '', location.pathname.replace(/^\/+/, '/') + location.search + location.hash);
+  }
+</script>
 <title>소담 · 폰 점검</title>
 <!--
   아이폰에서 Flutter 웹(나란히·학원비서·땀방울)만 안 뜨고 일반 웹(사랑나라·쿵짝)은 뜬다는
@@ -91,7 +101,8 @@
   var appWin = navigator.standalone === true ||
     (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
   row('ok', '기기', (ios ? 'iOS ' + ios.replace('OS ', '').replace('_', '.') : '아이폰 아님') +
-      (appWin ? ' · 홈화면 앱 창' : ' · 브라우저') + ' · ' + ua);
+      (appWin ? ' · 홈화면 앱 창' : ' · 브라우저') + ' · 들어온 주소 ' + (window.__diagEntryUrl || location.href) +
+      ' · ' + ua);
 
   // ② WebAssembly · WebGL2
   var wasm = false;
