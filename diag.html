@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>소담 · 폰 점검</title>
+<!--
+  아이폰에서 Flutter 웹(나란히·학원비서·땀방울)만 안 뜨고 일반 웹(사랑나라·쿵짝)은 뜬다는
+  보고(2026-09-11)를 풀려고 만든 점검 페이지. 데스크톱에서는 셋 다 멀쩡해서
+  **폰 안에서 무슨 일이 나는지**를 봐야 했다. 대문에서 링크하지 않는다.
+
+  보는 것
+    1. 기기·브라우저 — iOS 버전, 앱 창인지
+    2. WebAssembly · WebGL2 — Flutter 화면 엔진(CanvasKit)이 둘 다 필요하다
+    3. 엔진 파일 받기 — 구글 서버(gstatic)와 우리 서버 각각, 걸린 시간
+    4. 앱을 실제로 띄워 보기 — 화면이 그려지기까지 몇 초인지, 아니면 무슨 오류인지
+-->
+<style>
+  :root{ --bg:#fbfaf8; --fg:#1c1b19; --muted:#6b6862; --line:#e6e2db; --card:#fff;
+         --ok:#2e8b57; --bad:#c0392b; --wait:#b7791f; --accent:#6d4f9c; }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#16151a; --fg:#eceaf0; --muted:#9a96a3; --line:#2c2a33; --card:#1e1d24;
+           --ok:#5fd394; --bad:#ff7b6b; --wait:#f0b85a; --accent:#b79cdf; } }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--bg); color:var(--fg);
+        font:15px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif; }
+  .wrap{ max-width:620px; margin:0 auto; padding:28px 18px 60px; }
+  h1{ font-size:21px; margin:0 0 4px; }
+  .sub{ color:var(--muted); margin:0 0 20px; font-size:14px; }
+  .row{ border:1px solid var(--line); background:var(--card); border-radius:12px;
+        padding:12px 14px; margin-bottom:8px; }
+  .row b{ display:block; }
+  .row .v{ color:var(--muted); font-size:13px; word-break:break-all; }
+  .ok b{ color:var(--ok); } .bad b{ color:var(--bad); } .wait b{ color:var(--wait); }
+  .frame{ width:100%; height:300px; border:1px solid var(--line); border-radius:12px;
+          margin:6px 0 14px; background:#fff; }
+  button{ font:inherit; font-size:16px; border:0; border-radius:999px; padding:12px 20px;
+          background:var(--accent); color:#fff; width:100%; margin-top:10px; }
+  pre{ white-space:pre-wrap; word-break:break-all; font-size:12px; background:var(--card);
+       border:1px solid var(--line); border-radius:12px; padding:12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>이 폰에서 앱 웹이 도는지 점검</h1>
+  <p class="sub">열어 두기만 하면 됩니다. 1분쯤 걸려요. 끝나면 맨 아래 「결과 복사」를 눌러 보내 주세요.</p>
+  <div id="out"></div>
+  <div id="frames"></div>
+  <button id="copyBtn" hidden>결과 복사</button>
+  <pre id="copy" hidden></pre>
+</div>
+<script>
+(function () {
+  var REV = '83675ed27633283e7fc296c8bca22e841224c096';   // 세 앱이 같은 엔진 판이다
+  var APPS = [['학원비서', './hakwon/'], ['나란히', './naranhi/'], ['땀방울', './sweatdrop/']];
+  var WAIT_SEC = 45;
+  var out = document.getElementById('out');
+  var lines = [];
+
+  function row(cls, title, value) {
+    var d = document.createElement('div');
+    d.className = 'row ' + cls;
+    d.innerHTML = '<b></b><span class="v"></span>';
+    d.firstChild.textContent = title;
+    d.lastChild.textContent = value || '';
+    out.appendChild(d);
+    lines.push((cls === 'ok' ? '✅ ' : cls === 'bad' ? '❌ ' : '⏳ ') + title + (value ? ' — ' + value : ''));
+    return d;
+  }
+  function update(d, cls, title, value) {
+    d.className = 'row ' + cls;
+    d.firstChild.textContent = title;
+    d.lastChild.textContent = value || '';
+    lines.push((cls === 'ok' ? '✅ ' : '❌ ') + title + (value ? ' — ' + value : ''));
+  }
+  function sec(t0) { return ((performance.now() - t0) / 1000).toFixed(1) + '초'; }
+
+  // ① 기기
+  var ua = navigator.userAgent;
+  var ios = (ua.match(/OS (\d+)_(\d+)/) || [])[0];
+  var appWin = navigator.standalone === true ||
+    (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
+  row('ok', '기기', (ios ? 'iOS ' + ios.replace('OS ', '').replace('_', '.') : '아이폰 아님') +
+      (appWin ? ' · 홈화면 앱 창' : ' · 브라우저') + ' · ' + ua);
+
+  // ② WebAssembly · WebGL2
+  var wasm = false;
+  try { wasm = typeof WebAssembly === 'object' &&
+        WebAssembly.validate(new Uint8Array([0, 97, 115, 109, 1, 0, 0, 0])); } catch (e) {}
+  row(wasm ? 'ok' : 'bad', 'WebAssembly', wasm ? '됨' :
+      '안 됨 — Flutter 화면 엔진이 못 돈다(차단 모드·「고급 → JavaScript」 설정을 볼 것)');
+  var gl2 = false;
+  try { gl2 = !!document.createElement('canvas').getContext('webgl2'); } catch (e) {}
+  row(gl2 ? 'ok' : 'bad', 'WebGL2', gl2 ? '됨' : '안 됨 — Flutter 화면 엔진이 그림을 못 그린다');
+
+  // ③ 엔진 파일 받기 — 사파리가 실제로 받는 판(chromium 아닌 것)
+  function fetchTest(label, url) {
+    var d = row('wait', label, '받는 중…');
+    var t0 = performance.now();
+    return fetch(url, { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.arrayBuffer();
+    }).then(function (b) {
+      update(d, 'ok', label, (b.byteLength / 1048576).toFixed(1) + 'MB · ' + sec(t0));
+    }).catch(function (e) {
+      update(d, 'bad', label, '실패 — ' + e.message + ' · ' + sec(t0));
+    });
+  }
+
+  // ④ 앱을 실제로 띄워 본다 — 화면(flutter-view)이 생기면 성공
+  function appTest(name, path) {
+    return new Promise(function (done) {
+      var d = row('wait', name + ' 띄우기', '기다리는 중… (최대 ' + WAIT_SEC + '초)');
+      var f = document.createElement('iframe');
+      f.className = 'frame';
+      f.src = path + '?diag=' + Date.now();
+      document.getElementById('frames').appendChild(f);
+      var errs = [];
+      var t0 = performance.now();
+      f.addEventListener('load', function () {
+        try {
+          var w = f.contentWindow;
+          w.addEventListener('error', function (ev) { errs.push(ev.message || String(ev.error)); });
+          w.addEventListener('unhandledrejection', function (ev) {
+            errs.push('약속 실패: ' + (ev.reason && (ev.reason.message || ev.reason)));
+          });
+          var ce = w.console.error;
+          w.console.error = function () {
+            errs.push([].slice.call(arguments).join(' ').slice(0, 200));
+            return ce.apply(this, arguments);
+          };
+        } catch (e) { errs.push('살피기 실패: ' + e.message); }
+      });
+      var timer = setInterval(function () {
+        var ok = false;
+        try { ok = !!f.contentDocument.querySelector('flutter-view, flt-glass-pane'); } catch (e) {}
+        var t = (performance.now() - t0) / 1000;
+        if (ok) {
+          clearInterval(timer);
+          update(d, 'ok', name + ' 띄우기', '화면 뜸 · ' + t.toFixed(1) + '초' +
+                 (errs.length ? ' · 오류 ' + errs.length + '건: ' + errs.slice(0, 2).join(' / ') : ''));
+          done();
+        } else if (t > WAIT_SEC) {
+          clearInterval(timer);
+          update(d, 'bad', name + ' 띄우기', WAIT_SEC + '초 안에 화면이 안 떴음' +
+                 (errs.length ? ' · 오류: ' + errs.slice(0, 3).join(' / ') : ' · 오류 기록 없음(흰 화면)'));
+          done();
+        }
+      }, 250);
+    });
+  }
+
+  var B = 'https://www.gstatic.com/flutter-canvaskit/' + REV + '/';
+  fetchTest('엔진 받기 — 구글 서버', B + 'canvaskit.wasm')
+    .then(function () { return fetchTest('엔진 받기 — 우리 서버', './hakwon/canvaskit/canvaskit.wasm'); })
+    .then(function () {
+      // 앱은 하나씩 — 셋을 한꺼번에 띄우면 폰이 버거워 결과가 흐려진다
+      return APPS.reduce(function (p, a) { return p.then(function () { return appTest(a[0], a[1]); }); },
+                         Promise.resolve());
+    })
+    .then(function () {
+      var text = '[소담 폰 점검 ' + new Date().toLocaleString('ko-KR') + ']\n' + lines.filter(function (l) {
+        return l.indexOf('⏳') !== 0; }).join('\n');
+      var pre = document.getElementById('copy');
+      pre.textContent = text; pre.hidden = false;
+      var btn = document.getElementById('copyBtn'); btn.hidden = false;
+      btn.onclick = function () {
+        (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+          .then(function () { btn.textContent = '복사했어요 — 대화창에 붙여 넣어 주세요'; })
+          .catch(function () { btn.textContent = '복사가 안 되네요 — 아래 글을 길게 눌러 복사해 주세요'; });
+      };
+    });
+})();
+</script>
+</body>
+</html>
