@@ -165,5 +165,28 @@
   </footer>
 
 </div>
+<script>
+  /* 홈화면에서 «앱 창»으로 열렸을 때는 앱 링크를 사파리로 연다.
+
+     아이폰은 홈화면에 추가하던 순간의 설정(앱 창이냐 사파리냐)을 기억하고
+     웹사이트가 나중에 바꿀 방법이 없다. 2026-09-10 에 display: standalone 으로
+     추가된 아이콘은 지금도 주소창·뒤로가기 없는 앱 창으로 열린다 — 거기서
+     다른 앱으로 넘어가면 대문으로 돌아올 길이 없었다(사용자 실측, 9/11).
+
+     그래서 페이지가 스스로 알아차린다: 앱 창이면 링크를 새 창(=사파리)으로
+     보내고 대문은 뒤에 그대로 둔다. 사파리에서 연 평소 경우에는 아무것도 안
+     바꾼다 — 같은 탭으로 넘어가고 뒤로가기로 돌아오는 게 제일 자연스럽다.
+     이렇게 해 두면 **어느 설정으로 추가됐든** 지우고 다시 추가할 필요가 없다. */
+  (function () {
+    var appWindow = window.navigator.standalone === true ||
+      (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+    if (!appWindow) return;
+    var links = document.querySelectorAll('.apps a[href]');
+    for (var i = 0; i < links.length; i++) {
+      links[i].target = '_blank';
+      links[i].rel = 'noopener';
+    }
+  })();
+</script>
 </body>
 </html>
