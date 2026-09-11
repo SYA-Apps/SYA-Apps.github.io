@@ -99,9 +99,9 @@
     background:var(--soft); border-radius:12px; padding:14px 16px; margin:-22px 0 30px;
     font-size:14px; line-height:1.65;
   }
-  .appnote b:first-child{ display:block; color:var(--accent); margin-bottom:2px; }
+  .appnote .t{ display:block; font-weight:700; color:var(--accent); margin-bottom:2px; }
   .appnote button{
-    margin-top:10px; font:inherit; font-size:13px; border:0; border-radius:999px;
+    display:block; margin-top:10px; font:inherit; font-size:13px; border:0; border-radius:999px;
     padding:6px 14px; background:var(--card); color:var(--accent); cursor:pointer;
   }
   footer{
@@ -133,7 +133,7 @@
        기본으로 웹 앱으로 열고, 웹 앱은 링크를 그 창 안에서만 열며 뒤로가기가 없다 — 앱에 들어가면
        대문으로 돌아올 길이 없다(2026-09-12 사용자 실측). 사파리로 열리게 다시 추가하는 법을 알린다. -->
   <div class="appnote" id="appnote" hidden>
-    <b>홈화면 앱으로 여셨네요</b>
+    <span class="t">홈화면 앱으로 여셨네요</span>
     <span>이 창에는 뒤로가기가 없어서, 앱에 들어가면 여기로 돌아오려면 껐다 켜야 해요.
       아이콘을 지우고 <b>다시 추가할 때 「웹 앱으로 열기」를 끄면</b> 사파리로 열려 뒤로가기가 됩니다.</span>
     <button type="button" id="appnoteClose">알겠어요</button>
