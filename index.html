@@ -77,6 +77,7 @@
   dt{ color:var(--muted); font-size:14px; white-space:nowrap; }
   dd{ margin:0; font-size:14px; }
   dd a{ color:var(--accent); }
+  footer .diag{ float:right; color:var(--muted); font-size:12px; }
   footer{
     margin-top:48px; padding-top:20px; border-top:1px solid var(--line);
     color:var(--muted); font-size:13px;
@@ -162,6 +163,9 @@
 
   <footer>
     © 2026 Sodam Apps
+    <!-- 홈화면 «앱 창» 에는 주소창이 없어서, 여기 링크가 없으면 앱 창 안에서 점검 페이지를
+         열 방법이 없다. 사용자가 겪는 문제는 바로 그 앱 창 안에서 난다(2026-09-11). -->
+    <a class="diag" href="./diag.html">앱이 안 열리나요? 점검하기</a>
   </footer>
 
 </div>

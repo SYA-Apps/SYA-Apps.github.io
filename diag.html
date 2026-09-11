@@ -47,6 +47,15 @@
   <p class="sub">열어 두기만 하면 됩니다. 1분쯤 걸려요. 끝나면 맨 아래 「결과 복사」를 눌러 보내 주세요.</p>
   <div id="out"></div>
   <div id="frames"></div>
+  <!-- 2026-09-11 추가: 위 검사는 앱을 «이 페이지 안의 틀»에 띄운다. 그런데 사용자가 겪는 건
+       대문에서 «눌러서 넘어갈 때» 다 — 특히 홈화면 앱 창 안에서. 그래서 똑같이 새 창으로 열어
+       거기서 앱 화면이 뜨는지 본다(같은 주소라 새 창 속을 들여다볼 수 있다). -->
+  <div id="manual" hidden>
+    <h2 style="font-size:17px;margin:22px 0 4px">직접 눌러 열어 보기</h2>
+    <p class="sub" style="margin-bottom:10px">대문에서 누를 때와 똑같이 새 창으로 엽니다. <b>하나씩</b> 누르고,
+      새 창에서 앱이 뜨든 안 뜨든 <b>이 화면으로 돌아와</b> 결과를 봐 주세요.</p>
+    <div id="mbtns"></div>
+  </div>
   <button id="copyBtn" hidden>결과 복사</button>
   <pre id="copy" hidden></pre>
 </div>
@@ -69,10 +78,10 @@
     return d;
   }
   function update(d, cls, title, value) {
-    d.className = 'row ' + cls;
+    d.className = 'row ' + (cls === 'mid' ? 'wait' : cls);
     d.firstChild.textContent = title;
     d.lastChild.textContent = value || '';
-    lines.push((cls === 'ok' ? '✅ ' : '❌ ') + title + (value ? ' — ' + value : ''));
+    lines.push((cls === 'ok' ? '✅ ' : cls === 'bad' ? '❌ ' : '❔ ') + title + (value ? ' — ' + value : ''));
   }
   function sec(t0) { return ((performance.now() - t0) / 1000).toFixed(1) + '초'; }
 
@@ -160,17 +169,70 @@
                          Promise.resolve());
     })
     .then(function () {
-      var text = '[소담 폰 점검 ' + new Date().toLocaleString('ko-KR') + ']\n' + lines.filter(function (l) {
-        return l.indexOf('⏳') !== 0; }).join('\n');
-      var pre = document.getElementById('copy');
-      pre.textContent = text; pre.hidden = false;
-      var btn = document.getElementById('copyBtn'); btn.hidden = false;
-      btn.onclick = function () {
-        (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
-          .then(function () { btn.textContent = '복사했어요 — 대화창에 붙여 넣어 주세요'; })
-          .catch(function () { btn.textContent = '복사가 안 되네요 — 아래 글을 길게 눌러 복사해 주세요'; });
-      };
+      refreshCopy();
+      showManual();
     });
+
+  // 결과 글은 수동 검사가 끝날 때마다 다시 만든다 — 마지막 것까지 복사되게.
+  function refreshCopy() {
+    var text = '[소담 폰 점검 ' + new Date().toLocaleString('ko-KR') + ']\n' + lines.filter(function (l) {
+      return l.indexOf('⏳') !== 0; }).join('\n');
+    var pre = document.getElementById('copy');
+    pre.textContent = text; pre.hidden = false;
+    var btn = document.getElementById('copyBtn'); btn.hidden = false;
+    btn.textContent = '결과 복사';
+    btn.onclick = function () {
+      (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+        .then(function () { btn.textContent = '복사했어요 — 대화창에 붙여 넣어 주세요'; })
+        .catch(function () { btn.textContent = '복사가 안 되네요 — 아래 글을 길게 눌러 복사해 주세요'; });
+    };
+  }
+
+  function showManual() {
+    var box = document.getElementById('mbtns');
+    APPS.forEach(function (a) {
+      var b = document.createElement('button');
+      b.textContent = a[0] + ' 새 창으로 열어 보기';
+      b.style.marginTop = '8px';
+      b.onclick = function () { manualTest(a[0], a[1]); };   // 누른 순간에 열어야 막히지 않는다
+      box.appendChild(b);
+    });
+    document.getElementById('manual').hidden = false;
+  }
+
+  function manualTest(name, path) {
+    var title = name + ' 새 창으로 열기 (' + (appWin ? '홈화면 앱 창' : '브라우저') + ')';
+    var d = row('wait', title, '여는 중…');
+    var t0 = performance.now();
+    var w = null;
+    try { w = window.open(path + '?diag_open=' + Date.now(), '_blank'); } catch (e) {}
+    if (!w) {
+      update(d, 'bad', title, '새 창이 안 열렸음 — 막혔거나 사파리로 넘어가 이 페이지가 못 봄');
+      refreshCopy(); return;
+    }
+    var timer = setInterval(function () {
+      var ok = false, seen = true, url = '';
+      try { url = w.location.href; ok = !!w.document.querySelector('flutter-view, flt-glass-pane'); }
+      catch (e) { seen = false; }
+      var t = (performance.now() - t0) / 1000;
+      if (ok) {
+        clearInterval(timer);
+        update(d, 'ok', title, '화면 뜸 · ' + t.toFixed(1) + '초');
+      } else if (w.closed) {
+        clearInterval(timer);
+        update(d, 'bad', title, '화면이 뜨기 전에 창이 닫힘 · ' + t.toFixed(1) + '초');
+      } else if (!seen) {
+        clearInterval(timer);
+        update(d, 'mid', title, '열리긴 했는데 들여다볼 수 없음(사파리로 넘어간 듯) — 거기서 앱이 떴는지 알려 주세요');
+      } else if (t > WAIT_SEC) {
+        clearInterval(timer);
+        update(d, 'bad', title, WAIT_SEC + '초 안에 화면이 안 떴음 · 주소 ' + url);
+      } else {
+        return;
+      }
+      refreshCopy();
+    }, 300);
+  }
 })();
 </script>
 </body>
