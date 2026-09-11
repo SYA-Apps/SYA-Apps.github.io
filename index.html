@@ -95,6 +95,15 @@
   dd{ margin:0; font-size:14px; }
   dd a{ color:var(--accent); }
   footer .diag{ float:right; color:var(--muted); font-size:12px; }
+  .appnote{
+    background:var(--soft); border-radius:12px; padding:14px 16px; margin:-22px 0 30px;
+    font-size:14px; line-height:1.65;
+  }
+  .appnote b:first-child{ display:block; color:var(--accent); margin-bottom:2px; }
+  .appnote button{
+    margin-top:10px; font:inherit; font-size:13px; border:0; border-radius:999px;
+    padding:6px 14px; background:var(--card); color:var(--accent); cursor:pointer;
+  }
   footer{
     margin-top:48px; padding-top:20px; border-top:1px solid var(--line);
     color:var(--muted); font-size:13px;
@@ -119,6 +128,16 @@
     <h1><svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><rect width="512" height="512" rx="116" fill="#6d4f9c"/><circle cx="196" cy="232" r="40" fill="#7FD1B9"/><circle cx="262" cy="196" r="48" fill="#FFD166"/><circle cx="330" cy="238" r="34" fill="#FF8FA3"/><path d="M122 262H390V328A66 66 0 0 1 324 394H188A66 66 0 0 1 122 328Z" fill="#fbfaf8"/><rect x="94" y="249" width="324" height="26" rx="13" fill="#fbfaf8"/></svg><span class="title">Sodam Apps<span class="ko">소담</span></span></h1>
     <p class="tag">소소하게 담아냅니다. 모바일 앱을 만듭니다. 작고 오래 쓰는 것들로.</p>
   </header>
+
+  <!-- 홈화면 «웹 앱» 으로 연 사람에게만 보인다(아래 스크립트). iOS 26 은 홈화면에 추가한 사이트를
+       기본으로 웹 앱으로 열고, 웹 앱은 링크를 그 창 안에서만 열며 뒤로가기가 없다 — 앱에 들어가면
+       대문으로 돌아올 길이 없다(2026-09-12 사용자 실측). 사파리로 열리게 다시 추가하는 법을 알린다. -->
+  <div class="appnote" id="appnote" hidden>
+    <b>홈화면 앱으로 여셨네요</b>
+    <span>이 창에는 뒤로가기가 없어서, 앱에 들어가면 여기로 돌아오려면 껐다 켜야 해요.
+      아이콘을 지우고 <b>다시 추가할 때 「웹 앱으로 열기」를 끄면</b> 사파리로 열려 뒤로가기가 됩니다.</span>
+    <button type="button" id="appnoteClose">알겠어요</button>
+  </div>
 
   <h2>앱</h2>
   <ul class="apps">
@@ -200,8 +219,26 @@
      이렇게 해 두면 **어느 설정으로 추가됐든** 지우고 다시 추가할 필요가 없다. */
   (function () {
     var appWindow = window.navigator.standalone === true ||
-      (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+      (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
+      /[?&]as=app\b/.test(location.search);        // 데스크톱에서 안내를 확인해 보는 표식
     if (!appWindow) return;
+
+    // ① 안내 — «알겠어요» 를 누르면 그 기기에서는 다시 안 띄운다.
+    //    저장소가 막힌 환경(사생활 보호 모드 등)에서는 그냥 매번 뜬다 — 그게 조용히 안 뜨는 것보다 낫다.
+    var note = document.getElementById('appnote');
+    var KEY = 'sodam.appnote.ok';
+    var seen = false;
+    try { seen = localStorage.getItem(KEY) === '1'; } catch (e) {}
+    if (note && !seen) {
+      note.hidden = false;
+      document.getElementById('appnoteClose').onclick = function () {
+        note.hidden = true;
+        try { localStorage.setItem(KEY, '1'); } catch (e) {}
+      };
+    }
+
+    // ② 옛 iOS 는 새 창(target=_blank)이면 사파리로 빠져나간다. iOS 26 웹 앱은 그래도 창 안에서
+    //    열어 소용이 없지만(2026-09-12 실측), 해가 없고 옛 기기에는 도움이 되니 둔다.
     var links = document.querySelectorAll('.apps a[href]');
     for (var i = 0; i < links.length; i++) {
       links[i].target = '_blank';
