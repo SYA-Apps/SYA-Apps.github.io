@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+  소담앱스 계정·데이터 삭제 안내 — 공개 페이지 (2026-09-12 ADMIN).
+
+  **왜 있나**: 구글 플레이는 계정을 만드는 앱에 "앱 없이도 삭제를 요청할 수 있는
+  웹 주소" 를 요구하고, 그 주소를 데이터 안전 설문에 적게 한다. 앱을 이미 지운
+  사람은 앱 안 삭제 버튼을 못 쓰기 때문이다.
+
+  **왜 대문에 하나인가**: 소담 앱들은 서버 하나·계정 하나를 같이 쓴다(소담 통합 계정).
+  계정을 지우면 모든 소담 앱의 서버 데이터가 함께 지워지므로 안내도 한 곳에 둔다.
+  앱이 늘면 «무엇이 지워지나요» 에 그 앱 한 칸과 메일 버튼 하나를 더한다.
+
+      https://sya-apps.github.io/delete-account.html
+
+  나란히의 옛 안내(https://sya-apps.github.io/naranhi/delete-account.html)는 이미 스토어에
+  적혀 있어 그대로 둔다.
+-->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>계정·데이터 삭제 — 소담앱스</title>
+  <meta name="description" content="소담앱스(나란히·학원비서 등) 계정과 서버 데이터를 지우는 방법">
+  <style>
+    :root {
+      --bg:#fbfaf8; --fg:#1c1b19; --muted:#6b6862; --line:#e6e2db;
+      --card:#ffffff; --accent:#6d4f9c; --soft:#f2eff9;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#16151a; --fg:#eceaf0; --muted:#9a96a3; --line:#2c2a33;
+              --card:#1e1d24; --accent:#b79cdf; --soft:#272233; }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 28px 18px 72px;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 32px 26px 40px;
+    }
+    h1 { font-size: 1.5rem; margin: 0 0 4px; }
+    .sub { color: var(--muted); margin: 0 0 28px; font-size: .95rem; }
+    h2 {
+      font-size: 1.08rem;
+      margin: 34px 0 10px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+    h3 { font-size: 1rem; margin: 18px 0 4px; }
+    ol, ul { padding-left: 20px; }
+    li { margin: 6px 0; }
+    a { color: var(--accent); }
+    .box { background: var(--soft); border-radius: 12px; padding: 14px 20px; }
+    .mail { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 0; padding: 0; list-style: none; }
+    .mail a {
+      display: inline-block; padding: 8px 14px; border-radius: 999px;
+      border: 1px solid var(--accent); text-decoration: none; font-weight: 600;
+    }
+    .note { color: var(--muted); font-size: .92rem; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>계정·데이터 삭제</h1>
+  <p class="sub">소담앱스 — 나란히 · 학원비서</p>
+
+  <p>소담 앱들은 <strong>계정 하나를 함께 씁니다.</strong> 비회원으로 쓰셨든 구글 계정에 연결하셨든,
+  한 번 지우면 그 계정으로 쓰던 <strong>모든 소담 앱의 서버 데이터가 함께 삭제</strong>되며
+  되돌릴 수 없습니다.</p>
+
+  <h2>가장 빠른 방법 — 앱에서 바로</h2>
+  <div class="box">
+    <p><strong>나란히</strong> — 오른쪽 위 <strong>⋮</strong>(더보기) → <strong>계정·기록 삭제</strong> → 확인</p>
+    <p>그 밖의 앱 — 앱 안 계정 화면의 <strong>계정 삭제</strong></p>
+  </div>
+  <p>누르는 즉시 서버에서 삭제됩니다.</p>
+
+  <h2>앱을 이미 지웠다면 — 메일로 요청</h2>
+  <p>아래에서 쓰시던 앱을 눌러 메일을 보내 주세요. 계정을 찾을 수 있는 단서를 함께 적어 주시면
+  확인한 뒤 지웁니다.</p>
+  <ul>
+    <li>쓰던 <strong>별명</strong></li>
+    <li>함께 쓰던 책장·시간표의 <strong>이름이나 초대코드</strong></li>
+    <li>구글 계정에 연결하셨다면 그 <strong>구글 메일 주소</strong></li>
+  </ul>
+  <ul class="mail">
+    <li><a href="mailto:sya.apps.dev@gmail.com?subject=%5B%EB%82%98%EB%9E%80%ED%9E%88%5D%20%EA%B3%84%EC%A0%95%20%EC%82%AD%EC%A0%9C%20%EC%9A%94%EC%B2%AD">나란히</a></li>
+    <li><a href="mailto:sya.apps.dev@gmail.com?subject=%5B%ED%95%99%EC%9B%90%EB%B9%84%EC%84%9C%5D%20%EA%B3%84%EC%A0%95%20%EC%82%AD%EC%A0%9C%20%EC%9A%94%EC%B2%AD">학원비서</a></li>
+    <li><a href="mailto:sya.apps.dev@gmail.com?subject=%5B%EC%86%8C%EB%8B%B4%5D%20%EA%B3%84%EC%A0%95%20%EC%82%AD%EC%A0%9C%20%EC%9A%94%EC%B2%AD">그 밖의 앱</a></li>
+  </ul>
+
+  <h2>무엇이 지워지나요</h2>
+
+  <h3>나란히</h3>
+  <ul>
+    <li>별명과 프로필 캐릭터</li>
+    <li>공유 책장에 올린 책·별점·이모지·읽은 진도, 직접 찍어 올린 표지 사진</li>
+    <li>내가 만든 공유 책장 — 그 책장과 그 안의 책이 함께 사라집니다</li>
+    <li>구글 계정에 연결한 경우 서버에 보관한 내 책장</li>
+  </ul>
+
+  <h3>학원비서</h3>
+  <ul>
+    <li>«함께 보기» 에 쓰는 이름</li>
+    <li>내가 만든 공유 시간표·학원 꾸러미, 다른 사람의 시간표에 참여한 기록</li>
+  </ul>
+  <p class="note">학원비와 납부 기록은 애초에 서버로 올라가지 않고 기기 안에만 있습니다.</p>
+
+  <p>각 앱에서 기기 안에만 저장한 기록은 서버에 없으며, 앱을 지우면 함께 사라집니다.</p>
+  <p class="note">단, 나란히의 <strong>신고 기록</strong>은 안전 관리를 위해 1년간 보관한 뒤 삭제합니다.
+  신고 기록에는 신고한 사람이 누구인지 담기지 않습니다.</p>
+
+  <h2>문의</h2>
+  <p><a href="mailto:sya.apps.dev@gmail.com">sya.apps.dev@gmail.com</a> ·
+  <a href="https://sya-apps.github.io/">소담앱스</a></p>
+</main>
+</body>
+</html>
