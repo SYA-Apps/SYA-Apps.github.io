@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- 🛡️ `//sweatdrop/` 처럼 빗금 둘로 들어오면 Flutter 가 history.replaceState 에서
+       SecurityError 로 멈춘다(회색 화면). 맨 먼저 빗금 하나로 고쳐 다시 연다.
+       경위: C:\SYA\playbook\함정-모음.md 2026-09-11 «빗금이 두 개» -->
+  <script>if(location.pathname.indexOf('//')===0)location.replace(location.pathname.replace(/^\/+/,'/')+location.search+location.hash);</script>
   <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
