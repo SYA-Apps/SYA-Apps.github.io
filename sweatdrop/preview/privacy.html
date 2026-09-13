@@ -98,8 +98,9 @@
       로그인 기록에 남으며, 앱은 내정보에서 «어느 계정으로 연결했는지» 보여 줄 때 이메일만 씁니다.
       <strong>공유방 친구에게는 보이지 않습니다.</strong></li>
   <li><strong>내 기록 보관본</strong> — 인증한 날짜, 운동 한 줄, 오늘의 다짐과 완료한 날, 닉네임·아바타 모양,
-      한 주 시작 요일을 한 장으로 묶어 <strong>본인만 볼 수 있는 보관함</strong>에 둡니다.
-      <strong>사진(인증샷·프로필 사진)은 넣지 않습니다.</strong></li>
+      한 주 시작 요일을 한 장으로 묶어 <strong>본인만 볼 수 있는 보관함</strong>에 둡니다.</li>
+  <li><strong>인증샷 보관</strong> — 인증샷은 따로 <strong>본인만 볼 수 있는 사진 보관함</strong>(Cloudflare R2)에
+      둡니다. 공유방 친구도 볼 수 없습니다. <strong>프로필 사진은 넣지 않습니다.</strong></li>
 </ul>
 <p>이 정보는 <strong>폰을 바꿨을 때 계정과 기록을 되돌려 드리는 데만</strong> 씁니다.
 연결한 구글 계정은 소담이 만든 다른 앱에서도 같은 계정으로 쓰이지만(소담 통합 계정),
@@ -132,6 +133,8 @@
 <p>서버 운영에 필요한 범위에서만 맡기며, 다른 용도로 쓰이지 않습니다.</p>
 <p>구글 계정으로 연결할 때 본인 확인을 위해 <strong>구글 로그인</strong>(Google LLC)을 이용합니다.
 이때 3-1항의 구글 계정 정보를 받습니다. 연결하지 않으면 구글 로그인은 쓰이지 않습니다.</p>
+<p>구글 계정으로 연결한 경우의 <strong>인증샷 보관</strong>은 <strong>Cloudflare, Inc.(R2)</strong>에 맡깁니다
+(아시아·태평양 지역 서버). 연결하지 않으면 쓰이지 않습니다.</p>
 
 <h2>7. 보관 기간과 삭제</h2>
 <ul>
@@ -214,8 +217,9 @@ when you first use a shared room or from your profile (age 14 or older only). If
 the <strong>email address, name, and profile-photo URL provided by Google</strong>; the app only shows
 the email back to you, and room members never see it. We also keep a <strong>private copy of your
 records</strong> — check-in dates, the one-line workout notes, your daily goals and the days you
-completed them, nickname and avatar, and your week-start day — that only you can read.
-<strong>Photos are never included.</strong> This is used only to restore your account and records
+completed them, nickname and avatar, and your week-start day — that only you can read. Your
+<strong>workout photos</strong> are kept in a separate private photo store (Cloudflare R2) that only
+you can access; profile photos are not included. This is used only to restore your account and records
 when you change phones. The linked account is shared across Sodam apps, but Sweatdrop records stay
 inside Sweatdrop.</p>
 
@@ -229,7 +233,7 @@ Android's system photo picker and camera app; we do not request access to your w
 <p lang="en"><strong>6. Processors —</strong> Supabase, Inc. provides accounts, the database, and
 storage for photos and the private record copy. Servers are located in Seoul, Republic of Korea.
 If you link a Google account, Google LLC (Google Sign-In) verifies your identity and provides the
-information in 3-1.</p>
+information in 3-1, and your workout photos are stored with Cloudflare, Inc. (R2, Asia-Pacific).</p>
 
 <p lang="en"><strong>7. Retention and deletion —</strong> Records are kept until you delete them.
 <strong>Profile &gt; Delete everything</strong> removes your records from this device and your
