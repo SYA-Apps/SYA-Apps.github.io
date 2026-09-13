@@ -20,6 +20,46 @@
     history.replaceState(null, '', location.pathname.replace(/^\/+/, '/') + location.search + location.hash);
   }
 </script>
+<!--
+  🔑 로그인 복귀 길잡이 (2026-09-13) — 통합 서버(Supabase)의 Site URL 이 이 대문이다.
+
+  구글 로그인에서 계정 고르기가 5분쯤을 넘기면 로그인 표가 만료되고(bad_oauth_state), Supabase 는
+  앱이 적어 준 돌아올 주소를 잃고 **Site URL(여기)** 로 오류만 붙여 보낸다. 모든 소담 앱이 같은 주소
+  (sya-apps.github.io)라 브라우저 저장소를 같이 쓰므로, «로그인하러 떠난 흔적» 을 보고 그 앱으로
+  오류를 **그대로** 넘긴다 → 앱이 제 말로 «로그인하지 못했어요» 를 띄운다.
+
+  흔적(키 이름은 각 앱 코드에 있다 — 앱이 이름을 바꾸면 여기도):
+    나란히    flutter.naranhi.pending_login        «떠난 기록» (lib/services/supabase_account_service.dart)
+    앱 공통    flutter.<앱>.…code-verifier           로그인 중간값(PKCE). 앞말 = 웹 경로 이름
+  흔적이 없으면 대문 위에 한 줄 안내만 띄운다.
+  📌 새 앱에 웹 로그인을 붙일 때: 중간값 앞말을 웹 경로 이름과 같게 두고(`sweatdrop.` 처럼) 아래 APPS 에 한 줄.
+-->
+<script>
+  (function () {
+    var q = location.search.replace(/^\?/, '') + '&' + location.hash.replace(/^#/, '');
+    if (!/(^|&)(error|error_code)=/.test(q)) return;
+    var APPS = { naranhi: '/naranhi/', hakwon: '/hakwon/', sweatdrop: '/sweatdrop/' };
+    var to = null;
+    try {
+      if (localStorage.getItem('flutter.naranhi.pending_login') !== null) to = APPS.naranhi;
+      for (var i = 0; !to && i < localStorage.length; i++) {
+        var m = /^flutter\.([a-z]+)\..*code-verifier$/.exec(localStorage.key(i) || '');
+        if (m && APPS[m[1]]) to = APPS[m[1]];
+      }
+    } catch (e) {}
+    if (to) { location.replace(to + location.search + location.hash); return; }
+
+    // 어느 앱인지 모르면 대문에 한 줄. 새로 고침해도 다시 안 뜨게 주소는 치운다.
+    history.replaceState(null, '', '/');
+    document.addEventListener('DOMContentLoaded', function () {
+      var n = document.createElement('p');
+      n.setAttribute('role', 'status');
+      n.textContent = '로그인하지 못했어요 — 로그인하던 앱을 다시 열어 한 번 더 눌러 주세요 (계정 고르기는 5분 안에)';
+      n.style.cssText = 'margin:0;padding:12px 16px;background:#fff4e5;color:#6b3d00;font-size:14px;text-align:center;border-bottom:1px solid #f0d9b5';
+      document.body.insertBefore(n, document.body.firstChild);
+    });
+  })();
+</script>
 <title>Sodam Apps · 소담</title>
 <meta name="description" content="Sodam Apps(소담) — 소소하게 담아냅니다. 모바일 앱을 만듭니다. 작고 오래 쓰는 것들로.">
 <!-- 카톡·메신저 링크 미리보기(Open Graph). 이미지는 절대 주소여야 한다(2026-09-12 추가). -->
