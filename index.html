@@ -28,11 +28,15 @@
   (sya-apps.github.io)라 브라우저 저장소를 같이 쓰므로, «로그인하러 떠난 흔적» 을 보고 그 앱으로
   오류를 **그대로** 넘긴다 → 앱이 제 말로 «로그인하지 못했어요» 를 띄운다.
 
-  흔적(키 이름은 각 앱 코드에 있다 — 앱이 이름을 바꾸면 여기도):
-    나란히    flutter.naranhi.pending_login        «떠난 기록» (lib/services/supabase_account_service.dart)
-    앱 공통    flutter.<앱>.…code-verifier           로그인 중간값(PKCE). 앞말 = 웹 경로 이름
-  흔적이 없으면 대문 위에 한 줄 안내만 띄운다.
-  📌 새 앱에 웹 로그인을 붙일 때: 중간값 앞말을 웹 경로 이름과 같게 두고(`sweatdrop.` 처럼) 아래 APPS 에 한 줄.
+  어느 앱으로 보낼지 — 믿을 만한 순서대로 (키 이름은 각 앱 코드에 있다 — 앱이 이름을 바꾸면 여기도):
+    ① sodam.login.from = {"app":"hakwon","at":<ms>}   ← 🔑 소담 공통 약속. 앱이 구글로 떠나기 **직전** 적는다.
+                                                         30분 안의 것만 믿고, 쓰고 나면 지운다
+    ② flutter.naranhi.pending_login                   나란히 «떠난 기록» — 돌아오면 앱이 지우므로 믿을 만하다
+    ③ flutter.<앱>.…code-verifier                      로그인 중간값(PKCE). 🚨 **성공해야만 지워져서 옛것이 남는다**
+                                                         (9/13 실측 — 이 PC 에 나란히 옛 중간값이 남아 있었다) →
+                                                         **한 앱 것만 있을 때만** 믿는다. 둘 이상이면 넘기지 않고 안내만
+  아무것도 못 믿으면 대문 위에 한 줄 안내만 띄운다.
+  📌 새 앱에 웹 로그인을 붙일 때: ① 을 적게 하고, 아래 APPS 에 한 줄(앱 이름 = 웹 경로 이름).
 -->
 <script>
   (function () {
@@ -41,10 +45,18 @@
     var APPS = { naranhi: '/naranhi/', hakwon: '/hakwon/', sweatdrop: '/sweatdrop/' };
     var to = null;
     try {
-      if (localStorage.getItem('flutter.naranhi.pending_login') !== null) to = APPS.naranhi;
-      for (var i = 0; !to && i < localStorage.length; i++) {
-        var m = /^flutter\.([a-z]+)\..*code-verifier$/.exec(localStorage.key(i) || '');
-        if (m && APPS[m[1]]) to = APPS[m[1]];
+      var from = JSON.parse(localStorage.getItem('sodam.login.from') || 'null');
+      localStorage.removeItem('sodam.login.from');
+      if (from && APPS[from.app] && Date.now() - from.at < 30 * 60 * 1000) to = APPS[from.app];
+      if (!to && localStorage.getItem('flutter.naranhi.pending_login') !== null) to = APPS.naranhi;
+      if (!to) {
+        var seen = {};
+        for (var i = 0; i < localStorage.length; i++) {
+          var m = /^flutter\.([a-z]+)\..*code-verifier$/.exec(localStorage.key(i) || '');
+          if (m && APPS[m[1]]) seen[m[1]] = true;
+        }
+        var names = Object.keys(seen);
+        if (names.length === 1) to = APPS[names[0]];
       }
     } catch (e) {}
     if (to) { location.replace(to + location.search + location.hash); return; }
