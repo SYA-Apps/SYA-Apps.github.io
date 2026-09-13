@@ -128147,7 +128147,9 @@ return A.v($async$Gb,r)},
 N(a){var s=B.d.aM(B.d.aK(this.a.d,200,400))
 return A.eP(A.baV(null,B.UE,this.ga5Q()),44,s)}}
 A.aTc.prototype={
-$1(a){var s=v.G.document.createElement("div")
+$1(a){var s=v.G.document.createElement("div"),r=s.style
+r.height="44px"
+r.overflow="hidden"
 this.a.Gb(s)
 return s},
 $S:274}
