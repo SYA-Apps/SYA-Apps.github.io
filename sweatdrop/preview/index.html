@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- 🛡️ `//sweatdrop/` 처럼 빗금 둘로 들어오면 Flutter 가 history.replaceState 에서
+       SecurityError 로 멈춘다(회색 화면). 맨 먼저 빗금 하나로 고쳐 다시 연다.
+       경위: C:\SYA\playbook\함정-모음.md 2026-09-11 «빗금이 두 개» -->
+  <script>if(location.pathname.indexOf('//')===0)location.replace(location.pathname.replace(/^\/+/,'/')+location.search+location.hash);</script>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/sweatdrop/preview/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="하루 10초, 운동했다 버튼 하나">
+
+<!-- 카톡·메신저 링크 미리보기(Open Graph). 이미지는 절대 주소여야 한다(2026-09-12 추가). -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="땀방울">
+<meta property="og:title" content="땀방울 · 하루 10초 운동 인증">
+<meta property="og:description" content="하루 10초, 운동했다 버튼 하나. 친구들과 나누고 연속일수로 힘을 얻는 운동 습관 앱.">
+<meta property="og:url" content="https://sya-apps.github.io/sweatdrop/">
+<meta property="og:image" content="https://sya-apps.github.io/sweatdrop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="땀방울 — 웃는 물방울">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="땀방울">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>땀방울</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <!--
+    You can customize the "flutter_bootstrap.js" script.
+    This is useful to provide a custom configuration to the Flutter loader
+    or to give the user feedback during the initialization process.
+
+    For more details:
+    * https://docs.flutter.dev/platform-integration/web/initialization
+  -->
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
