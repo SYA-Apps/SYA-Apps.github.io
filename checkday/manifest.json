@@ -1,11 +1,11 @@
 {
-    "name": "체크데이",
-    "short_name": "체크데이",
+    "name": "숙제도장",
+    "short_name": "숙제도장",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#FFF8EE",
     "theme_color": "#2E9E6A",
-    "description": "체크데이 - 주간 숙제 체크",
+    "description": "숙제도장 - 매주 숙제 체크하고 도장 모으기",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
