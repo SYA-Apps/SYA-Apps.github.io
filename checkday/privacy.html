@@ -45,7 +45,7 @@
 <body>
 
 <h1>숙제도장 개인정보처리방침</h1>
-<p class="muted">시행일: 2026년 9월 16일</p>
+<p class="muted">시행일: 2026년 9월 16일 · 최종 수정: 2026년 9월 16일</p>
 
 <div class="box">
   <strong>숙제도장은 회원가입 없이 씁니다.</strong> 이메일 · 전화번호 · 비밀번호를 묻지 않습니다.<br>
@@ -80,12 +80,25 @@
       앱에 실린 접속 키로는 이 제한을 넘을 수 없습니다.</li>
 </ul>
 
+<h2>3-1. 이상한 내용을 봤을 때 (신고 · 코드 새로 만들기)</h2>
+<ul>
+  <li><strong>신고</strong> — «가족과 함께 쓰기» 화면 맨 아래 «이상한 내용 신고하기». 사유는 <strong>고르는 네 가지</strong>뿐이고
+      따로 적는 칸은 없습니다. 신고는 <strong>만든 사람만</strong> 보며, 누가 신고했는지는 같은 숙제장 사람도 알 수 없습니다.
+      저장되는 것은 숙제장 번호 · (고른 경우) 아이 번호 · 사유 · 시각입니다.</li>
+  <li><strong>코드 새로 만들기 · 기기 내보내기</strong> — 공유를 켠 기기에서 아이 코드를 새로 만들 수 있습니다.
+      옛 코드는 그때부터 쓸 수 없고, «다른 기기 내보내기» 를 고르면 그 코드로 들어와 있던 다른 기기가 숙제장에서 빠집니다
+      (그 기기에 있던 숙제는 그 기기에 그대로 남습니다).</li>
+  <li>신고 내용이 규정을 어겼다고 판단되면 그 숙제장의 기록을 지울 수 있습니다. 문의처는 12항입니다.</li>
+</ul>
+
 <h2>4. 하지 않는 것</h2>
 <ul>
   <li><strong>현재 광고가 없습니다.</strong> 광고 식별자도 쓰지 않습니다. 광고를 넣게 되면 넣기 전에 이 방침을 먼저 고쳐 알립니다.</li>
   <li><strong>분석 · 추적 도구를 쓰지 않습니다.</strong> 어느 화면을 얼마나 봤는지 모으지 않습니다.</li>
   <li><strong>어떤 정보도 팔거나 제3자에게 제공하지 않습니다</strong>(아래 6항의 서버 운영 위탁은 제외).</li>
-  <li>위치 · 연락처 · 사진 · 기기 정보를 읽지 않습니다.</li>
+  <li>위치 · 연락처 · 사진 · <strong>기기의 센서 · 하드웨어 정보</strong>(모델명 · 광고 식별자 등)를 읽지 않습니다.</li>
+  <li class="muted">다만 2항의 <strong>임의 식별자</strong>(함께 쓸 때 서버가 이 기기에 붙이는 번호)는
+      구글플레이 «데이터 보안» 분류에서 <strong>«기기 또는 기타 ID»</strong> 에 들어가므로, 스토어에는 그렇게 신고합니다.</li>
 </ul>
 
 <h2>5. 권한</h2>
@@ -110,6 +123,7 @@
       모든 기기에서 «그만 같이 쓰기»를 눌러 주세요.</li>
   <li>이미 앱을 지우셨다면 아래 문의처로 알려 주시면 지워 드립니다. 계정이 익명이라
       <strong>어느 숙제장인지 알 수 있도록 아이 코드를 함께</strong> 알려 주세요.</li>
+  <li>앱 없이 삭제를 요청하는 안내는 <a href="https://sya-apps.github.io/delete-account.html">계정 · 데이터 삭제 안내</a>에도 있습니다.</li>
 </ul>
 
 <h2>8. 이용자의 권리</h2>
@@ -145,7 +159,7 @@
 <hr>
 
 <h1 lang="en">Sukje Dojang (Homework Stamps) — Privacy Policy</h1>
-<p class="muted" lang="en">Effective: September 16, 2026</p>
+<p class="muted" lang="en">Effective: September 16, 2026 · Last updated: September 16, 2026</p>
 
 <div class="box" lang="en">
   <strong>No sign-up.</strong> We never ask for an email, phone number, or password.
@@ -168,10 +182,18 @@ plus code-entry attempt times (to limit guessing to 10 per hour).</p>
 <p lang="en"><strong>3. Who can see it —</strong> Only devices that joined the same homework book. A device that joined
 with a child code sees <strong>only that child</strong>. This is enforced by row-level security in the database.</p>
 
+<p lang="en"><strong>3-1. Reporting and code rotation —</strong> The "Share with family" screen has a
+<strong>Report</strong> action with four fixed reasons and no free-text field. Reports are visible only to the
+developer; nobody in the homework book can see who reported. We store the homework-book id, the child id when one
+is chosen, the reason, and the time. A device that shares the whole book can also <strong>issue a new child
+code</strong> — the old code stops working immediately — and optionally <strong>remove other devices</strong> that
+joined with it (their local homework stays on those devices).</p>
+
 <p lang="en"><strong>4. What we do not do —</strong> There are currently no ads and no advertising identifiers
 (if ads are ever added, this policy will be updated first), no analytics or tracking,
 no sale or sharing of data with third parties (other than the processor in section 6). We do not read location,
-contacts, photos, or device information.</p>
+contacts, photos, or device sensor/hardware information (model, advertising ID, and the like).
+The random identifier in section 2 is classified as a "Device or other ID" in Google Play's Data safety form, and is declared there as such.</p>
 
 <p lang="en"><strong>5. Permissions —</strong> Internet access only (to sync with family devices).</p>
 
