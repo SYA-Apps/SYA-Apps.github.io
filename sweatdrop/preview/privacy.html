@@ -53,18 +53,23 @@
   <strong>그 방에 있는 사람에게만</strong> 서버를 거쳐 전달됩니다.
 </div>
 
-<h2>1. 계정 — 이름도 이메일도 받지 않습니다</h2>
+<h2>1. 계정 — 실명도 연락처도 받지 않습니다</h2>
 <p>앱을 처음 켜면 서버가 <strong>임의의 식별자 하나</strong>를 만들어 줍니다. 이것이 계정의
 전부입니다. 이메일·전화번호·비밀번호를 요구하지 않고, 여러분의 실명이나 연락처를 알 방법이 없습니다.</p>
+<p class="muted">친구에게 보여 줄 <strong>닉네임</strong>(기본값 «나»)과 아바타 모양은 서버에 저장됩니다 —
+공유방에서 누가 누구인지 보여 주려면 필요합니다. 실명을 쓰지 않으셔도 됩니다.</p>
 <p class="muted">그래서 기기를 바꾸면 기록이 따라오지 않습니다. 폰을 바꿔도 이어 쓰고 싶은 사람은
 구글 계정을 연결할 수 있습니다(3-1항) — 연결은 선택이며, 하지 않아도 모든 기능을 그대로 씁니다.</p>
 
 <h2>2. 무엇이 어디에 저장되나</h2>
 <table>
   <tr><th>내용</th><th>이 기기</th><th>서버</th></tr>
-  <tr><td>오늘 운동했다는 기록(날짜)</td><td>저장</td><td>공유방에 올린 것만</td></tr>
-  <tr><td>인증샷</td><td>저장</td><td>공유방에 올린 것만</td></tr>
-  <tr><td>«무슨 운동 했는지» 한 줄(40자 이내)</td><td>저장</td><td>공유방에 올린 것만</td></tr>
+  <tr><td>오늘 운동했다는 기록(날짜) — <strong>운동 기록(활동·피트니스 정보)</strong></td><td>저장</td>
+      <td><strong>공유방에 올린 것만</strong><span class="muted"> · 3-1항의 보관함</span></td></tr>
+  <tr><td>인증샷</td><td>저장</td>
+      <td><strong>공유방에 올린 것만</strong><span class="muted"> · 3-1항의 보관함</span></td></tr>
+  <tr><td>«무슨 운동 했는지» 한 줄(40자 이내)</td><td>저장</td>
+      <td><strong>공유방에 올린 것만</strong><span class="muted"> · 3-1항의 보관함</span></td></tr>
   <tr><td><strong>오늘의 다짐</strong>(글·완료 여부)</td><td>저장</td><td><strong>올리지 않음</strong>
       (구글 계정으로 연결한 경우에만 본인만 보는 보관함에, 3-1항)</td></tr>
   <tr><td>닉네임, 아바타 모양</td><td>저장</td><td>저장(친구가 봐야 하므로)</td></tr>
@@ -79,6 +84,9 @@
 그림만 남습니다.</p>
 
 <h2>3. 누가 볼 수 있나</h2>
+<p><strong>공유방을 하나도 고르지 않고 인증하면 서버로 아무것도 보내지 않습니다.</strong>
+그 기록은 이 기기 안에만 있습니다(구글 계정으로 연결한 경우에는 본인만 보는 보관함에도 둡니다, 3-1항).
+방에 올렸다가 나중에 뺀 것은 서버에서도 지웁니다.</p>
 <ul>
   <li><strong>같은 공유방에 있는 사람만</strong> 볼 수 있습니다. 공개 피드도, 이용자 검색도
       없습니다. 초대 코드를 아는 사람만 방에 들어올 수 있습니다.</li>
@@ -108,6 +116,20 @@
 <p><strong>연결은 언제든 끊을 수 있습니다</strong> — 내정보 &gt; «연결 끊기». 이 기기는 다시 비회원이 되고,
 폰 안 기록은 그대로 남습니다. 끊어도 <strong>보관본과 인증샷은 지워지지 않아</strong> 같은 계정으로 다시 연결하면
 이어집니다(지우려면 아래 7항의 «전부 지우기»). 같은 자리에서 <strong>다른 구글 계정으로 바꿀</strong> 수도 있습니다.</p>
+
+<h2>3-2. 불쾌한 것을 봤을 때 — 신고 · 차단 · 내보내기</h2>
+<ul>
+  <li><strong>신고</strong> — 친구를 눌러 열린 화면에서 «신고». 정해진 사유 넷 중에서 고릅니다
+      (자유롭게 적는 칸은 없습니다). 신고는 <strong>운영자에게만</strong> 가고, 상대는 신고된 사실을 알 수 없습니다.
+      운영자에게 가는 알림에는 <strong>사유와 시각만</strong> 담기며, 누가 신고했는지는 담기지 않습니다.
+      접수된 내용은 확인 뒤 필요한 조치(사진 삭제 · 이용 제한)를 합니다.</li>
+  <li><strong>차단</strong> — 그 사람의 인증과 사진이 <strong>내 화면에서만</strong> 보이지 않게 됩니다.
+      서버에서 지우는 것이 아니고, 상대는 차단된 사실을 알 수 없습니다.
+      <strong>내정보 › 차단한 사람</strong>에서 언제든 풀 수 있습니다.</li>
+  <li><strong>내보내기</strong> — 방을 만든 사람은 참가자를 방에서 뺄 수 있습니다. 그 사람이 그 방에 올린
+      인증도 함께 빠집니다(그 사람 폰에 있는 기록은 그대로입니다). 이어서
+      <strong>초대 코드를 새로 만들면</strong> 옛 코드로는 다시 들어올 수 없습니다.</li>
+</ul>
 
 <h2>4. 하지 않는 것</h2>
 <ul>
@@ -172,11 +194,14 @@
 <p>열람·정정·삭제·처리정지를 요구하실 수 있습니다. 닉네임과 아바타는 앱 안에서 바로 고칠 수
 있고, 기록 삭제는 위 7항의 방법으로 직접 하실 수 있습니다. 그 밖의 요청은 문의처로 보내
 주시면 처리합니다.</p>
+<p>다른 이용자가 올린 것이 문제라면 <strong>앱 안에서 바로 신고·차단</strong>할 수 있습니다(3-2항).</p>
 
 <h2>9. 아동의 개인정보</h2>
 <p>만 14세 미만 아동을 대상으로 하지 않으며, 그 나이의 아동으로부터 개인정보를 수집하지
 않습니다. 만 14세 미만임을 알게 되면 해당 기록을 지웁니다.
 공유방과 구글 계정 연결은 <strong>만 14세 이상인지 앱에서 먼저 확인</strong>합니다(나이는 저장하지 않습니다).</p>
+<p class="muted">📌 «만 14세» 는 개인정보를 받을 때 법이 정한 기준입니다. 이와 별개로 이 앱은
+스토어에 <strong>16세 이상 이용자를 대상</strong>으로 등록되어 있습니다 — 사람끼리 사진을 주고받는 앱이기 때문입니다.</p>
 
 <h2>10. 안전조치</h2>
 <ul>
@@ -189,6 +214,10 @@
 <h2>11. 방침의 변경</h2>
 <p>이 방침이 바뀌면 이 페이지에 시행일과 함께 알립니다. 서버로 보내는 항목이 늘어나는 등
 중요한 변경은 앱 안에서도 알려 드립니다.</p>
+<p class="muted">2026년 9월 16일(두 번째) — <strong>신고·차단·내보내기</strong>를 3-2항에 적었고,
+1항 제목을 «실명도 연락처도 받지 않습니다» 로 좁혔으며(닉네임은 서버에 저장됩니다),
+<strong>공유방을 하나도 안 고르면 서버로 아무것도 보내지 않도록 앱을 고쳤습니다</strong>(3항).
+운동 기록이 «활동·피트니스 정보» 라는 것과 스토어 대상 연령(16세 이상)도 나란히 적었습니다.</p>
 <p class="muted">2026년 9월 16일 — <strong>공유방에 올린 인증샷의 보관 기간(30일)</strong>을 7항에 적었고,
 하루 알림을 넣으면서 <strong>알림 권한</strong>을 5항에 적었고(그 알림은 서버로 아무것도 보내지 않습니다),
 연결을 끊거나 다른 계정으로 바꾸는 방법(3-1항)을 적었고,
@@ -205,7 +234,7 @@
 <hr>
 
 <h1 lang="en">Sweatdrop — Privacy Policy</h1>
-<p class="muted" lang="en">Effective: September 10, 2026 · Last updated: September 13, 2026</p>
+<p class="muted" lang="en">Effective: September 10, 2026 · Last updated: September 16, 2026</p>
 
 <div class="box" lang="en">
   <strong>You can use Sweatdrop without signing up.</strong> We never ask for your email, phone number, or a
@@ -215,13 +244,17 @@
   <strong>to the members of that room only</strong>.
 </div>
 
-<p lang="en"><strong>1. Account —</strong> On first launch the server issues a random
-identifier. That is the entire account. No email, phone, or password. Linking a Google account
-is optional (3-1); without it, every feature works the same.</p>
+<p lang="en"><strong>1. Account (no real name, no contact details) —</strong> On first launch the
+server issues a random identifier. That is the entire account. No email, phone, or password.
+Your <strong>nickname</strong> (default "나") and avatar are stored on the server so friends can tell
+who is who; you do not have to use your real name. Linking a Google account is optional (3-1);
+without it, every feature works the same.</p>
 
-<p lang="en"><strong>2. What is stored where —</strong> Your check-in date, workout photo, and
-a short note (max 40 characters) are kept on your device, and are sent to the server
-<em>only for the rooms you choose to share with</em>. Your <strong>daily goals and your profile
+<p lang="en"><strong>2. What is stored where —</strong> Your check-in date (workout /
+<strong>fitness activity</strong> data), workout photo, and a short note (max 40 characters) are kept on
+your device, and are sent to the server <em>only for the rooms you choose to share with</em>
+(plus your private record store if you linked a Google account, 3-1). <strong>If you check in without
+choosing a room, nothing is sent to the server at all.</strong> Your <strong>daily goals and your profile
 photo never leave the device</strong>. Your nickname and avatar are stored on the server so
 friends can see them. Photos are re-encoded as JPEG of at most 1280&nbsp;px (800&nbsp;KB) before
 storage, and <strong>all embedded metadata such as GPS location and device details is removed</strong>.</p>
@@ -244,6 +277,15 @@ Google account; unlinking makes this device anonymous again and deletes nothing,
 later restores everything (to delete, use "Delete everything" in section 7).
 The linked account is shared across Sodam apps, but Sweatdrop records stay
 inside Sweatdrop.</p>
+
+<p lang="en"><strong>3-2. Reporting, blocking, removing —</strong> Tap a friend to open their
+check-in and choose <strong>Report</strong> (one of four fixed reasons — there is no free-text field).
+Reports go to the operator only; the other person is never told, and the alert we receive contains only
+the reason and the time, not who reported it. <strong>Block</strong> hides that person's check-ins and
+photos <em>from your screen only</em>; nothing is deleted and the other person is not told. You can undo it
+in Profile &gt; Blocked people. The person who created a room can <strong>remove</strong> a member — their
+posts leave that room (their own device keeps their records) — and then <strong>issue a new invite
+code</strong> so the old one stops working.</p>
 
 <p lang="en"><strong>4. What we do not do —</strong> There are currently no ads and no advertising
 identifiers (if ads are ever added, this policy will be updated first), no analytics or tracking,
@@ -278,6 +320,10 @@ account itself (shared with other Sodam apps) remains; to delete it, follow the
 
 <p lang="en"><strong>8. Your rights —</strong> You may request access, correction, deletion, or
 suspension of processing.</p>
+
+<p lang="en"><strong>8-1. Store age rating —</strong> "Under 14" is the threshold Korean law sets for
+collecting personal data. Separately, the app is listed in the store for users <strong>16 and older</strong>,
+because people share photos with each other.</p>
 
 <p lang="en"><strong>9. Children —</strong> Not directed to children under 14; we do not
 knowingly collect their information.</p>
