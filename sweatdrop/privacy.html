@@ -44,20 +44,20 @@
 <body>
 
 <h1>땀방울 개인정보처리방침</h1>
-<p class="muted">시행일: 2026년 9월 10일 · 최종 수정: 2026년 9월 11일</p>
+<p class="muted">시행일: 2026년 9월 10일 · 최종 수정: 2026년 9월 16일</p>
 
 <div class="box">
-  <strong>땀방울은 회원가입을 받지 않습니다.</strong> 이메일·전화번호·비밀번호를 묻지 않으며,
-  여러분이 누구인지 알지 못합니다.<br>
+  <strong>땀방울은 회원가입 없이 쓸 수 있습니다.</strong> 이메일·전화번호·비밀번호를 묻지 않으며,
+  여러분이 누구인지 알지 못합니다. <strong>원하는 사람만</strong> 구글 계정을 연결할 수 있습니다(3-1항).<br>
   다만 <strong>친구와 오늘의 운동을 나누는 앱</strong>이라, 공유방에 올린 기록은
   <strong>그 방에 있는 사람에게만</strong> 서버를 거쳐 전달됩니다.
 </div>
 
 <h2>1. 계정 — 이름도 이메일도 받지 않습니다</h2>
 <p>앱을 처음 켜면 서버가 <strong>임의의 식별자 하나</strong>를 만들어 줍니다. 이것이 계정의
-전부입니다. 이메일·전화번호·비밀번호·소셜 로그인 어느 것도 요구하지 않고, 여러분의 실명이나
-연락처를 알 방법이 없습니다.</p>
-<p class="muted">그래서 기기를 바꾸면 기록이 따라오지 않습니다. 편의 대신 익명을 택한 결과입니다.</p>
+전부입니다. 이메일·전화번호·비밀번호를 요구하지 않고, 여러분의 실명이나 연락처를 알 방법이 없습니다.</p>
+<p class="muted">그래서 기기를 바꾸면 기록이 따라오지 않습니다. 폰을 바꿔도 이어 쓰고 싶은 사람은
+구글 계정을 연결할 수 있습니다(3-1항) — 연결은 선택이며, 하지 않아도 모든 기능을 그대로 씁니다.</p>
 
 <h2>2. 무엇이 어디에 저장되나</h2>
 <table>
@@ -65,7 +65,8 @@
   <tr><td>오늘 운동했다는 기록(날짜)</td><td>저장</td><td>공유방에 올린 것만</td></tr>
   <tr><td>인증샷</td><td>저장</td><td>공유방에 올린 것만</td></tr>
   <tr><td>«무슨 운동 했는지» 한 줄(40자 이내)</td><td>저장</td><td>공유방에 올린 것만</td></tr>
-  <tr><td><strong>오늘의 다짐</strong>(글·완료 여부)</td><td>저장</td><td><strong>올리지 않음</strong></td></tr>
+  <tr><td><strong>오늘의 다짐</strong>(글·완료 여부)</td><td>저장</td><td><strong>올리지 않음</strong>
+      (구글 계정으로 연결한 경우에만 본인만 보는 보관함에, 3-1항)</td></tr>
   <tr><td>닉네임, 아바타 모양</td><td>저장</td><td>저장(친구가 봐야 하므로)</td></tr>
   <tr><td><strong>프로필 사진</strong></td><td>저장</td><td><strong>올리지 않음</strong></td></tr>
   <tr><td>공유방 이름·초대 코드·참가 기록</td><td>저장</td><td>저장</td></tr>
@@ -89,17 +90,40 @@
   <li><strong>방에서 나가면</strong> 그 방 사람들에게 더 이상 보이지 않습니다.</li>
 </ul>
 
+<h2>3-1. 구글 계정으로 연결할 때만 저장되는 정보</h2>
+<p>공유방을 처음 쓸 때나 내정보에서 <strong>원하는 사람만</strong> 구글 계정으로 연결할 수 있습니다.
+연결하지 않으면 아래 정보는 받지도 저장하지도 않습니다. <strong>만 14세 이상만</strong> 연결할 수 있습니다.</p>
+<ul>
+  <li><strong>구글 계정 정보</strong> — 구글이 알려 주는 이메일 주소, 이름, 프로필 사진 주소.
+      로그인 기록에 남으며, 앱은 내정보에서 «어느 계정으로 연결했는지» 보여 줄 때 이메일만 씁니다.
+      <strong>공유방 친구에게는 보이지 않습니다.</strong></li>
+  <li><strong>내 기록 보관본</strong> — 인증한 날짜, 운동 한 줄, 오늘의 다짐과 완료한 날, 닉네임·아바타 모양,
+      한 주 시작 요일을 한 장으로 묶어 <strong>본인만 볼 수 있는 보관함</strong>에 둡니다.</li>
+  <li><strong>인증샷 보관</strong> — 인증샷은 따로 <strong>본인만 볼 수 있는 사진 보관함</strong>(Cloudflare R2)에
+      둡니다. 공유방 친구도 볼 수 없습니다. <strong>프로필 사진은 넣지 않습니다.</strong></li>
+</ul>
+<p>이 정보는 <strong>폰을 바꿨을 때 계정과 기록을 되돌려 드리는 데만</strong> 씁니다.
+연결한 구글 계정은 소담이 만든 다른 앱에서도 같은 계정으로 쓰이지만(소담 통합 계정),
+땀방울의 기록은 땀방울 안에만 있고 다른 앱에서 보이지 않습니다.</p>
+<p><strong>연결은 언제든 끊을 수 있습니다</strong> — 내정보 &gt; «연결 끊기». 이 기기는 다시 비회원이 되고,
+폰 안 기록은 그대로 남습니다. 끊어도 <strong>보관본과 인증샷은 지워지지 않아</strong> 같은 계정으로 다시 연결하면
+이어집니다(지우려면 아래 7항의 «전부 지우기»). 같은 자리에서 <strong>다른 구글 계정으로 바꿀</strong> 수도 있습니다.</p>
+
 <h2>4. 하지 않는 것</h2>
 <ul>
-  <li><strong>광고를 넣지 않습니다.</strong> 광고 식별자도 쓰지 않습니다.</li>
-  <li><strong>분석·추적 도구를 넣지 않습니다.</strong> 어느 화면을 얼마나 봤는지 수집하지 않습니다.</li>
+  <li><strong>현재 광고가 없습니다.</strong> 광고 식별자도 쓰지 않습니다. 광고를 넣게 되면 넣기 전에 이 방침을 먼저 고쳐 알립니다.</li>
+  <li><strong>분석·추적 도구를 쓰지 않습니다.</strong> 어느 화면을 얼마나 봤는지 수집하지 않습니다.</li>
   <li><strong>어떤 정보도 팔거나 제3자에게 제공하지 않습니다.</strong>
       (아래 6항의 서버 운영 위탁은 제외)</li>
   <li>위치·연락처·주소록·통화기록을 읽지 않습니다.</li>
 </ul>
 
 <h2>5. 권한</h2>
-<p>앱이 요구하는 권한은 <strong>인터넷 연결 하나뿐</strong>입니다.</p>
+<p>앱이 요구하는 권한은 <strong>인터넷 연결</strong>과, <strong>알림</strong>(하루 알림을 켤 때만 물어봅니다)뿐입니다.
+알림을 켜지 않으면 묻지도 않고, 켰다가 꺼도 됩니다.</p>
+<p><strong>하루 알림은 이 기기 안에서만 돕니다.</strong> 정한 시각에 «오늘 땀방울 찍었나요?» 를 띄우는 것이
+전부이고, 그 시각도 알림을 켰다는 사실도 <strong>서버로 보내지 않습니다</strong>(폰 안 기록에만 있습니다).
+푸시 서비스를 쓰지 않으므로 계정이 없어도 됩니다.</p>
 <p>인증샷은 <strong>안드로이드의 사진 선택기와 카메라 앱을 거쳐</strong> 받습니다.
 여러분이 고른 사진 한 장만 앱으로 넘어오며, 앨범 전체를 읽는 권한을 요구하지 않습니다.
 사진 없이 «완료»만 눌러도 인증은 끝납니다.</p>
@@ -109,18 +133,33 @@
   <tr><th>맡기는 곳</th><th>맡기는 일</th><th>서버 위치</th></tr>
   <tr>
     <td>Supabase, Inc.</td>
-    <td>익명 계정 발급, 데이터베이스, 인증샷 보관</td>
+    <td>계정 발급, 데이터베이스, 인증샷·내 기록 보관본 보관</td>
     <td>대한민국(서울)</td>
   </tr>
 </table>
 <p>서버 운영에 필요한 범위에서만 맡기며, 다른 용도로 쓰이지 않습니다.</p>
+<p>구글 계정으로 연결할 때 본인 확인을 위해 <strong>구글 로그인</strong>(Google LLC)을 이용합니다.
+이때 3-1항의 구글 계정 정보를 받습니다. 연결하지 않으면 구글 로그인은 쓰이지 않습니다.</p>
+<p>구글 계정으로 연결한 경우의 <strong>인증샷 보관</strong>은 <strong>Cloudflare, Inc.(R2)</strong>에 맡깁니다
+(아시아·태평양 지역 서버). 연결하지 않으면 쓰이지 않습니다.</p>
 
 <h2>7. 보관 기간과 삭제</h2>
 <ul>
   <li>기록은 여러분이 지울 때까지 보관합니다.</li>
+  <li><strong>공유방에 올린 인증샷만 30일 뒤 서버에서 지워집니다.</strong> 공유방 화면은 «오늘» 만
+      보여 주기 때문입니다. <strong>내 기록의 사진은 그대로</strong>입니다 — 폰 안에 남고, 구글 계정으로
+      연결한 경우 본인만 보는 사진 보관함에도 남습니다. 인증한 날짜·운동 한 줄도 지워지지 않습니다.</li>
+  <li>다만 <strong>웹(브라우저)에서는</strong> 브라우저가 내주는 저장 공간이 가득 차면
+      <strong>오래된 인증샷부터 앱이 스스로 지웁니다</strong>(운동한 기록 자체는 남습니다).
+      지워진 날짜는 앱이 알려 드리니, 남기고 싶은 사진은 달력에서 «사진 저장»으로
+      기기에 내려받아 주세요. 앱(안드로이드)에서는 이런 일이 없습니다.</li>
   <li><strong>내정보 &gt; 전부 지우기</strong>를 누르면 이 기기의 기록과 함께
       <strong>서버에 있는 인증 기록·인증샷·공유방 참가 기록이 모두 지워집니다.</strong>
       남는 것은 이름도 내용도 없는 임의의 식별자뿐입니다.</li>
+  <li>구글 계정으로 연결한 경우 «전부 지우기»는 <strong>내 기록 보관본</strong>도 함께 지웁니다.
+      다만 구글로 연결한 <strong>소담 계정 자체</strong>(다른 소담 앱과 함께 쓰는 계정)는 남습니다.
+      계정까지 지우려면 <a href="https://sya-apps.github.io/delete-account.html">계정 삭제 안내</a>를
+      따르거나 아래 문의처로 알려 주세요.</li>
   <li>🚨 <strong>앱만 삭제하면 서버 사본은 남습니다.</strong> 이 기기의 기록은 사라지지만,
       공유방에 올린 것은 서버에 그대로 있습니다. 완전히 지우려면
       <strong>앱을 지우기 전에 «전부 지우기»를 먼저</strong> 눌러 주세요.</li>
@@ -136,7 +175,8 @@
 
 <h2>9. 아동의 개인정보</h2>
 <p>만 14세 미만 아동을 대상으로 하지 않으며, 그 나이의 아동으로부터 개인정보를 수집하지
-않습니다. 만 14세 미만임을 알게 되면 해당 기록을 지웁니다.</p>
+않습니다. 만 14세 미만임을 알게 되면 해당 기록을 지웁니다.
+공유방과 구글 계정 연결은 <strong>만 14세 이상인지 앱에서 먼저 확인</strong>합니다(나이는 저장하지 않습니다).</p>
 
 <h2>10. 안전조치</h2>
 <ul>
@@ -149,6 +189,13 @@
 <h2>11. 방침의 변경</h2>
 <p>이 방침이 바뀌면 이 페이지에 시행일과 함께 알립니다. 서버로 보내는 항목이 늘어나는 등
 중요한 변경은 앱 안에서도 알려 드립니다.</p>
+<p class="muted">2026년 9월 16일 — <strong>공유방에 올린 인증샷의 보관 기간(30일)</strong>을 7항에 적었고,
+하루 알림을 넣으면서 <strong>알림 권한</strong>을 5항에 적었고(그 알림은 서버로 아무것도 보내지 않습니다),
+연결을 끊거나 다른 계정으로 바꾸는 방법(3-1항)을 적었고,
+광고는 «현재 없음»으로 고쳤으며(넣게 되면 넣기 전에 이 방침을 먼저 고칩니다),
+웹에서 저장 공간이 모자랄 때 오래된 인증샷이 지워지는 것을 7항에 적었습니다.</p>
+<p class="muted">2026년 9월 13일 — 구글 계정 연결(3-1항)과 그때 받는 정보·내 기록 보관본, 구글 로그인(6항),
+연결한 경우의 삭제(7항)를 더했습니다.</p>
 
 <h2>12. 문의</h2>
 <p>문의: <a href="mailto:sya.apps.dev@gmail.com?subject=%5B%EB%95%80%EB%B0%A9%EC%9A%B8%5D%20%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%20%EB%AC%B8%EC%9D%98">sya.apps.dev@gmail.com</a></p>
@@ -158,17 +205,19 @@
 <hr>
 
 <h1 lang="en">Sweatdrop — Privacy Policy</h1>
-<p class="muted" lang="en">Effective: September 10, 2026</p>
+<p class="muted" lang="en">Effective: September 10, 2026 · Last updated: September 13, 2026</p>
 
 <div class="box" lang="en">
-  <strong>Sweatdrop has no sign-up.</strong> We never ask for your email, phone number, or a
-  password, and we do not know who you are. Because it is an app for sharing today's workout
+  <strong>You can use Sweatdrop without signing up.</strong> We never ask for your email, phone number, or a
+  password, and we do not know who you are. <strong>Only if you choose</strong>, you can link a Google
+  account (see 3-1). Because it is an app for sharing today's workout
   with friends, what you post to a shared room is delivered through our server
   <strong>to the members of that room only</strong>.
 </div>
 
 <p lang="en"><strong>1. Account —</strong> On first launch the server issues a random
-identifier. That is the entire account. No email, phone, password, or social login.</p>
+identifier. That is the entire account. No email, phone, or password. Linking a Google account
+is optional (3-1); without it, every feature works the same.</p>
 
 <p lang="en"><strong>2. What is stored where —</strong> Your check-in date, workout photo, and
 a short note (max 40 characters) are kept on your device, and are sent to the server
@@ -182,22 +231,50 @@ no public feed and no user search. This is enforced by row-level security in the
 merely in the UI. Photos live in a private bucket and are served to room members through
 time-limited signed URLs. Leaving a room stops your records from being visible there.</p>
 
-<p lang="en"><strong>4. What we do not do —</strong> No advertising, no advertising identifiers,
-no analytics or tracking, and no sale or sharing of your information with third parties (other
+<p lang="en"><strong>3-1. Only if you link a Google account —</strong> You may link a Google account
+when you first use a shared room or from your profile (age 14 or older only). If you do, we receive
+the <strong>email address, name, and profile-photo URL provided by Google</strong>; the app only shows
+the email back to you, and room members never see it. We also keep a <strong>private copy of your
+records</strong> — check-in dates, the one-line workout notes, your daily goals and the days you
+completed them, nickname and avatar, and your week-start day — that only you can read. Your
+<strong>workout photos</strong> are kept in a separate private photo store (Cloudflare R2) that only
+you can access; profile photos are not included. This is used only to restore your account and records
+when you change phones. You can <strong>unlink at any time</strong> (Profile &gt; Unlink) or switch to another
+Google account; unlinking makes this device anonymous again and deletes nothing, so linking the same account
+later restores everything (to delete, use "Delete everything" in section 7).
+The linked account is shared across Sodam apps, but Sweatdrop records stay
+inside Sweatdrop.</p>
+
+<p lang="en"><strong>4. What we do not do —</strong> There are currently no ads and no advertising
+identifiers (if ads are ever added, this policy will be updated first), no analytics or tracking,
+and no sale or sharing of your information with third parties (other
 than the processor in section 6). We do not read your location, contacts, or call history.</p>
 
-<p lang="en"><strong>5. Permissions —</strong> Internet access only. Photos are received through
+<p lang="en"><strong>5. Permissions —</strong> Internet access, and notifications (asked only when you
+turn the daily reminder on). The reminder runs entirely on your device: neither the time you chose nor the
+fact that it is on is sent to any server, and no push service is used. Photos are received through
 Android's system photo picker and camera app; we do not request access to your whole gallery.</p>
 
-<p lang="en"><strong>6. Processor —</strong> Supabase, Inc. provides anonymous authentication,
-the database, and photo storage. Servers are located in Seoul, Republic of Korea.</p>
+<p lang="en"><strong>6. Processors —</strong> Supabase, Inc. provides accounts, the database, and
+storage for photos and the private record copy. Servers are located in Seoul, Republic of Korea.
+If you link a Google account, Google LLC (Google Sign-In) verifies your identity and provides the
+information in 3-1, and your workout photos are stored with Cloudflare, Inc. (R2, Asia-Pacific).</p>
 
 <p lang="en"><strong>7. Retention and deletion —</strong> Records are kept until you delete them.
+Workout photos shared to a room are removed from the server after 30 days (a room only ever shows today);
+your own copy stays on your device, and in your private photo store if you linked a Google account.
+On the <strong>web</strong>, when the browser runs out of the storage it grants us, the app deletes
+the oldest workout photos first (the check-in records themselves stay); the app tells you which dates
+were affected, and you can save a photo to your device from the calendar beforehand. This does not
+happen in the Android app.
 <strong>Profile &gt; Delete everything</strong> removes your records from this device and your
 check-ins, photos, and room memberships from the server; only an empty random identifier remains.
 <strong>Uninstalling the app alone does not delete the server copy</strong> — please use
 "Delete everything" before uninstalling. If you have already uninstalled, contact us with the
-room name, invite code, and nickname so we can identify and delete your records.</p>
+room name, invite code, and nickname so we can identify and delete your records. If you linked a
+Google account, "Delete everything" also removes your private record copy, but the linked Sodam
+account itself (shared with other Sodam apps) remains; to delete it, follow the
+<a href="https://sya-apps.github.io/delete-account.html">account deletion guide</a> or contact us.</p>
 
 <p lang="en"><strong>8. Your rights —</strong> You may request access, correction, deletion, or
 suspension of processing.</p>
