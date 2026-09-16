@@ -119,7 +119,11 @@
 </ul>
 
 <h2>5. 권한</h2>
-<p>앱이 요구하는 권한은 <strong>인터넷 연결 하나뿐</strong>입니다.</p>
+<p>앱이 요구하는 권한은 <strong>인터넷 연결</strong>과, <strong>알림</strong>(하루 알림을 켤 때만 물어봅니다)뿐입니다.
+알림을 켜지 않으면 묻지도 않고, 켰다가 꺼도 됩니다.</p>
+<p><strong>하루 알림은 이 기기 안에서만 돕니다.</strong> 정한 시각에 «오늘 땀방울 찍었나요?» 를 띄우는 것이
+전부이고, 그 시각도 알림을 켰다는 사실도 <strong>서버로 보내지 않습니다</strong>(폰 안 기록에만 있습니다).
+푸시 서비스를 쓰지 않으므로 계정이 없어도 됩니다.</p>
 <p>인증샷은 <strong>안드로이드의 사진 선택기와 카메라 앱을 거쳐</strong> 받습니다.
 여러분이 고른 사진 한 장만 앱으로 넘어오며, 앨범 전체를 읽는 권한을 요구하지 않습니다.
 사진 없이 «완료»만 눌러도 인증은 끝납니다.</p>
@@ -142,6 +146,9 @@
 <h2>7. 보관 기간과 삭제</h2>
 <ul>
   <li>기록은 여러분이 지울 때까지 보관합니다.</li>
+  <li><strong>공유방에 올린 인증샷만 30일 뒤 서버에서 지워집니다.</strong> 공유방 화면은 «오늘» 만
+      보여 주기 때문입니다. <strong>내 기록의 사진은 그대로</strong>입니다 — 폰 안에 남고, 구글 계정으로
+      연결한 경우 본인만 보는 사진 보관함에도 남습니다. 인증한 날짜·운동 한 줄도 지워지지 않습니다.</li>
   <li>다만 <strong>웹(브라우저)에서는</strong> 브라우저가 내주는 저장 공간이 가득 차면
       <strong>오래된 인증샷부터 앱이 스스로 지웁니다</strong>(운동한 기록 자체는 남습니다).
       지워진 날짜는 앱이 알려 드리니, 남기고 싶은 사진은 달력에서 «사진 저장»으로
@@ -182,7 +189,9 @@
 <h2>11. 방침의 변경</h2>
 <p>이 방침이 바뀌면 이 페이지에 시행일과 함께 알립니다. 서버로 보내는 항목이 늘어나는 등
 중요한 변경은 앱 안에서도 알려 드립니다.</p>
-<p class="muted">2026년 9월 16일 — 연결을 끊거나 다른 계정으로 바꾸는 방법(3-1항)을 적었고,
+<p class="muted">2026년 9월 16일 — <strong>공유방에 올린 인증샷의 보관 기간(30일)</strong>을 7항에 적었고,
+하루 알림을 넣으면서 <strong>알림 권한</strong>을 5항에 적었고(그 알림은 서버로 아무것도 보내지 않습니다),
+연결을 끊거나 다른 계정으로 바꾸는 방법(3-1항)을 적었고,
 광고는 «현재 없음»으로 고쳤으며(넣게 되면 넣기 전에 이 방침을 먼저 고칩니다),
 웹에서 저장 공간이 모자랄 때 오래된 인증샷이 지워지는 것을 7항에 적었습니다.</p>
 <p class="muted">2026년 9월 13일 — 구글 계정 연결(3-1항)과 그때 받는 정보·내 기록 보관본, 구글 로그인(6항),
@@ -241,7 +250,9 @@ identifiers (if ads are ever added, this policy will be updated first), no analy
 and no sale or sharing of your information with third parties (other
 than the processor in section 6). We do not read your location, contacts, or call history.</p>
 
-<p lang="en"><strong>5. Permissions —</strong> Internet access only. Photos are received through
+<p lang="en"><strong>5. Permissions —</strong> Internet access, and notifications (asked only when you
+turn the daily reminder on). The reminder runs entirely on your device: neither the time you chose nor the
+fact that it is on is sent to any server, and no push service is used. Photos are received through
 Android's system photo picker and camera app; we do not request access to your whole gallery.</p>
 
 <p lang="en"><strong>6. Processors —</strong> Supabase, Inc. provides accounts, the database, and
@@ -250,6 +261,8 @@ If you link a Google account, Google LLC (Google Sign-In) verifies your identity
 information in 3-1, and your workout photos are stored with Cloudflare, Inc. (R2, Asia-Pacific).</p>
 
 <p lang="en"><strong>7. Retention and deletion —</strong> Records are kept until you delete them.
+Workout photos shared to a room are removed from the server after 30 days (a room only ever shows today);
+your own copy stays on your device, and in your private photo store if you linked a Google account.
 On the <strong>web</strong>, when the browser runs out of the storage it grants us, the app deletes
 the oldest workout photos first (the check-in records themselves stay); the app tells you which dates
 were affected, and you can save a photo to your device from the calendar beforehand. This does not
