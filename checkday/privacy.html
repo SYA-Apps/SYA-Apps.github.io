@@ -1,0 +1,223 @@
+<!--
+  숙제도장 개인정보처리방침 — **이 파일이 원본이다.**
+  =====================================================================
+  구글은 두 곳을 다 요구한다(하나만 있으면 정책 위반):
+    1) 웹: https://sya-apps.github.io/checkday/privacy.html → 플레이 콘솔 «개인정보처리방침» 칸
+    2) 앱 안 링크: 숙제 관리 맨 아래 «개인정보처리방침» (lib/core/app_info.dart 의 privacyPolicyUrl)
+  web/ 에 두었으므로 `flutter build web` 이 산출물에 그대로 실어 Pages 로 올라간다.
+
+  아래 내용은 실제 코드 기준이다(2026-09-16):
+    · 혼자 쓰면 서버에 아무것도 안 간다 — 익명 계정도 «함께 쓰기» 를 켜거나 코드로 들어갈 때 처음 만든다
+      (lib/services/share_api.dart 의 _ensureUser · boot)
+    · 서버로 가는 줄   : lib/services/snapshot.dart (children · items · completions · claims)
+    · 서버 표 · 누가 보나: supabase/migrations/0002 · 0003 · 0004 (같은 숙제장 · 아이 코드 기기는 그 아이만)
+    · 한 달 정리        : AppState._prune (keepWeeks = 4)
+    · 마지막 기기가 나가면 숙제장이 통째로 지워진다: 0002 의 members 삭제 트리거
+  대상 연령에 13세 미만을 넣는다(2026-09-15 사용자 결정) → 9항 «아이의 개인정보» 를 지우지 말 것.
+
+  ⚠️ **코드를 고치면 여기도 고친다.** 서버로 보내는 항목이 늘거나, 광고·분석 도구를 붙이거나,
+     권한을 추가할 때. 스토어 «데이터 보안» 답(store/content-answers.md)과 어긋나면 반려된다.
+-->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>숙제도장 개인정보처리방침</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 720px; margin: 0 auto; padding: 24px 18px 64px;
+         font: 16px/1.7 system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+         color: #1a1a1a; background: #fff; }
+  @media (prefers-color-scheme: dark) { body { color: #e6e6e6; background: #16171a; } }
+  h1 { font-size: 1.5rem; } h2 { font-size: 1.15rem; margin-top: 2em; }
+  .box { border: 1px solid currentColor; border-radius: 10px; padding: 12px 16px; opacity: .95; }
+  .muted { opacity: .7; font-size: .9rem; }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; margin: .6em 0; }
+  th, td { border: 1px solid currentColor; padding: 8px 10px; text-align: left;
+           vertical-align: top; font-size: .95rem; }
+  th { opacity: .75; font-weight: 600; }
+  a { color: inherit; }
+  hr { border: none; border-top: 1px solid currentColor; opacity: .2; margin: 2.5em 0; }
+</style>
+</head>
+<body>
+
+<h1>숙제도장 개인정보처리방침</h1>
+<p class="muted">시행일: 2026년 9월 16일 · 최종 수정: 2026년 9월 16일</p>
+
+<div class="box">
+  <strong>숙제도장은 회원가입 없이 씁니다.</strong> 이메일 · 전화번호 · 비밀번호를 묻지 않습니다.<br>
+  <strong>혼자 쓰면 모든 기록이 이 기기 안에만</strong> 남고, 서버로 아무것도 보내지 않습니다.<br>
+  <strong>«가족과 함께 쓰기»를 켰을 때만</strong> 숙제장이 서버를 거쳐 <strong>같은 가족 기기에만</strong> 전달됩니다.
+</div>
+
+<h2>1. 혼자 쓸 때 — 이 기기 안에만</h2>
+<p>아이 이름, 숙제, 체크 기록, 도장판과 보상은 모두 이 기기에 저장됩니다
+(안드로이드 앱은 앱 전용 저장 공간, 웹판은 그 브라우저의 저장 공간). 서버에 계정도 기록도 만들지 않습니다.
+앱을 지우거나 브라우저 기록을 지우면 함께 사라집니다.</p>
+
+<h2>2. «가족과 함께 쓰기»를 켰을 때 — 서버에 저장되는 것</h2>
+<p>공유를 켜거나 아이 코드로 들어가면, 서버가 이 기기에 <strong>임의의 식별자 하나</strong>(익명 계정)를 만들어 줍니다.
+이름 · 이메일 · 전화번호와 연결되지 않습니다. 그리고 아래 내용이 서버에 저장됩니다.</p>
+<div class="table-wrap">
+<table>
+  <tr><th>내용</th><th>왜 필요한가</th></tr>
+  <tr><td>아이 이름(최대 20자 — <strong>별명을 권합니다</strong>), 아이 코드(6자)</td><td>누구 숙제인지 가족 기기에 보여 주고, 아이 기기를 연결하려고</td></tr>
+  <tr><td>숙제 이름(최대 40자), 끝내기로 한 요일 · 제출 요일(매일 하는 숙제는 하는 요일들), 쉬는 중인지</td><td>매주 같은 숙제를 가족 기기에 똑같이 보여 주려고</td></tr>
+  <tr><td>체크 기록 — 어느 숙제를 어느 주에 끝냈는지, 체크한 시각, 약속을 지켰는지(도장 1개 · 반 개)</td><td>도장판을 모든 기기에서 같게 세려고</td></tr>
+  <tr><td>도장판 — 목표 개수, 보상 글(최대 30자), 도장 모양, 받은 보상 기록</td><td>보상과 도장판을 가족이 같이 보려고</td></tr>
+  <tr><td>숙제장 참가 기록(어느 기기가 어느 숙제장 · 어느 아이를 보는지), 코드 입력 시도 시각</td><td>같은 가족만 보게 막고, 코드를 마구 넣어 보는 것을 막으려고(한 시간에 10번)</td></tr>
+</table>
+</div>
+
+<h2>3. 누가 볼 수 있나</h2>
+<ul>
+  <li><strong>같은 숙제장에 들어온 기기만</strong> 봅니다. 공개 목록도, 이용자 검색도 없습니다.</li>
+  <li><strong>아이 코드로 들어온 기기(아이 폰)는 그 아이 숙제만</strong> 봅니다. 다른 아이 것은 보이지 않습니다.</li>
+  <li>이 제한은 화면에서만이 아니라 <strong>데이터베이스 자체에 걸려 있습니다</strong>(행 수준 보안).
+      앱에 실린 접속 키로는 이 제한을 넘을 수 없습니다.</li>
+</ul>
+
+<h2>3-1. 이상한 내용을 봤을 때 (신고 · 코드 새로 만들기)</h2>
+<ul>
+  <li><strong>신고</strong> — «가족과 함께 쓰기» 화면 맨 아래 «이상한 내용 신고하기». 사유는 <strong>고르는 네 가지</strong>뿐이고
+      따로 적는 칸은 없습니다. 신고는 <strong>만든 사람만</strong> 보며, 누가 신고했는지는 같은 숙제장 사람도 알 수 없습니다.
+      저장되는 것은 숙제장 번호 · (고른 경우) 아이 번호 · 사유 · 시각입니다.</li>
+  <li><strong>코드 새로 만들기 · 기기 내보내기</strong> — 공유를 켠 기기에서 아이 코드를 새로 만들 수 있습니다.
+      옛 코드는 그때부터 쓸 수 없고, «다른 기기 내보내기» 를 고르면 그 코드로 들어와 있던 다른 기기가 숙제장에서 빠집니다
+      (그 기기에 있던 숙제는 그 기기에 그대로 남습니다).</li>
+  <li>신고 내용이 규정을 어겼다고 판단되면 그 숙제장의 기록을 지울 수 있습니다. 문의처는 12항입니다.</li>
+</ul>
+
+<h2>4. 하지 않는 것</h2>
+<ul>
+  <li><strong>현재 광고가 없습니다.</strong> 광고 식별자도 쓰지 않습니다. 광고를 넣게 되면 넣기 전에 이 방침을 먼저 고쳐 알립니다.</li>
+  <li><strong>분석 · 추적 도구를 쓰지 않습니다.</strong> 어느 화면을 얼마나 봤는지 모으지 않습니다.</li>
+  <li><strong>어떤 정보도 팔거나 제3자에게 제공하지 않습니다</strong>(아래 6항의 서버 운영 위탁은 제외).</li>
+  <li>위치 · 연락처 · 사진 · <strong>기기의 센서 · 하드웨어 정보</strong>(모델명 · 광고 식별자 등)를 읽지 않습니다.</li>
+  <li class="muted">다만 2항의 <strong>임의 식별자</strong>(함께 쓸 때 서버가 이 기기에 붙이는 번호)는
+      구글플레이 «데이터 보안» 분류에서 <strong>«기기 또는 기타 ID»</strong> 에 들어가므로, 스토어에는 그렇게 신고합니다.</li>
+</ul>
+
+<h2>5. 권한</h2>
+<p>앱이 요구하는 권한은 <strong>인터넷 연결 하나뿐</strong>입니다(가족과 함께 쓸 때 서버와 주고받으려고).</p>
+
+<h2>6. 서버 운영 위탁</h2>
+<div class="table-wrap">
+<table>
+  <tr><th>맡기는 곳</th><th>맡기는 일</th><th>서버 위치</th></tr>
+  <tr><td>Supabase, Inc.</td><td>익명 계정 발급, 가족 숙제장 데이터베이스</td><td>대한민국(서울)</td></tr>
+</table>
+</div>
+<p>서버 운영에 필요한 범위에서만 맡기며, 다른 용도로 쓰이지 않습니다.</p>
+
+<h2>7. 보관 기간과 삭제</h2>
+<ul>
+  <li><strong>체크 기록은 한 달쯤(4주) 지나면 앱이 지웁니다.</strong> 모은 도장 개수만 숫자로 남습니다.</li>
+  <li>숙제 · 아이 · 보상은 여러분이 지울 때까지 보관합니다. 앱에서 숙제나 아이를 지우면 <strong>서버에서도 함께 지워집니다.</strong></li>
+  <li><strong>«그만 같이 쓰기»</strong>를 누르면 이 기기는 숙제장에서 빠집니다(이 기기의 숙제는 기기 안에 남습니다).
+      <strong>마지막 기기가 빠지면 그 숙제장은 서버에서 통째로 지워집니다.</strong></li>
+  <li>🚨 <strong>앱만 지우면 서버 사본은 남습니다.</strong> 완전히 지우려면 앱을 지우기 전에
+      모든 기기에서 «그만 같이 쓰기»를 눌러 주세요.</li>
+  <li>이미 앱을 지우셨다면 아래 문의처로 알려 주시면 지워 드립니다. 계정이 익명이라
+      <strong>어느 숙제장인지 알 수 있도록 아이 코드를 함께</strong> 알려 주세요.</li>
+  <li>앱 없이 삭제를 요청하는 안내는 <a href="https://sya-apps.github.io/delete-account.html">계정 · 데이터 삭제 안내</a>에도 있습니다.</li>
+</ul>
+
+<h2>8. 이용자의 권리</h2>
+<p>열람 · 정정 · 삭제 · 처리정지를 요구하실 수 있습니다. 아이 이름 · 숙제 · 보상은 앱에서 바로 고치거나 지울 수 있고,
+그 밖의 요청은 문의처로 보내 주시면 처리합니다.</p>
+
+<h2>9. 아이의 개인정보</h2>
+<ul>
+  <li>숙제도장은 <strong>보호자와 아이가 함께 쓰는 앱</strong>입니다. 아이 이름과 숙제는 <strong>보호자가 입력</strong>하고,
+      아이는 숙제를 체크합니다.</li>
+  <li>아이 정보가 서버로 가는 것은 <strong>보호자가 «가족과 함께 쓰기»를 켰을 때뿐</strong>이며, 이것을 켜는 것을
+      법정대리인(보호자)의 동의로 봅니다. 공유는 언제든 «그만 같이 쓰기»로 멈출 수 있습니다.</li>
+  <li>아이 이름은 <strong>실명 대신 별명</strong>을 권합니다. 앱은 나이 · 학교 · 사진 · 연락처를 묻지 않습니다.</li>
+  <li>아이 코드로 들어온 아이 기기는 보호자가 만든 숙제를 보고 체크 기록만 남깁니다. 아이를 새로 만들거나 지울 수 없습니다.</li>
+  <li>현재 광고 · 분석 도구가 없어 아이의 정보가 광고에 쓰이지 않습니다.</li>
+</ul>
+
+<h2>10. 안전조치</h2>
+<ul>
+  <li>기기와 서버 사이의 모든 통신은 암호화(HTTPS)됩니다.</li>
+  <li>서버 기록은 행 수준 보안 정책으로 «같은 숙제장 · 그 아이» 만 읽도록 막혀 있습니다.</li>
+  <li>숙제장 코드는 데이터베이스 함수만 읽을 수 있고, 앱이나 다른 이용자가 직접 꺼내 볼 수 없습니다.</li>
+</ul>
+
+<h2>11. 방침의 변경</h2>
+<p>이 방침이 바뀌면 이 페이지에 시행일과 함께 알립니다. 서버로 보내는 항목이 늘어나는 등
+중요한 변경은 앱 안에서도 알려 드립니다.</p>
+
+<h2>12. 문의</h2>
+<p>문의: <a href="mailto:sya.apps.dev@gmail.com?subject=%5B%EC%88%99%EC%A0%9C%EB%8F%84%EC%9E%A5%5D%20%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%20%EB%AC%B8%EC%9D%98">sya.apps.dev@gmail.com</a></p>
+<p class="muted">소담 (Sodam Apps) · 사업자등록번호 844-29-01813 · 서울특별시 양천구 신목로 7</p>
+
+<hr>
+
+<h1 lang="en">Sukje Dojang (Homework Stamps) — Privacy Policy</h1>
+<p class="muted" lang="en">Effective: September 16, 2026 · Last updated: September 16, 2026</p>
+
+<div class="box" lang="en">
+  <strong>No sign-up.</strong> We never ask for an email, phone number, or password.
+  <strong>If you use the app alone, everything stays on this device</strong> and nothing is sent to our server.
+  Only when you turn on <strong>"Share with family"</strong> is the homework book delivered through our server,
+  <strong>to your family's devices only</strong>.
+</div>
+
+<p lang="en"><strong>1. Using it alone —</strong> Child names, homework, check marks, stamp boards and rewards are
+stored only on this device (app storage on Android, browser storage on the web). No server account or record is created.</p>
+
+<p lang="en"><strong>2. When you share —</strong> The server issues a random anonymous identifier for the device, not
+linked to any name, email, or phone number. It stores: child names (max 20 characters; nicknames recommended) and
+6-character child codes; homework names (max 40 characters), the promised and due weekdays (or the chosen days for daily
+homework), and whether each is paused;
+check records (which homework was done in which week, the time it was checked, on time or late); stamp boards (goal,
+reward text up to 30 characters, stamp shape, rewards received); and which devices joined which homework book and child,
+plus code-entry attempt times (to limit guessing to 10 per hour).</p>
+
+<p lang="en"><strong>3. Who can see it —</strong> Only devices that joined the same homework book. A device that joined
+with a child code sees <strong>only that child</strong>. This is enforced by row-level security in the database.</p>
+
+<p lang="en"><strong>3-1. Reporting and code rotation —</strong> The "Share with family" screen has a
+<strong>Report</strong> action with four fixed reasons and no free-text field. Reports are visible only to the
+developer; nobody in the homework book can see who reported. We store the homework-book id, the child id when one
+is chosen, the reason, and the time. A device that shares the whole book can also <strong>issue a new child
+code</strong> — the old code stops working immediately — and optionally <strong>remove other devices</strong> that
+joined with it (their local homework stays on those devices).</p>
+
+<p lang="en"><strong>4. What we do not do —</strong> There are currently no ads and no advertising identifiers
+(if ads are ever added, this policy will be updated first), no analytics or tracking,
+no sale or sharing of data with third parties (other than the processor in section 6). We do not read location,
+contacts, photos, or device sensor/hardware information (model, advertising ID, and the like).
+The random identifier in section 2 is classified as a "Device or other ID" in Google Play's Data safety form, and is declared there as such.</p>
+
+<p lang="en"><strong>5. Permissions —</strong> Internet access only (to sync with family devices).</p>
+
+<p lang="en"><strong>6. Processor —</strong> Supabase, Inc. provides the anonymous accounts and the database.
+Servers are located in Seoul, Republic of Korea.</p>
+
+<p lang="en"><strong>7. Retention and deletion —</strong> Check records are deleted by the app after about four weeks;
+only the stamp count remains. Deleting a homework item or a child in the app also deletes it from the server.
+"Stop sharing" removes this device from the homework book; when the last device leaves, the whole homework book is
+deleted from the server. <strong>Uninstalling the app alone does not delete the server copy</strong> — please use
+"Stop sharing" on every device first. If you have already uninstalled, contact us with a child code so we can find
+and delete the homework book.</p>
+
+<p lang="en"><strong>8. Children —</strong> The app is used by parents and children together. Parents enter child names
+and homework; children check their homework. Child data reaches the server only when a parent turns on sharing, which
+we treat as parental consent. We recommend nicknames instead of real names, and we never ask for age, school, photos,
+or contact details. There are currently no ads or analytics.</p>
+
+<p lang="en"><strong>9. Security —</strong> All traffic is encrypted (HTTPS). Server records are protected by
+row-level security; homework-book codes can be read only by database functions.</p>
+
+<p lang="en"><strong>10. Contact —</strong>
+<a href="mailto:sya.apps.dev@gmail.com?subject=%5BSukje%20Dojang%5D%20Privacy%20Inquiry">sya.apps.dev@gmail.com</a><br>
+Sodam Apps · 7 Sinmok-ro, Yangcheon-gu, Seoul, Republic of Korea</p>
+
+</body>
+</html>
