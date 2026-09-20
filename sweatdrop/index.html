@@ -36,6 +36,30 @@
 <meta property="og:image:alt" content="땀방울 — 웃는 물방울">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
+  <!-- 🌗 낮/밤 — **이게 없으면 위쪽이 뿌옇게 번진다**(2026-09-21 아이폰에서 실제로 그랬다).
+       사파리는 이 세 가지가 없으면 «이 페이지는 밝다» 고 보고, 화면 맨 위(상태 바 뒤)를
+       **밝게 칠한 뒤 그 위에 흐림 효과를 겹친다.** 그래서 어두운 앱 내용과 만나는 자리가
+       회색으로 번진 띠가 된다. 기기·iOS 판에 따라 보이기도 안 보이기도 한다.
+
+       셋이 각각 하는 일이 다르다 — 하나만 넣으면 덜 고쳐진다:
+        · color-scheme : «이 페이지는 낮·밤 둘 다 된다» 고 알린다. 이게 있어야 브라우저가
+                         제 기본 색(스크롤바·빈 영역)을 밤에 맞춘다
+        · theme-color  : 브라우저 **자기 UI**(상태 바 뒤·주소창)를 칠하는 색.
+                         media 를 붙여 낮/밤 두 벌을 준다
+        · background   : 플러터가 그리기 **전**과 화면 밖 여백의 색.
+                         비워 두면 흰색이라 밤에 첫 프레임이 하얗게 번쩍인다
+       🚨 색 값은 `lib/shared/tokens.dart` 의 `T.bg`(낮 #F1F0F5 · 밤 #17161C)와 **같아야 한다.**
+          토큰을 바꾸면 여기도 바꿀 것 — 다르면 이 띠가 다시 생긴다. -->
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F1F0F5">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#17161C">
+  <style>
+    html, body { margin: 0; background: #F1F0F5; }
+    @media (prefers-color-scheme: dark) {
+      html, body { background: #17161C; }
+    }
+  </style>
+
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
