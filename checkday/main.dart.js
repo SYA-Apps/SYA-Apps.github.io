@@ -49039,10 +49039,10 @@ Am(a,b){return this.adr(a,b)},
 adr(a,b){var s=0,r=A.B(t.H),q,p=this,o
 var $async$Am=A.x(function(c,d){if(c===1)return A.y(d,r)
 for(;;)switch(s){case 0:s=3
-return A.n(A.AH(new A.q5("\uc219\uc81c\ub3c4\uc7a5 \xb7 "+a+" \uc219\uc81c \ucf54\ub4dc: "+b+"\nhttps://sya-apps.github.io/checkday/")),$async$Am)
+return A.n(A.AH(new A.q5(b)),$async$Am)
 case 3:o=p.c
 if(o==null){s=1
-break}o.ao(t.Pu).f.zO(A.auP(null,null,null,null,null,B.U,null,A.aI(a+" \ucf54\ub4dc\ub97c \ubcf5\uc0ac\ud588\uc5b4\uc694 \u2014 \uce74\ud1a1 \ub4f1\uc5d0 \ubd99\uc5ec \ub123\uc5b4 \ubcf4\ub0b4\uc694",null,null,null,null,null,null,null),null,B.iR,null,null,null,null,null,null,null,null,null,null))
+break}o.ao(t.Pu).f.zO(A.auP(null,null,null,null,null,B.U,null,A.aI(a+" \ucf54\ub4dc "+b+" \u2014 \ubc1b\ub294 \uae30\uae30\uc758 \xab\ubc1b\uc740 \ucf54\ub4dc \ub123\uae30\xbb \uc5d0 \ubd99\uc5ec \ub123\uc5b4\uc694",null,null,null,null,null,null,null),null,B.iR,null,null,null,null,null,null,null,null,null,null))
 case 1:return A.z(q,r)}})
 return A.A($async$Am,r)},
 aq8(){var s,r=this.a.c
