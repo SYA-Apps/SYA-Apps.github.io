@@ -1,0 +1,35 @@
+{
+    "name": "조용조용",
+    "short_name": "조용조용",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#2E9D5B",
+    "theme_color": "#2E9D5B",
+    "description": "조용조용 - 소리 신호등",
+    "orientation": "any",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

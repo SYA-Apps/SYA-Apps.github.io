@@ -1,0 +1,129 @@
+<!--
+  조용조용 개인정보처리방침 — **이 파일이 원본이다.**
+  =====================================================================
+  구글은 두 곳을 다 요구한다(하나만 있으면 정책 위반):
+    1) 웹: https://sya-apps.github.io/joyong/privacy.html → 플레이 콘솔 «개인정보처리방침» 칸
+    2) 앱 안 링크: 설정 › 정보 › 개인정보처리방침 (lib/core/app_info.dart 의 privacyPolicyUrl)
+
+  아래 내용은 실제 코드 기준이다(2026-09-27):
+    · 마이크 소리는 세기만 계산하고 버린다 — lib/services/meter.dart 의 _onChunk
+    · «내 목소리» 녹음은 앱 폴더 voice_alarm.wav 하나 — lib/services/alarm.dart
+    · 설정은 앱 폴더 joyong.json(웹은 localStorage) — lib/services/store*.dart
+    · 서버 · 로그인 · 광고 · 분석 없음. 안드로이드 릴리스 권한은 마이크(RECORD_AUDIO) 하나 — 화면 켜 두기는 창 설정이라 권한이 아니다 —
+      인터넷 권한이 없다(android/app/src/main/AndroidManifest.xml)
+  대상 연령에 13세 미만을 넣지 않는다(LAB 인계 — 가족 정책 피하기). 쓰는 사람은 부모 · 선생님.
+
+  ⚠️ **코드를 고치면 여기도 고친다.** 권한을 더하거나, 광고 · 분석 도구를 붙이거나, 무언가를 기기 밖으로 보낼 때.
+     스토어 «데이터 보안» 답과 어긋나면 반려된다.
+-->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>조용조용 개인정보처리방침</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 720px; margin: 0 auto; padding: 24px 18px 64px;
+         font: 16px/1.7 system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+         color: #1a1a1a; background: #fff; }
+  @media (prefers-color-scheme: dark) { body { color: #e6e6e6; background: #16171a; } }
+  h1 { font-size: 1.5rem; } h2 { font-size: 1.15rem; margin-top: 2em; }
+  .box { border: 1px solid currentColor; border-radius: 10px; padding: 12px 16px; opacity: .95; }
+  .muted { opacity: .7; font-size: .9rem; }
+  a { color: inherit; }
+  hr { border: none; border-top: 1px solid currentColor; opacity: .2; margin: 2.5em 0; }
+</style>
+</head>
+<body>
+
+<h1>조용조용 개인정보처리방침</h1>
+<p class="muted">시행일: 2026년 9월 27일 · 최종 수정: 2026년 9월 27일</p>
+
+<div class="box">
+  <strong>조용조용은 회원가입 없이 씁니다.</strong> 이름 · 이메일 · 전화번호를 묻지 않습니다.<br>
+  <strong>소리는 녹음하거나 보내지 않고, 크기만 잽니다.</strong><br>
+  설정과 «내 목소리» 녹음은 <strong>이 기기 안에만</strong> 저장되고, 서버로 아무것도 보내지 않습니다.
+</div>
+
+<h2>1. 마이크로 하는 일</h2>
+<p>재기를 켜 두는 동안 마이크로 들어온 소리에서 <strong>크기(세기) 숫자만</strong> 계산합니다.
+계산이 끝난 소리는 곧바로 버리며, 파일로 저장하거나 기기 밖으로 보내지 않습니다.
+재기를 멈추거나 앱을 닫으면 마이크도 닫힙니다. 화면을 끈 채로 재지 않습니다.</p>
+
+<h2>2. 이 기기에 저장되는 것</h2>
+<ul>
+  <li><strong>설정</strong> — 시간대와 기준 dB, 알림 소리 종류, 맞춤값(보정값) 같은 숫자들.</li>
+  <li><strong>«내 목소리» 녹음</strong>(직접 녹음했을 때만) — 3초짜리 소리 파일 하나. 알림 소리로만 쓰이며
+      다시 녹음하면 덮어씁니다.</li>
+</ul>
+<p>둘 다 앱 전용 저장 공간(웹판은 그 브라우저의 저장 공간)에만 있습니다. 앱을 지우면 함께 사라집니다.
+웹판에서는 «내 목소리» 녹음이 저장되지 않고 화면을 닫으면 사라집니다.</p>
+
+<h2>3. 하지 않는 것</h2>
+<ul>
+  <li><strong>서버가 없습니다.</strong> 계정을 만들지 않고, 어떤 정보도 개발자에게 전송되지 않습니다.</li>
+  <li><strong>현재 광고가 없습니다.</strong> 광고 식별자도 쓰지 않습니다. 광고를 넣게 되면 넣기 전에 이 방침을 먼저 고쳐 알립니다.</li>
+  <li><strong>분석 · 추적 도구를 쓰지 않습니다.</strong></li>
+  <li>위치 · 연락처 · 사진을 읽지 않습니다.</li>
+</ul>
+
+<h2>4. 권한</h2>
+<p>앱이 요구하는 권한은 <strong>마이크 하나뿐</strong>입니다 — 소리 크기를 재고, 원할 때 «내 목소리» 를 녹음하려고.
+재는 동안 화면이 꺼지지 않게 해 두지만 이것은 따로 권한이 필요하지 않습니다.
+안드로이드 앱은 <strong>인터넷 권한을 요청하지 않습니다.</strong></p>
+
+<h2>5. 이용 대상</h2>
+<p>조용조용은 <strong>보호자와 선생님이 쓰는 앱</strong>입니다. 아이는 화면을 볼 뿐이고, 앱은 아이에 대한 정보를
+묻거나 저장하지 않습니다.</p>
+
+<h2>6. 삭제</h2>
+<p>저장된 것이 모두 이 기기 안에 있으므로, 앱을 지우면 설정과 녹음이 모두 지워집니다.
+«내 목소리» 는 다시 녹음하면 이전 녹음이 지워집니다. 개발자가 따로 보관하는 정보는 없습니다.</p>
+
+<h2>7. 방침의 변경</h2>
+<p>이 방침이 바뀌면 이 페이지에 시행일과 함께 알립니다. 기기 밖으로 보내는 정보가 생기는 등
+중요한 변경은 앱 안에서도 알려 드립니다.</p>
+
+<h2>8. 문의</h2>
+<p>문의: <a href="mailto:sya.apps.dev@gmail.com?subject=%5B%EC%A1%B0%EC%9A%A9%EC%A1%B0%EC%9A%A9%5D%20%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%20%EB%AC%B8%EC%9D%98">sya.apps.dev@gmail.com</a></p>
+<p class="muted">소담 (Sodam Apps) · 사업자등록번호 844-29-01813 · 서울특별시 양천구 신목로 7</p>
+
+<hr>
+
+<h1 lang="en">Joyong Joyong (Sound Traffic Light) — Privacy Policy</h1>
+<p class="muted" lang="en">Effective: September 27, 2026 · Last updated: September 27, 2026</p>
+
+<div class="box" lang="en">
+  <strong>No sign-up.</strong> We never ask for a name, email, or phone number.
+  <strong>Sound is never recorded or sent — only its loudness is measured.</strong>
+  Settings and your optional voice clip stay <strong>on this device only</strong>; nothing is sent to any server.
+</div>
+
+<p lang="en"><strong>1. Microphone —</strong> While measuring is on, the app computes only a loudness number from the
+microphone input and discards the audio immediately. It is never saved to a file or sent off the device. The microphone
+closes when you stop measuring or close the app. The app does not measure with the screen off.</p>
+
+<p lang="en"><strong>2. Stored on this device —</strong> Settings (time slots, dB thresholds, alert sound, calibration
+value) and, only if you record one, a 3-second voice clip used as an alert sound. Both live in app storage (browser storage
+on the web) and are removed when you uninstall. On the web, the voice clip is not saved and disappears when the page closes.</p>
+
+<p lang="en"><strong>3. What we do not do —</strong> There is no server and no account; nothing is transmitted to the
+developer. There are currently no ads and no advertising identifiers (if ads are ever added, this policy will be updated
+first). No analytics or tracking. We do not read location, contacts, or photos.</p>
+
+<p lang="en"><strong>4. Permissions —</strong> Microphone only (to measure loudness and, optionally, record your voice clip).
+The screen is kept on while measuring, which needs no permission. The Android app does not request Internet access.</p>
+
+<p lang="en"><strong>5. Audience —</strong> The app is used by parents and teachers. Children only look at the screen;
+the app does not ask for or store any information about them.</p>
+
+<p lang="en"><strong>6. Deletion —</strong> Everything is on the device, so uninstalling removes it all. The developer
+keeps no data.</p>
+
+<p lang="en"><strong>7. Contact —</strong>
+<a href="mailto:sya.apps.dev@gmail.com?subject=%5BJoyong%5D%20Privacy%20Inquiry">sya.apps.dev@gmail.com</a><br>
+Sodam Apps · 7 Sinmok-ro, Yangcheon-gu, Seoul, Republic of Korea</p>
+
+</body>
+</html>
