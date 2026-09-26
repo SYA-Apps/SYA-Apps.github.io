@@ -8,6 +8,7 @@
   아래 내용은 실제 코드 기준이다(2026-09-27):
     · 마이크 소리는 세기만 계산하고 버린다 — lib/services/meter.dart 의 _onChunk
     · «내 목소리» 녹음은 앱 폴더 voice_alarm.wav 하나 — lib/services/alarm.dart
+    · 쿵쿵(흔들림 센서)은 켰을 때만 — 크기만 계산하고 버린다: lib/services/motion.dart · thump.dart
     · 설정은 앱 폴더 joyong.json(웹은 localStorage) — lib/services/store*.dart
     · 서버 · 로그인 · 광고 · 분석 없음. 안드로이드 릴리스 권한은 마이크(RECORD_AUDIO) 하나 — 화면 켜 두기는 창 설정이라 권한이 아니다 —
       인터넷 권한이 없다(android/app/src/main/AndroidManifest.xml)
@@ -51,9 +52,14 @@
 계산이 끝난 소리는 곧바로 버리며, 파일로 저장하거나 기기 밖으로 보내지 않습니다.
 재기를 멈추거나 앱을 닫으면 마이크도 닫힙니다. 화면을 끈 채로 재지 않습니다.</p>
 
+<h2>1-1. 흔들림 센서(«쿵쿵도 잡기»를 켰을 때만)</h2>
+<p>바닥에 둔 휴대폰의 흔들림 센서에서 <strong>흔들림의 크기만</strong> 계산해 뛰는 발소리를 알아챕니다.
+센서 값은 저장하거나 기기 밖으로 보내지 않습니다. 이 기능은 설정에서 켰을 때만 동작하며, 따로 권한이 필요하지 않습니다
+(아이폰 브라우저에서는 «동작 및 방향» 접근을 한 번 묻습니다).</p>
+
 <h2>2. 이 기기에 저장되는 것</h2>
 <ul>
-  <li><strong>설정</strong> — 시간대와 기준 dB, 알림 소리 종류, 맞춤값(보정값) 같은 숫자들.</li>
+  <li><strong>설정</strong> — 시간대와 기준 dB, 알림 소리 종류, 맞춤값(보정값), 쿵쿵 민감도와 바닥 흔들림 맞춤값 같은 숫자들.</li>
   <li><strong>«내 목소리» 녹음</strong>(직접 녹음했을 때만) — 3초짜리 소리 파일 하나. 알림 소리로만 쓰이며
       다시 녹음하면 덮어씁니다.</li>
 </ul>
@@ -102,7 +108,9 @@
 
 <p lang="en"><strong>1. Microphone —</strong> While measuring is on, the app computes only a loudness number from the
 microphone input and discards the audio immediately. It is never saved to a file or sent off the device. The microphone
-closes when you stop measuring or close the app. The app does not measure with the screen off.</p>
+closes when you stop measuring or close the app. The app does not measure with the screen off.
+If you turn on "Detect thumps", the motion sensor is used the same way: only the size of the vibration is computed,
+and nothing is stored or sent. It needs no permission (iPhone browsers ask once for motion access).</p>
 
 <p lang="en"><strong>2. Stored on this device —</strong> Settings (time slots, dB thresholds, alert sound, calibration
 value) and, only if you record one, a 3-second voice clip used as an alert sound. Both live in app storage (browser storage
