@@ -7,7 +7,7 @@
 
   아래 내용은 실제 코드 기준이다(2026-09-27):
     · 마이크 소리는 세기만 계산하고 버린다 — lib/services/meter.dart 의 _onChunk
-    · «내 목소리» 녹음은 앱 폴더 voice_alarm.wav 하나 — lib/services/alarm.dart
+    · «내 목소리» 녹음은 앱 폴더 voice_alarm.wav(소리용) · voice_thump.wav(쿵쿵용) 둘까지 — lib/services/alarm.dart
     · 쿵쿵(흔들림 센서)은 켰을 때만 — 크기만 계산하고 버린다: lib/services/motion.dart · thump.dart
     · 설정은 앱 폴더 joyong.json(웹은 localStorage) — lib/services/store*.dart
     · 서버 · 로그인 · 광고 · 분석 없음. 안드로이드 릴리스 권한은 마이크(RECORD_AUDIO) 하나 — 화면 켜 두기는 창 설정이라 권한이 아니다 —
@@ -60,7 +60,7 @@
 <h2>2. 이 기기에 저장되는 것</h2>
 <ul>
   <li><strong>설정</strong> — 시간대와 기준 dB, 알림 소리 종류, 맞춤값(보정값), 쿵쿵 민감도와 바닥 흔들림 맞춤값 같은 숫자들.</li>
-  <li><strong>「내 목소리」 녹음</strong>(직접 녹음했을 때만) — 3초짜리 소리 파일 하나. 알림 소리로만 쓰이며
+  <li><strong>「내 목소리」 녹음</strong>(직접 녹음했을 때만) — 3초짜리 소리 파일로, 소리 알림용과 쿵쿵 알림용 두 개까지. 알림 소리로만 쓰이며
       다시 녹음하면 덮어씁니다.</li>
 </ul>
 <p>둘 다 앱 전용 저장 공간(웹판은 그 브라우저의 저장 공간)에만 있습니다. 앱을 지우면 함께 사라집니다.
