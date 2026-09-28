@@ -132764,7 +132764,7 @@ for(j=l.length,q=0;q<l.length;l.length===j||(0,A.z)(l),++q){p=l[q]
 i=p.b
 o=p.f.length
 o=o===0?"\uce5c\uad6c \uc5c6\uc74c":"\uce5c\uad6c "+o+"\uba85"
-B.c.F(s,A.b([new A.QZ(i,o,n.gH1().t(0,p.a),!1,new A.b0g(n,p),m),B.br],r))}if(n.gH1().a!==0)s.push(new A.bk(B.a5K,A.ah("\uacf5\uc720\ubc29\uc5d0 \uc62c\ub9b0 \uc0ac\uc9c4\uc740 30\uc77c \ub4a4 \uc11c\ubc84\uc5d0\uc11c \uc9c0\uc6cc\uc838\uc694. \ub0b4 \uae30\ub85d\uc758 \uc0ac\uc9c4\uc740 \ud3f0\uc5d0 \uadf8\ub300\ub85c \ub0a8\uc544\uc694.",m,m,m,A.aF(m,m,$.T?B.w:B.x,m,m,m,m,m,m,m,m,11.5,m,m,m,m,1.45,!0,m,m,m,m,m,m,m,m),m,m),m))
+B.c.F(s,A.b([new A.QZ(i,o,n.gH1().t(0,p.a),!1,new A.b0g(n,p),m),B.br],r))}if(n.gH1().a!==0)s.push(new A.bk(B.a5K,A.ah("\uace0\ub978 \ubc29 \uc0ac\ub78c\uc740 \ub098\uc911\uc5d0 \ub4e4\uc5b4\uc628 \uc0ac\ub78c\uae4c\uc9c0 \uc774 \uc0ac\uc9c4\uc744 \ubcfc \uc218 \uc788\uc5b4\uc694. \uacf5\uc720\ubc29\uc5d0 \uc62c\ub9b0 \uc0ac\uc9c4\uc740 30\uc77c \ub4a4 \uc11c\ubc84\uc5d0\uc11c \uc9c0\uc6cc\uc838\uc694. \ub0b4 \uae30\ub85d\uc758 \uc0ac\uc9c4\uc740 \ud3f0\uc5d0 \uadf8\ub300\ub85c \ub0a8\uc544\uc694.",m,m,m,A.aF(m,m,$.T?B.w:B.x,m,m,m,m,m,m,m,m,11.5,m,m,m,m,1.45,!0,m,m,m,m,m,m,m,m),m,m),m))
 s.push(B.br)
 j=n.gQb()
 i=A.aF(m,m,$.T?B.w:B.x,m,m,m,m,m,m,m,m,14,m,m,m,m,m,!0,m,m,m,m,m,m,m,m)
