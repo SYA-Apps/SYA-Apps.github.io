@@ -44617,7 +44617,7 @@ p=A.f9(A.c([A.et(new A.wI(""+A.jO(j)+"\uc6d4",s,!1,l)),B.nz,A.et(new A.wI("\ubaa
 o=k.Q
 q=A.c([new A.wI("\uc624\ub298",h,!0,l),p,B.nB,A.b2("\uac70\ub9ac\ub294 \uae38 \ucc3e\uae30\uc758 \uc5b4\ub9bc\uac12\uc774\uc5d0\uc694. \uce7c\ub85c\ub9ac\ub294 1\ubd84\uc5d0 5kcal, \ud0c4\uc18c\ub294 \uac19\uc740 \uac70\ub9ac\ub97c \uc2b9\uc6a9\ucc28\ub85c \uac14\uc744 \ub54c(1km\uc5d0 0.21kg)\uc640 \uacac\uc900 \uac12\uc785\ub2c8\ub2e4.",l,l,l,o==null?l:o.bv(B.bo),l,l,l),B.MM],q)
 if(m.glO().length===0){p=k.z
-q.push(A.b2("\uc544\uc9c1 \uae30\ub85d\uc774 \uc5c6\uc5b4\uc694.\n\uae38\uc744 \ucc3e\uc740 \ub4a4 \uadf8 \uae38\ub85c \ud0d4\uc73c\uba74 \uce74\ub4dc \uc544\ub798 \u300c\uc774 \uae38\ub85c \ud0d4\uc5b4\uc694\u300d\ub97c \ub20c\ub7ec \uc8fc\uc138\uc694.",l,l,l,p==null?l:p.bv(B.bo),l,l,l))}else for(p=m.glO(),o=A.Z(p).i("cg<1>"),p=new A.cg(p,o),p=new A.bo(p,p.gL(0),o.i("bo<aE.E>")),o=o.i("aE.E");p.A();){n=p.d
+q.push(A.b2("\uc544\uc9c1 \uae30\ub85d\uc774 \uc5c6\uc5b4\uc694.\n\uae38\uc744 \ucc3e\uc740 \ub4a4 \uadf8 \uae38\ub85c \uac14\uc73c\uba74 \uce74\ub4dc \uc544\ub798 \u300c\uc774 \uae38\ub85c \uac14\uc5b4\uc694\u300d\ub97c \ub20c\ub7ec \uc8fc\uc138\uc694.",l,l,l,p==null?l:p.bv(B.bo),l,l,l))}else for(p=m.glO(),o=A.Z(p).i("cg<1>"),p=new A.cg(p,o),p=new A.bo(p,p.gL(0),o.i("bo<aE.E>")),o=o.i("aE.E");p.A();){n=p.d
 if(n==null)n=o.a(n)
 q.push(new A.a0C(n,j,new A.awW(m,n),l))}return A.ux(i,A.eL(new A.dk(B.hN,A.acn(q,B.pQ,l),l),l,l),l)}}
 A.awS.prototype={
@@ -44796,7 +44796,7 @@ j.push(A.b2(q,c,c,c,i==null?c:i.bv(B.bo),c,c,c))}j.push(B.a59)
 for(q=r.length,p=0;p<r.length;r.length===q||(0,A.q)(r),++p)j.push(new A.Z7(r[p],c))
 r=d.w
 if(r!=null&&s.gHz()>0){if(d.x)s=new A.bb(B.Nr,A.b2("\u2713 \uae30\ub85d\ud588\uc5b4\uc694",c,c,c,f?c:g.bv(B.cz),c,c,c),c)
-else{s=A.b2("\uc774 \uae38\ub85c \ud0d4\uc5b4\uc694 \xb7 \uc790\uc804\uac70 "+A.aBs(s.gHz()),c,c,c,c,c,c,c)
+else{s=A.b2("\uc774 \uae38\ub85c \uac14\uc5b4\uc694 \xb7 \uc790\uc804\uac70 "+A.aBs(s.gHz()),c,c,c,c,c,c,c)
 q=A.v2(c,c,c,c,c,c,c,c,c,B.cz,c,c,c,c,c,c,c,c,c,c,c)
 s=new A.D8(!0,r,c,c,c,q,B.N,c,!1,c,!0,c,new A.a1S(s,B.Op,q,c,c),c)}j.push(new A.ea(B.op,c,c,s,c))}return A.a67(new A.bb(B.Nw,A.ee(j,B.b1,B.R,B.a7,0,B.a9),c),c,B.l,0,c,new A.cy(o,new A.b0(k,n,B.y,-1)))}}
 A.Z7.prototype={
