@@ -1,0 +1,81 @@
+<!--
+  두바퀴환승 개인정보처리방침 — **이 파일이 원본이다.**
+  =====================================================================
+  구글은 두 곳을 다 요구한다(하나만 있으면 정책 위반):
+    1) 웹: https://sya-apps.github.io/dubakwi/privacy.html → 플레이 콘솔 「개인정보처리방침」 칸
+    2) 앱 안 링크: 설정 → 개인정보처리방침 (lib/core/app_info.dart 의 privacyPolicyUrl)
+  web/ 에 두었으므로 `flutter build web` 이 산출물에 그대로 실어 Pages 로 올라간다.
+
+  아래 내용은 실제 코드 기준이다(2026-09-30):
+    · 저장: 설정 · 기록 · 즐겨찾기 · 최근 길 → 기기 안(lib/services/store*.dart). 서버로 안 간다
+    · 서버로 가는 요청 둘:
+        - 따릉이 목록(supabase/functions/dubakwi-bikes) — 요청에 아무 값도 안 싣는다
+        - 주소·장소 검색(supabase/functions/dubakwi-places) — 검색어만. 카카오 로컬 API 로 넘기고 저장하지 않는다
+    · 위치 권한 · 계정 · 광고 · 분석 도구: 없음(설정의 「준비 중」 항목은 아직 동작하지 않는다)
+
+  ⚠️ **코드를 고치면 여기도 고친다.** 자동 기록(GPS) · 계정 연결 · 광고를 넣는 날은 이 파일과
+     스토어 「데이터 보안」 답을 같은 판에서 바꾼다(한쪽만 바꾸면 반려된다).
+  ⚠️ 사용자에게 보이는 글에 «» 를 쓰지 않는다(C:\SYA\CLAUDE.md).
+-->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>두바퀴환승 개인정보처리방침</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 720px; margin: 0 auto; padding: 24px 18px 64px;
+         font: 16px/1.7 system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+         color: #1a1a1a; background: #fff; }
+  @media (prefers-color-scheme: dark) { body { color: #e6e6e6; background: #16171a; } }
+  h1 { font-size: 1.5rem; } h2 { font-size: 1.15rem; margin-top: 2em; }
+  .box { border: 1px solid currentColor; border-radius: 10px; padding: 12px 16px; opacity: .95; }
+  .muted { opacity: .7; font-size: .9rem; }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+
+<h1>두바퀴환승 개인정보처리방침</h1>
+<p class="muted">시행일: 2026년 9월 30일 · 최종 수정: 2026년 9월 30일</p>
+
+<div class="box">
+  <strong>두바퀴환승은 회원가입 없이 씁니다.</strong> 이름 · 이메일 · 전화번호 · 비밀번호를 묻지 않습니다.<br>
+  기록 · 즐겨찾기 · 최근 길은 <strong>이 기기 안에만</strong> 저장되고 서버로 보내지 않습니다.<br>
+  현재 위치 권한을 쓰지 않고, 광고와 분석 도구도 현재 없습니다.
+</div>
+
+<h2>1. 이 기기 안에만 저장하는 것</h2>
+<p>설정(자전거 한 번에 최대 시간), 자전거를 탄 기록(날짜 · 거리 · 시간 · 지나간 대여소 이름),
+즐겨찾기한 곳, 최근에 찾은 길은 이 기기에만 저장됩니다(안드로이드 앱은 앱 전용 저장 공간, 웹판은 그 브라우저의 저장 공간).
+앱을 지우거나 브라우저 기록을 지우면 함께 사라집니다. 설정 화면에서 언제든 지울 수 있습니다.</p>
+
+<h2>2. 인터넷으로 주고받는 것</h2>
+<p>길을 찾기 위해 아래 두 가지만 운영자의 서버(Supabase)를 거칩니다.</p>
+<ul>
+  <li><strong>따릉이 대여소 목록</strong> — 서울 열린데이터광장의 공개 자료를 받아 옵니다. 요청에 사용자에 관한 값은 싣지 않습니다.</li>
+  <li><strong>주소 · 장소 검색</strong> — 검색창에 적은 글자를 좌표로 바꾸려고 카카오 로컬 검색에 보냅니다.
+    검색어는 결과를 돌려준 뒤 <strong>저장하지 않습니다.</strong>
+    지하철역 · 따릉이 대여소 이름 검색은 기기 안에서만 이루어집니다.</li>
+</ul>
+<p>길 계산은 모두 기기 안에서 합니다. 출발지 · 도착지 · 기록은 서버로 보내지 않습니다.
+다만 인터넷 요청의 특성상 서버와 카카오가 접속 기록(IP 주소 등)을 잠시 남길 수 있습니다.</p>
+
+<h2>3. 다른 앱으로 넘기는 것</h2>
+<p>결과의 지도 단추를 누르면 카카오맵이 열리고, 그 구간의 출발 · 도착 대여소 이름과 좌표가 카카오맵으로 넘어갑니다.
+이후는 카카오맵의 개인정보처리방침을 따릅니다.</p>
+
+<h2>4. 아직 없는 기능</h2>
+<p>설정 화면의 「여러 기기에서 기록 이어 보기」와 「자동 기록(GPS)」은 준비 중이며 지금은 동작하지 않습니다.
+이 기능을 넣게 되면 이 방침을 먼저 고친 뒤 알립니다.</p>
+
+<h2>5. 문의</h2>
+<p>개인정보에 관한 문의는
+<a href="mailto:sya.apps.dev@gmail.com?subject=%5B%EB%91%90%EB%B0%94%ED%80%B4%ED%99%98%EC%8A%B9%5D%20%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%20%EB%AC%B8%EC%9D%98">sya.apps.dev@gmail.com</a>
+으로 보내 주세요.</p>
+
+<p class="muted">두바퀴환승은 서울시 공식 앱이 아닙니다. 서울 열린데이터광장과 서울교통공사의 공공데이터를 씁니다.</p>
+
+</body>
+</html>

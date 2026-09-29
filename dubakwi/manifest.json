@@ -3,10 +3,10 @@
     "short_name": "두바퀴환승",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
+    "background_color": "#F6F7FB",
+    "theme_color": "#2F4FD8",
     "description": "두바퀴환승 - 따릉이와 지하철 잇기",
-    "orientation": "portrait-primary",
+    "orientation": "any",
     "prefer_related_applications": false,
     "icons": [
         {
