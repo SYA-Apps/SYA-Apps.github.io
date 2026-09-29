@@ -29713,7 +29713,7 @@ f=A.jn(j,0,A.tk(Math.max(1,j.length/3|0),"count",t.S),t.i)
 e=f.oS(0,new A.aIb())/f.gM(0)
 if(e<=0)return b
 for(d=0,q=0;q<s;++q)d=Math.max(d,Math.abs(b[q]))
-c=Math.min(Math.min(Math.pow(10,(-10-20*Math.log(e)/2.302585092994046)/20),0.89/d),Math.pow(10,1.2)/r)
+c=Math.min(Math.min(Math.pow(10,(-8.4-20*Math.log(e)/2.302585092994046)/20),0.89/d),Math.pow(10,1.2)/r)
 for(o=0;o<s;++o){n=b[o]
 p&2&&A.ax(b)
 b[o]=n*c}return b},
