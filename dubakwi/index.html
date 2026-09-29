@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/dubakwi/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="두바퀴환승 - 따릉이와 지하철 잇기">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="두바퀴환승">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>두바퀴환승</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <!-- 첫 화면이 뜨기 전 흰 화면 대신(공통 규칙 «웹 첫 로딩») -->
+  <style>
+    #sya-splash{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;gap:14px;background:#F6F7FB;color:#6B7385;
+      font:15px/1.5 -apple-system,BlinkMacSystemFont,"Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+      transition:opacity .25s ease}
+    #sya-splash .t{font-size:22px;color:#1F2A44}
+    #sya-splash .bar{width:124px;height:4px;border-radius:99px;background:#E3E6EF;overflow:hidden}
+    #sya-splash .bar i{display:block;width:40%;height:100%;border-radius:99px;background:#F08A24;
+      animation:sya-slide 1.1s ease-in-out infinite}
+    @keyframes sya-slide{0%{transform:translateX(-110%)}100%{transform:translateX(310%)}}
+  </style>
+  <div id="sya-splash">
+    <div class="t">🚲 두바퀴환승</div>
+    <div>불러오는 중…</div>
+    <div class="bar"><i></i></div>
+  </div>
+  <script>
+    addEventListener('flutter-first-frame', function () {
+      var s = document.getElementById('sya-splash');
+      if (!s) return;
+      s.style.opacity = '0';
+      setTimeout(function () { s.remove(); }, 300);
+    });
+  </script>
+  <!--
+    You can customize the "flutter_bootstrap.js" script.
+    This is useful to provide a custom configuration to the Flutter loader
+    or to give the user feedback during the initialization process.
+
+    For more details:
+    * https://docs.flutter.dev/platform-integration/web/initialization
+  -->
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
