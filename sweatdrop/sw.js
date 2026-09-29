@@ -22,6 +22,10 @@ const SCOPE = new URL(self.registration.scope).pathname; // "/sweatdrop/" (시�
 // 🚨 캐시 이름에 폴더를 넣는다 — 시험판도 같은 사이트라, 안 넣으면 둘이 서로의 캐시를 지운다.
 const PREFIX = 'sweatdrop:' + SCOPE + ':';
 const CACHE = PREFIX + B;
+// 🔤 구글이 주는 **대체 글꼴**(이모지 · 한글 조각 · 기호). 엔진이 우리 글꼴에 없는 글자를 그릴 때 받는다.
+//    이 앱은 🗓️🔔💧 같은 이모지를 아이콘으로 쓰므로 **열 때마다** 받고 있었다(2026-09-30 실측 9개).
+//    주소가 내용마다 고정이라 바뀌지 않는다 → 판이 바뀌어도 지우지 않는 따로 된 캐시에 둔다.
+const FONTS = 'sweatdrop:gstatic';
 const PAGES = /\/(index\.html|join\.html|privacy\.html)?$/;
 const NEVER = /\/(sw\.js|version\.json|flutter_service_worker\.js)$/;
 
@@ -30,11 +34,15 @@ self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', (event) => {
   event.waitUntil((async () => {
     for (const k of await caches.keys()) {
-      if (k.startsWith(PREFIX) && k !== CACHE) await caches.delete(k);
+      if (k.startsWith(PREFIX) && k !== CACHE) await caches.delete(k); // FONTS 는 PREFIX 로 시작하지 않아 남는다
     }
     await self.clients.claim();
   })());
 });
+
+function gstatic(url) {
+  return url.hostname === 'fonts.gstatic.com';
+}
 
 function mine(url) {
   return url.origin === self.location.origin &&
@@ -47,6 +55,17 @@ self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
+  if (gstatic(url)) {
+    event.respondWith((async () => {
+      const cache = await caches.open(FONTS);
+      const hit = await cache.match(req);
+      if (hit) return hit;
+      const res = await fetch(req);
+      if (res.ok) cache.put(req, res.clone()).catch(() => {});
+      return res;
+    })());
+    return;
+  }
   if (!mine(url)) return;
   if (req.mode === 'navigate' || PAGES.test(url.pathname)) return; // 페이지는 늘 인터넷에서
   event.respondWith((async () => {
@@ -68,6 +87,14 @@ self.addEventListener('message', (event) => {
     for (const u of list) {
       try {
         const url = new URL(u);
+        if (gstatic(url)) {
+          const fc = await caches.open(FONTS);
+          if (!(await fc.match(url.href))) {
+            const r = await fetch(url.href, { mode: 'cors' });
+            if (r.ok) await fc.put(url.href, r);
+          }
+          continue;
+        }
         if (!mine(url) || PAGES.test(url.pathname)) continue;
         if (await cache.match(url.href, { ignoreSearch: true })) continue;
         const res = await fetch(url.href, { cache: 'no-cache' });
