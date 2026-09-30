@@ -46539,7 +46539,7 @@ o=A.u(r,r)
 for(n=new A.dD(j,A.k(j).i("dD<1,2>")).gai(0);n.C();){l=n.d
 o.n(0,l.a,l.b.c)}h=p.a1w(o)
 g=A.b([],t.FY)
-f=new A.am9(c4,A.u(r,t.sg),c4.Gc(d1,d0,s<900?s:900,900))
+f=new A.am9(c4,A.u(r,t.sg),c4.Gc(d1,d0,s,900))
 for(p=p.Mc(d4,900),o=p.length,n=t.fD,e=c5,d=0;d<p.length;p.length===o||(0,A.r)(p),++d){c=p[d]
 k=c.b
 b=A.b([new A.cb(B.aX,"\ucd9c\ubc1c",k+"\uc5ed",B.c.aC(A.f_(d4,c.c)*1.3/1.25),c5,0,c5,c5,c5,0,c5,c5),new A.cb(B.aX,k+"\uc5ed \ub4e4\uc5b4\uac00\uc11c",c6,300,c5,0,c5,c5,c5,0,c5,c5)],m)
