@@ -48,12 +48,12 @@
   <!-- 첫 화면이 뜨기 전 흰 화면 대신(공통 규칙 «웹 첫 로딩») -->
   <style>
     #sya-splash{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;
-      align-items:center;justify-content:center;gap:14px;background:#FBFAF8;color:#6B6862;
+      align-items:center;justify-content:center;gap:14px;background:#FAF9F4;color:#686C62;
       font:15px/1.5 -apple-system,BlinkMacSystemFont,"Malgun Gothic","Apple SD Gothic Neo",sans-serif;
       transition:opacity .25s ease}
-    #sya-splash .t{font-size:22px;color:#1C1B19}
-    #sya-splash .bar{width:124px;height:4px;border-radius:99px;background:#E6E2DB;overflow:hidden}
-    #sya-splash .bar i{display:block;width:40%;height:100%;border-radius:99px;background:#6D4F9C;
+    #sya-splash .t{font-size:22px;color:#1E231F}
+    #sya-splash .bar{width:124px;height:4px;border-radius:99px;background:#E3E2D8;overflow:hidden}
+    #sya-splash .bar i{display:block;width:40%;height:100%;border-radius:99px;background:#2F6E45;
       animation:sya-slide 1.1s ease-in-out infinite}
     @keyframes sya-slide{0%{transform:translateX(-110%)}100%{transform:translateX(310%)}}
   </style>
@@ -80,11 +80,11 @@
   -->
   <script src="flutter_bootstrap.js" async></script>
   <!-- 🐌 앱 파일을 폰에 붙들어 두는 캐시(web/sw.js · 2026-09-30 땀방울 본보기).
-       f84c80b1cca3 는 배포 때 tool/stamp_web.py 가 이번 빌드 지문으로 바꾼다. 안 바꾸면 캐시를 켜지 않고
+       aa6b351c359c 는 배포 때 tool/stamp_web.py 가 이번 빌드 지문으로 바꾼다. 안 바꾸면 캐시를 켜지 않고
        예전처럼(캐시 없이) 돈다. -->
   <script>
     (function () {
-      var B = 'f84c80b1cca3';
+      var B = 'aa6b351c359c';
       if (!('serviceWorker' in navigator) || B.charAt(0) === '_') return;
       navigator.serviceWorker.register('sw.js?b=' + B).catch(function () {});
       addEventListener('flutter-first-frame', function () {
