@@ -10,7 +10,8 @@
     · 저장: 설정 · 기록 · 즐겨찾기 · 최근 길 → 기기 안(lib/services/store*.dart). 서버로 안 간다
     · 서버로 가는 요청 둘:
         - 따릉이 목록(supabase/functions/dubakwi-bikes) — 요청에 아무 값도 안 싣는다
-        - 주소·장소 검색(supabase/functions/dubakwi-places) — 검색어만. 카카오 로컬 API 로 넘기고 저장하지 않는다
+        - 주소·장소 검색(소담 공용 kakao-local · 2026-09-30 옮김) — 검색어만. 카카오 로컬 API 로 넘기고 저장하지 않는다
+          (함수는 앱 이름·성공/실패 건수만 적는다 — 검색어·좌표는 안 적는다)
     · 현재 위치(2026-09-30~): 출발지로 「현재 위치」를 고를 때만 한 번 잰다. 기기 안 길 계산에만 쓰고 서버로 안 보내며
       최근 길에도 안 남긴다(lib/services/location_source.dart · SavedData.addRecent). 백그라운드 위치 없음
     · 계정 · 광고 · 분석 도구: 없음(설정의 「준비 중」 항목은 아직 동작하지 않는다)
