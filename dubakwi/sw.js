@@ -71,7 +71,10 @@ self.addEventListener('fetch', (event) => {
     const cache = await caches.open(CACHE);
     const hit = await cache.match(req, { ignoreSearch: true });
     if (hit) return hit;
-    const res = await fetch(req);
+    // 🚨 `no-cache` — 브라우저 HTTP 캐시(Pages max-age=600)를 그대로 믿으면, 새 판의 캐시가 **옛 판 파일**로 채워져
+    //    그 판 내내 옛 화면이 나온다(2026-09-30 실제로 당했다: 자전거 색을 바꿨는데 세 번 새로 열어도 옛 색).
+    //    판마다 한 번씩만 서버에 묻는다(같으면 304) — 그 뒤로는 위 캐시에서 나간다.
+    const res = await fetch(new Request(req, { cache: 'no-cache' }));
     if (res.ok && res.type === 'basic') cache.put(req, res.clone()).catch(() => {});
     return res;
   })());
