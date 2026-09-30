@@ -46334,6 +46334,7 @@ if(a9===a7)continue
 b0=a8.c
 b1=B.c.aF(A.eZ(a6,b0)*1.4/2.7777777777777777)
 if(b1>s)continue
+if(b1<240)continue
 if(A.eZ(a6,c6)-A.eZ(b0,c6)<0.6*A.eZ(a6,b0))continue
 b2=A.dX(c3,!1)
 b2=B.d.fk(A.kP(k,b2,"",0))
