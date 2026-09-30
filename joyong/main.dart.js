@@ -103125,7 +103125,7 @@ break
 case 1:o.push(b)
 s=p}for(;;)switch(s){case 0:m=A
 l=B.YT
-k="\uc571 \uc544\uc774\ucf58\uc758 \uc27f \uc5bc\uad74\uc740 Microsoft Fluent Emoji \ub97c \uc37c\uc2b5\ub2c8\ub2e4.\n\n"
+k="\uc571 \uc544\uc774\ucf58(\uc27f \uc5bc\uad74)\uacfc \ud654\uba74\uc758 \ub2e8\uacc4 \uadf8\ub9bc(\uc6c3\ub294 \uc5bc\uad74 \xb7 \uc2a4\ud53c\ucee4 \xb7 \uc6d0\uc22d\uc774 \xb7 \ubc1c)\uc740 Microsoft Fluent Emoji \ub97c \uc37c\uc2b5\ub2c8\ub2e4.\n\n"
 s=4
 return A.te($.yt().a1j("assets/LICENSE-Microsoft-Fluent-Emoji.txt"),$async$$0,r)
 case 4:s=3
@@ -103276,7 +103276,8 @@ $S:599}
 A.a3K.prototype={
 I(a){var s,r,q,p,o,n,m,l,k,j,i=this.c,h=i.d
 if(i.r)s="\ud754\ub4e4\ub9bc \uc13c\uc11c\ub97c \uc4f8 \uc218 \uc5c6\uc5b4\uc694(\ud5c8\uc6a9 \uc548 \ub428)"
-else if(h.c==null)s="\ud754\ub4e4\ub9bc \uc13c\uc11c\ub97c \ucf1c\ub294 \uc911\u2026"
+else{r=h.c
+if(r==null)s="\ud754\ub4e4\ub9bc \uc13c\uc11c\ub97c \ucf1c\ub294 \uc911\u2026"
 else{r=!1
 if(h.d!=null){q=Date.now()
 p=h.d
@@ -103285,7 +103286,7 @@ if(B.e.e3(new A.c7(q,0,!1).eC(p).a,1000)>2000)if(h.e!=null){r=Date.now()
 q=h.e
 q.toString
 q=B.e.e3(new A.c7(r,0,!1).eC(q).a,1000)>2000
-r=q}else r=!0}s=r?"\ud754\ub4e4\ub9bc \uc13c\uc11c \uac12\uc774 \uc548 \ub4e4\uc5b4\uc640\uc694":""}o=i.e.c
+r=q}else r=!0}s=r?"\ud754\ub4e4\ub9bc \uc13c\uc11c \uac12\uc774 \uc548 \ub4e4\uc5b4\uc640\uc694":""}}o=i.e.c
 n=new A.aDS()
 i=o<=0
 m=i?0:h.ga26()/o
