@@ -1,0 +1,35 @@
+{
+    "name": "콕콕단어",
+    "short_name": "콕콕단어",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#FFF9EE",
+    "theme_color": "#FFF9EE",
+    "description": "콕콕단어 - 찍어서 쓰고 외우는 영어 단어장",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
