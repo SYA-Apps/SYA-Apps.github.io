@@ -80,11 +80,11 @@
   -->
   <script src="flutter_bootstrap.js" async></script>
   <!-- 🐌 앱 파일을 폰에 붙들어 두는 캐시(web/sw.js · 2026-09-30 땀방울 본보기).
-       0b8ea224ea60 는 배포 때 tool/stamp_web.py 가 이번 빌드 지문으로 바꾼다. 안 바꾸면 캐시를 켜지 않고
+       dc6c0748774f 는 배포 때 tool/stamp_web.py 가 이번 빌드 지문으로 바꾼다. 안 바꾸면 캐시를 켜지 않고
        예전처럼(캐시 없이) 돈다. -->
   <script>
     (function () {
-      var B = '0b8ea224ea60';
+      var B = 'dc6c0748774f';
       if (!('serviceWorker' in navigator) || B.charAt(0) === '_') return;
       navigator.serviceWorker.register('sw.js?b=' + B).catch(function () {});
       addEventListener('flutter-first-frame', function () {
