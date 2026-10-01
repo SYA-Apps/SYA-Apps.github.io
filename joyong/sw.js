@@ -28,14 +28,15 @@ const FONTS = 'joyong:gstatic';
 const PAGES = /\/(index\.html|privacy\.html)?$/;
 const NEVER = /\/(sw\.js|version\.json|flutter_service_worker\.js)$/;
 
-self.addEventListener('install', () => self.skipWaiting());
+// 🚨 skipWaiting · clients.claim 을 쓰지 않는다(2026-10-01 ADMIN) — 앱을 연 채 새 판이 깔리면 옛 main.dart.js 와 새 자료가 섞인다
+//    (두바퀴환승에서 실제로 났다). 새 판은 «완전히 닫았다 다시 열 때» 바뀐다.
+self.addEventListener('install', () => {});
 
 self.addEventListener('activate', (event) => {
   event.waitUntil((async () => {
     for (const k of await caches.keys()) {
       if (k.startsWith(PREFIX) && k !== CACHE) await caches.delete(k); // FONTS 는 PREFIX 로 시작하지 않아 남는다
     }
-    await self.clients.claim();
   })());
 });
 
