@@ -120,16 +120,57 @@
       // 🔁 새 판이 깔리면 띠를 띄우고, **사람이 누를 때만** 넘겨받는다(2026-10-01 ADMIN · 사용자 승인).
       //    저절로 넘겨받으면 옛 main.dart.js 와 새 자료가 섞이고, 아예 안 넘기면 옛 판이 오래 남는다.
       var asked = false;
+      // 🎨 띠 겉모양 — 땀방울 글씨체(주아)·색(2026-10-01 사용자 «문구 좀 예쁘게 · 각 앱 스타일에 맞게 · 글씨체도»).
+      //    색은 앱 토큰(coralTint · ink · sub · coral)에 맞췄다. 주아에는 «…» 가 없어 문구에서 뺐다(빙글 표시가 대신한다).
+      var T = {
+        font: 'assets/assets/fonts/Jua-Subset.ttf',
+        icon: '💧', title: '새 판이 나왔어요!', sub: '눌러서 바로 바꿔요', btn: '바꾸기',
+        bg: '#FFF3EE', fg: '#2C2B36', subc: '#9896A3', accent: '#FF7A59', accentFg: '#FFFFFF', ring: '#FFE1D4'
+      };
       function offer(w) {
         if (!w || !navigator.serviceWorker.controller || document.getElementById('sya-update')) return;
+        if (!document.getElementById('sya-update-css')) {
+          var st = document.createElement('style');
+          st.id = 'sya-update-css';
+          st.textContent =
+            "@font-face{font-family:'SyaUpd';src:url('" + T.font + "');font-display:swap}" +
+            '#sya-update{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));z-index:9999;' +
+            'transform:translate(-50%,140%);width:calc(100% - 28px);max-width:480px;box-sizing:border-box;' +
+            'display:flex;align-items:center;gap:12px;padding:12px 12px 12px 14px;border:1px solid ' + T.ring + ';' +
+            'border-radius:20px;background:' + T.bg + ';color:' + T.fg + ';text-align:left;cursor:pointer;' +
+            "font-family:'SyaUpd',system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.16),0 2px 6px rgba(0,0,0,.08);" +
+            'transition:transform .45s cubic-bezier(.2,.9,.3,1.2);-webkit-tap-highlight-color:transparent}' +
+            '#sya-update.on{transform:translate(-50%,0)}' +
+            '#sya-update .i{flex:0 0 42px;height:42px;border-radius:50%;background:' + T.ring + ';display:grid;place-items:center;font-size:22px}' +
+            '#sya-update .t{flex:1;min-width:0;line-height:1.3}' +
+            '#sya-update .t b{display:block;font-weight:normal;font-size:17px}' +
+            '#sya-update .t small{display:block;font-size:13px;color:' + T.subc + '}' +
+            '#sya-update .b{flex:0 0 auto;padding:9px 16px;border-radius:999px;background:' + T.accent + ';color:' + T.accentFg + ';font-size:15px}' +
+            '#sya-update .s{display:inline-block;width:14px;height:14px;border:2px solid ' + T.accentFg + ';border-right-color:transparent;' +
+            'border-radius:50%;animation:syaspin .8s linear infinite;vertical-align:-2px}' +
+            '@keyframes syaspin{to{transform:rotate(360deg)}}' +
+            '@media (prefers-reduced-motion:reduce){#sya-update{transition:none}#sya-update .s{animation:none}}';
+          document.head.appendChild(st);
+        }
         var bar = document.createElement('button');
         bar.id = 'sya-update';
-        bar.textContent = '새 판이 나왔어요 · 눌러서 바꾸기';
-        bar.style.cssText = 'position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));' +
-          'z-index:9999;padding:14px;border:0;border-radius:14px;background:#FF7A59;color:#fff;font-size:16px;' +
-          'box-shadow:0 4px 16px rgba(0,0,0,.18)';
-        bar.onclick = function () { asked = true; bar.textContent = '바꾸는 중…'; w.postMessage({ skip: true }); };
+        bar.type = 'button';
+        bar.setAttribute('aria-label', T.title + ' — ' + T.sub);
+        bar.innerHTML = '<span class="i" aria-hidden="true"></span><span class="t"><b></b><small></small></span><span class="b"></span>';
+        bar.querySelector('.i').textContent = T.icon;
+        bar.querySelector('b').textContent = T.title;
+        bar.querySelector('small').textContent = T.sub;
+        bar.querySelector('.b').textContent = T.btn;
+        bar.onclick = function () {
+          if (asked) return;
+          asked = true;
+          bar.querySelector('b').textContent = '바꾸는 중이에요';
+          bar.querySelector('small').textContent = '잠깐이면 돼요';
+          bar.querySelector('.b').innerHTML = '<span class="s"></span>';
+          w.postMessage({ skip: true });
+        };
         document.body.appendChild(bar);
+        requestAnimationFrame(function () { requestAnimationFrame(function () { bar.classList.add('on'); }); });
       }
       navigator.serviceWorker.addEventListener('controllerchange', function () { if (asked) location.reload(); });
       navigator.serviceWorker.register('sw.js?b=' + B).then(function (reg) {
