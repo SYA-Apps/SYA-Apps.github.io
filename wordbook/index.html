@@ -41,13 +41,13 @@
                          media 를 붙여 낮/밤 두 벌을 준다
         · background   : 플러터가 그리기 **전**과 화면 밖 여백의 색.
                          비워 두면 흰색이라 밤에 첫 프레임이 하얗게 번쩍인다
-       🚨 색 값은 앱 테마 배경색(낮 #FFF9EE · 밤 #1B1A17)와 **같아야 한다.**
+       🚨 색 값은 앱 테마 배경색(낮 #FFF8EE · 밤 #1B1A17)와 **같아야 한다.**
           토큰을 바꾸면 여기도 바꿀 것 — 다르면 이 띠가 다시 생긴다. -->
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFF9EE">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFF8EE">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1B1A17">
   <style>
-    html, body { margin: 0; background: #FFF9EE; }
+    html, body { margin: 0; background: #FFF8EE; }
     /* 페이지 자체는 절대 밀리지 않게 — 밀리면 화면은 그대로인데 손가락 자리만 어긋난다(2026-09-30) */
     html, body { height: 100%; overflow: hidden; overscroll-behavior: none; }
     @media (prefers-color-scheme: dark) {
@@ -70,10 +70,10 @@
 <body>
   <!-- 첫 화면 로딩 표시 (땀방울 것을 옮김) — 첫 방문에 몇 MB 를 받는 동안
        흰 화면만 보이면 안 열리는 것으로 읽힌다. 첫 프레임이 그려지면 스스로 사라진다.
-       배경색은 위 html/body 와 같게(밝게 #FFF9EE · 어둡게 #1B1A17) — 사라질 때 깜빡이지 않게. -->
+       배경색은 위 html/body 와 같게(밝게 #FFF8EE · 어둡게 #1B1A17) — 사라질 때 깜빡이지 않게. -->
   <style>
     #sya-splash{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;
-      align-items:center;justify-content:center;gap:14px;background:#FFF9EE;color:#6b6874;
+      align-items:center;justify-content:center;gap:14px;background:#FFF8EE;color:#6b6874;
       font:15px/1.5 -apple-system,BlinkMacSystemFont,"Malgun Gothic","Apple SD Gothic Neo",sans-serif;
       transition:opacity .25s ease}
     #sya-splash img{width:84px;height:84px;border-radius:21px}
@@ -84,7 +84,7 @@
     @media (prefers-color-scheme: dark){#sya-splash{background:#1B1A17;color:#b3afbd}
       #sya-splash .bar{background:#2c2a33}}
   </style>
-  <style id="sya-splash-font">@font-face{font-family:'SyaSplash';src:url(data:font/woff2;base64,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) format('woff2');font-display:block}#sya-splash,#sya-splash *{font-family:'SyaSplash',-apple-system,BlinkMacSystemFont,'Malgun Gothic','Apple SD Gothic Neo',sans-serif !important}</style>
+  <style id="sya-splash-font">@font-face{font-family:'SyaSplash';src:url(data:font/woff2;base64,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) format('woff2');font-display:block}#sya-splash,#sya-splash *{font-family:'SyaSplash',-apple-system,BlinkMacSystemFont,'Malgun Gothic','Apple SD Gothic Neo',sans-serif !important}</style>
   <div id="sya-splash">
     <img src="icons/Icon-192.png" alt=""><div>불러오는 중</div><div class="bar"><i></i></div>
   </div>
@@ -102,7 +102,7 @@
        그때는 오늘까지와 똑같이(캐시 없이) 돈다. -->
   <script>
     (function () {
-      var B = '773182bae920';
+      var B = '98017bc48a6b';
       if (!('serviceWorker' in navigator) || B.charAt(0) === '_') return;
       // 🔁 새 판이 깔리면 띠를 띄우고, **사람이 누를 때만** 넘겨받는다(2026-10-01 ADMIN · 사용자 승인).
       //    저절로 넘겨받으면 옛 main.dart.js 와 새 자료가 섞이고, 아예 안 넘기면 옛 판이 오래 남는다.
