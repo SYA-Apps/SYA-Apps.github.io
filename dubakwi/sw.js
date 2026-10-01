@@ -29,14 +29,17 @@ const FONTS = 'dubakwi:gstatic';
 const PAGES = /\/(index\.html|privacy\.html)?$/;
 const NEVER = /\/(sw\.js|version\.json|flutter_service_worker\.js)$/;
 
-self.addEventListener('install', () => self.skipWaiting());
+// 🚨 skipWaiting · clients.claim 을 쓰지 않는다(2026-10-01).
+//    쓰면 앱을 열어 둔 채 새 판이 깔릴 때 **새 워커가 그 자리에서 넘겨받아**, 이미 받은 main.dart.js(옛 판)와
+//    나중에 받는 자료(assets/data/*.json · 새 판)가 **섞인다** — 실제로 「2신정선」(새 자료 + 옛 코드)이 폰에 떴다.
+//    새 워커는 앱이 완전히 닫힐 때까지 기다렸다가 다음에 열 때 통째로 바뀐다(한 번 닫았다 열면 새 판).
+self.addEventListener('install', () => {});
 
 self.addEventListener('activate', (event) => {
   event.waitUntil((async () => {
     for (const k of await caches.keys()) {
       if (k.startsWith(PREFIX) && k !== CACHE) await caches.delete(k); // FONTS 는 PREFIX 로 시작하지 않아 남는다
     }
-    await self.clients.claim();
   })());
 });
 
