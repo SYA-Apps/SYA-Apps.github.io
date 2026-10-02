@@ -29,6 +29,18 @@
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="찍어서 쓰고 외우는 영어 단어장">
 
+<!-- 카톡·메신저 링크 미리보기(Open Graph). 이미지는 절대 주소여야 한다. make_og.py 가 넣었다. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="콕콕단어">
+<meta property="og:title" content="콕콕단어 · 찍어서 쓰고 외우는 영어 단어장">
+<meta property="og:description" content="단어 프린트를 찍으면 단어장이 되고, 플래시카드·따라 쓰기·쪽지시험으로 외워요.">
+<meta property="og:url" content="https://sya-apps.github.io/wordbook/">
+<meta property="og:image" content="https://sya-apps.github.io/wordbook/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="콕콕단어 — 공책 위 노란 새와 연필">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
   <!-- 🌗 낮/밤 — **이게 없으면 위쪽이 뿌옇게 번진다**(2026-09-21 아이폰에서 실제로 그랬다).
        사파리는 이 세 가지가 없으면 «이 페이지는 밝다» 고 보고, 화면 맨 위(상태 바 뒤)를
        **밝게 칠한 뒤 그 위에 흐림 효과를 겹친다.** 그래서 어두운 앱 내용과 만나는 자리가
@@ -84,7 +96,7 @@
     @media (prefers-color-scheme: dark){#sya-splash{background:#1B1A17;color:#b3afbd}
       #sya-splash .bar{background:#2c2a33}}
   </style>
-  <style id="sya-splash-font">@font-face{font-family:'SyaSplash';src:url(data:font/woff2;base64,d09GMgABAAAAAAbcAA8AAAAADCAAAAaHAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGyAcWgZgAFwRCAqODIs+ATYCJAMgCxIABCAFg1AHIBckGBIbuwlRlE9SBeBHYmys8vEbMi6Oro7tRQW2qFn+07vZnzuThNQ9S7GK0VcqFlJXqK6Y2t8Tta9lfrpPONWQE62ZTpGK+hRah+lega8yVnRzR+a+DksbgGdjagsoW1dNLGSFrPA1BvBK+F8gRTwAUFNmafxQAaExqKYmxYQRs7nEWJW+upEW7gTpkt0ZBMAdkYgGFZdWN0OGAAAuFwAAGK4JKlh37xF9J4yCN9LBZG/Wt++ICfAeNHnoAAQCID5Qj0mQbCyCDBLP4DuNDgKfQ2sgAmwZawdQdd8JdcNKlVAaRDhXo6O8DCqUp358jGsJICwhJe6OLJLrACjgABhwcAPBQSwB5TFvyLmtp5zbcPnnm0seGZ76yRyw/aLru5qR5cHa9OzPbX+DcpICuVxwP4UMAPAF4A2wMQC/EoBwX+Rg4PrKAPRmU5NlQvJ8tU0NE2ctq9/MhC2inSKEHiufmvGmI0Ic9fDhRbKUSDlVSv/RHQhx1ha1tFBAHKQBiKACNe9HvCd4WY3gLeQVlJIk1PrD8dk2rKDMjKdNPzh+8U7XFp0CcWrM+7ZYLteFfdmp+TdDs2HCXsPX8LHV6qNN4xaLxy2H1ZA3Ur6xAEcFxJ4zQgh1BMx6JOVOAkuXLoGiNh42JQhibXCEsqmjIJ4GZfDGncVnEOLOGExF7X5sjpRDHYP83ILyBYZenlhSTq3MSRwEYcusoG0htIyDuOxmbLFBUwEfpoy/Y3vgQduIaNms7k2WUDe3AQEIxzsK1JgZEEez7L2MgnA4AOCKLYWPvYb1avcTrYfkzNmLKtWfltJ79Bsdy9sdt87ckyKqpZQ2E8fwtjvDmob/CeGtlJ1Ea4iNWbHJmva3SgGo6CFssbw9Ot1G4edenEKmsjfVLmIoRGfh/LTsjSCOIjNX49XEx5JFVnFusbCqXdRaD38ht74jiF/pqVIC5YxNn0Wz3Ylw+kJnftl6MO9Wyc2yS+XbKtmAW7a5fuKfgy+mnyjZBSfuKclU5n/0P514omvvqFE15b/u+06sHDJj+bDb/0pX0v+JWb/66oBTNq/8dMPhv84jVdpiM+LU2JHww93Zy1Q3iYXbw+8pZ1rQSWPXtsrzn9EizHD37f+hgO336pf6bAqM6l/19kxeFZUzg93QM1qQxIQqYe3Y8WP3FAmgw/Se0muroDrBLgTY65kv/TQ2UFffEB58THbz6KMyO7Peueo+SP2yVez17gleOS8w0iia+56cHbU28N4rQfz5y7Et4/ZODMrLCpXH/rGQqtgXF0yCWhFYLEh3zjBRNkiG0z5GFVru5yzBGHPS39G7p5wGDKF2Po5KPdyDa6iN6ticdj5nQmg/ylD7jiUNOj8dKqG8qdHiLtTzeU8xzZPLTewy8+1NNdXLVUKJ0a3FTd8PIzGQ7DkhrVBpJal8bZFuIfOdi4O9h33B9ltYgyjK1BbjuTsuzl0TdYIsitIcx2Dqx/UBpp6cwGLhjSS7x0SHvvTymf+G16ejvQedXJtZisU0kvxwcX7JiNR8p3eY5hybUYyykWkFzoRCrWN0WrG1lgbW8XJe1LehKachIa44JCqppMFQ6NwTufUPxDxWpxQrhWZHdrZHniQThfm4UXEVrZBGuX29tkXoEdu8fJ3pM38QrurwrUPtG2erSk+2lrYllbgHusOpxFbp+Y+yxuj0hhZDWnF6RnbDgMTSSvg2+E+rMmgK4YspmqOdEtnv57O0t81IyClMfRnftp6G9JbSYvk7ZZxgC/PwnIbS/9iKwJVWSTtqrrwy09ZcazfUGKpivv9yduX9VI0c+ap5XWnYXo061OzsjjwAAAgAA7z35zh6fPL+kTn/HgA+zmt0AMC3X/9/FehdRb6a1wCQwHqdsOTd5wAD6RGLGPsfYnOZL8AAfgdpvBO99+wF0OtZXJAN4Mo4Cb4EQe2lgxMcJLgBuAA88wnBuMBn8MYzPkcO3ucLMJE/X0Q4ZV1dgoEaUYTRGIOpGIehGIwhmAAFVqTCijSBZitxYO8yjMZkTMSog1hMHEAciesx7iwOw0D0Z4PdBxN4MLoVx0OBZVU8AWMsOAcpOjYYQ1H5ieiHZCYejZGe4lT0xagcYKCGcTaY2EdEVk9aSFxG0MiGwX2zEeiLcbAiGakacr3LOVCOMuT2kTJHUpvQfsdCxloxcJ+xoRiNtsacfJwAh9Lq2gErepIv6O93nvz72TFiEc2f/TKAvPlo2GHBNLYgjY/hYwAAAA==) format('woff2');font-display:block}#sya-splash,#sya-splash *{font-family:'SyaSplash',-apple-system,BlinkMacSystemFont,'Malgun Gothic','Apple SD Gothic Neo',sans-serif !important}</style>
+  <style id="sya-splash-font">@font-face{font-family:'SyaSplash';src:url(data:font/woff2;base64,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) format('woff2');font-display:block}#sya-splash,#sya-splash *{font-family:'SyaSplash',-apple-system,BlinkMacSystemFont,'Malgun Gothic','Apple SD Gothic Neo',sans-serif !important}</style>
   <div id="sya-splash">
     <img src="icons/Icon-192.png" alt=""><div>불러오는 중</div><div class="bar"><i></i></div>
   </div>
@@ -102,16 +114,17 @@
        그때는 오늘까지와 똑같이(캐시 없이) 돈다. -->
   <script>
     (function () {
-      var B = 'eaa02645d13a';
+      var B = 'c9864daebbf0';
       if (!('serviceWorker' in navigator) || B.charAt(0) === '_') return;
       // 🔁 새 판이 깔리면 띠를 띄우고, **사람이 누를 때만** 넘겨받는다(2026-10-01 ADMIN · 사용자 승인).
       //    저절로 넘겨받으면 옛 main.dart.js 와 새 자료가 섞이고, 아예 안 넘기면 옛 판이 오래 남는다.
       var asked = false;
-      // 🎨 띠 겉모양 — 땀방울 것을 옮김. 글씨체·색은 앱 디자인이 정해지면 맞춘다.
+      // 🎨 띠 겉모양 — 앱과 같은 글씨(주아 · 앱이 쓰는 글자만 남긴 판, tool/subset_jua.py 가 이 파일 글자도 담는다)·색(연필 노랑 · 잉크 남색)
+      //    2026-10-02 사용자 «새 판이 나왔어요 글씨도 체크해 줘» — 그전엔 글꼴을 비워 둬서 폰 기본 글씨로 나왔다
       var T = {
-        font: '',
-        icon: '📒', title: '새 판이 나왔어요!', sub: '눌러서 바로 바꿔요', btn: '바꾸기',
-        bg: '#FFF4DC', fg: '#2C2B36', subc: '#9896A3', accent: '#F2A516', accentFg: '#FFFFFF', ring: '#FDE6B4'
+        font: 'assets/assets/fonts/Jua-Subset.ttf',
+        icon: '✏️', title: '새 판이 나왔어요!', sub: '눌러서 바로 바꿔요', btn: '바꾸기',
+        bg: '#FFF0C7', fg: '#26324A', subc: '#6F7686', accent: '#FFC233', accentFg: '#26324A', ring: '#FDE6B4'
       };
       function offer(w) {
         if (!w || !navigator.serviceWorker.controller || document.getElementById('sya-update')) return;
@@ -119,7 +132,8 @@
           var st = document.createElement('style');
           st.id = 'sya-update-css';
           st.textContent =
-                        '#sya-update{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));z-index:9999;' +
+            "@font-face{font-family:'SyaUpd';src:url('" + T.font + "');font-display:swap}" +
+            '#sya-update{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));z-index:9999;' +
             'transform:translate(-50%,140%);width:calc(100% - 28px);max-width:480px;box-sizing:border-box;' +
             'display:flex;align-items:center;gap:12px;padding:12px 12px 12px 14px;border:1px solid ' + T.ring + ';' +
             'border-radius:20px;background:' + T.bg + ';color:' + T.fg + ';text-align:left;cursor:pointer;' +
