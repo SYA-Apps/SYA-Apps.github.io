@@ -2,13 +2,13 @@
   땀방울 개인정보처리방침 — **이 파일이 원본이다.**
   =====================================================================
   구글은 두 곳을 다 요구한다(하나만 있으면 정책 위반):
-    1) 웹: https://sya-apps.github.io/sweatdrop/privacy.html → 플레이 콘솔 «개인정보처리방침» 칸
+    1) 웹: https://sya-apps.github.io/sweatdrop/privacy.html → 플레이 콘솔 「개인정보처리방침」 칸
     2) 앱 안 링크: 내정보 > 개인정보처리방침 (lib/core/app_info.dart 의 privacyPolicyUrl)
   web/ 에 두었으므로 `flutter build web` 이 산출물에 그대로 실어 Pages 로 올라간다.
   방침을 두 벌로 관리하면 앱은 살아 있는데 방침만 죽는 날이 온다 — 고칠 때는 여기만.
 
   🚨 **땀방울은 SYA 앱 중 처음으로 서버에 데이터를 올린다.** 다른 앱 방침을 베끼면
-     «서버로 수집하지 않습니다» 라는 거짓말이 된다. 아래 내용은 실제 코드 기준이다:
+     「서버로 수집하지 않습니다」 라는 거짓말이 된다. 아래 내용은 실제 코드 기준이다:
        · 서버로 가는 것  : lib/data/backend.dart 의 pushProfile / pushCheckin /
                            uploadCheckinPhoto / createRoom / joinRoom
        · 폰에만 남는 것  : 다짐(AppState 가 서버에 안 올린다) · 프로필 사진 · 인증샷 원본
@@ -16,7 +16,7 @@
        · 지우기          : AppState.clearAll → Backend.wipeMine
 
   ⚠️ **코드를 고치면 여기도 고친다.** 특히 서버로 보내는 항목이 늘거나, 광고·분석 도구를
-     붙이거나, 권한을 추가할 때. 스토어의 «데이터 안전» 설문과도 어긋나면 반려된다.
+     붙이거나, 권한을 추가할 때. 스토어의 「데이터 안전」 설문과도 어긋나면 반려된다.
 -->
 <!doctype html>
 <html lang="ko">
@@ -44,7 +44,7 @@
 <body>
 
 <h1>땀방울 개인정보처리방침</h1>
-<p class="muted">시행일: 2026년 9월 10일 · 최종 수정: 2026년 9월 16일</p>
+<p class="muted">시행일: 2026년 9월 10일 · 최종 수정: 2026년 10월 2일</p>
 
 <div class="box">
   <strong>땀방울은 회원가입 없이 쓸 수 있습니다.</strong> 이메일·전화번호·비밀번호를 묻지 않으며,
@@ -56,7 +56,7 @@
 <h2>1. 계정 — 실명도 연락처도 받지 않습니다</h2>
 <p>앱을 처음 켜면 서버가 <strong>임의의 식별자 하나</strong>를 만들어 줍니다. 이것이 계정의
 전부입니다. 이메일·전화번호·비밀번호를 요구하지 않고, 여러분의 실명이나 연락처를 알 방법이 없습니다.</p>
-<p class="muted">친구에게 보여 줄 <strong>닉네임</strong>(기본값 «나»)과 아바타 모양은 서버에 저장됩니다 —
+<p class="muted">친구에게 보여 줄 <strong>닉네임</strong>과 아바타 모양은 서버에 저장됩니다 —
 공유방에서 누가 누구인지 보여 주려면 필요합니다. 실명을 쓰지 않으셔도 됩니다.</p>
 <p class="muted">그래서 기기를 바꾸면 기록이 따라오지 않습니다. 폰을 바꿔도 이어 쓰고 싶은 사람은
 구글 계정을 연결할 수 있습니다(3-1항) — 연결은 선택이며, 하지 않아도 모든 기능을 그대로 씁니다.</p>
@@ -66,15 +66,16 @@
   <tr><th>내용</th><th>이 기기</th><th>서버</th></tr>
   <tr><td>오늘 운동했다는 기록(날짜) — <strong>운동 기록(활동·피트니스 정보)</strong></td><td>저장</td>
       <td><strong>공유방에 올린 것만</strong><span class="muted"> · 3-1항의 보관함</span></td></tr>
-  <tr><td>인증샷</td><td>저장</td>
+  <tr><td>인증샷(하루 4장까지)</td><td>저장</td>
       <td><strong>공유방에 올린 것만</strong><span class="muted"> · 3-1항의 보관함</span></td></tr>
-  <tr><td>«무슨 운동 했는지» 한 줄(40자 이내)</td><td>저장</td>
+  <tr><td>「무슨 운동 했는지」 한 줄(40자 이내)</td><td>저장</td>
       <td><strong>공유방에 올린 것만</strong><span class="muted"> · 3-1항의 보관함</span></td></tr>
   <tr><td><strong>오늘의 다짐</strong>(글·완료 여부)</td><td>저장</td><td><strong>올리지 않음</strong>
       (구글 계정으로 연결한 경우에만 본인만 보는 보관함에, 3-1항)</td></tr>
   <tr><td>닉네임, 아바타 모양</td><td>저장</td><td>저장(친구가 봐야 하므로)</td></tr>
   <tr><td><strong>프로필 사진</strong></td><td>저장</td><td><strong>올리지 않음</strong></td></tr>
   <tr><td>공유방 이름·초대 코드·참가 기록</td><td>저장</td><td>저장</td></tr>
+  <tr><td>친구 인증샷에 준 <strong>물방울</strong>(누가 어느 사진에 주었는지)</td><td>-</td><td>저장(같은 방 사람에게는 사진마다 받은 개수로 보입니다)</td></tr>
 </table>
 <p><strong>다짐은 개인적인 것이라 서버에 올리지 않습니다.</strong> 프로필 사진도 마찬가지로
 이 기기 안에만 있습니다. 인증할 때 <strong>어느 공유방에 올릴지 직접 고르며</strong>,
@@ -103,7 +104,7 @@
 연결하지 않으면 아래 정보는 받지도 저장하지도 않습니다. <strong>만 14세 이상만</strong> 연결할 수 있습니다.</p>
 <ul>
   <li><strong>구글 계정 정보</strong> — 구글이 알려 주는 이메일 주소, 이름, 프로필 사진 주소.
-      로그인 기록에 남으며, 앱은 내정보에서 «어느 계정으로 연결했는지» 보여 줄 때 이메일만 씁니다.
+      로그인 기록에 남으며, 앱은 내정보에서 「어느 계정으로 연결했는지」 보여 줄 때 이메일만 씁니다.
       <strong>공유방 친구에게는 보이지 않습니다.</strong></li>
   <li><strong>내 기록 보관본</strong> — 인증한 날짜, 운동 한 줄, 오늘의 다짐과 완료한 날, 닉네임·아바타 모양,
       한 주 시작 요일을 한 장으로 묶어 <strong>본인만 볼 수 있는 보관함</strong>에 둡니다.</li>
@@ -113,13 +114,13 @@
 <p>이 정보는 <strong>폰을 바꿨을 때 계정과 기록을 되돌려 드리는 데만</strong> 씁니다.
 연결한 구글 계정은 소담이 만든 다른 앱에서도 같은 계정으로 쓰이지만(소담 통합 계정),
 땀방울의 기록은 땀방울 안에만 있고 다른 앱에서 보이지 않습니다.</p>
-<p><strong>연결은 언제든 끊을 수 있습니다</strong> — 내정보 &gt; «연결 끊기». 이 기기는 다시 비회원이 되고,
+<p><strong>연결은 언제든 끊을 수 있습니다</strong> — 내정보 &gt; 「연결 끊기」. 이 기기는 다시 비회원이 되고,
 폰 안 기록은 그대로 남습니다. 끊어도 <strong>보관본과 인증샷은 지워지지 않아</strong> 같은 계정으로 다시 연결하면
-이어집니다(지우려면 아래 7항의 «전부 지우기»). 같은 자리에서 <strong>다른 구글 계정으로 바꿀</strong> 수도 있습니다.</p>
+이어집니다(지우려면 아래 7항의 「전부 지우기」). 같은 자리에서 <strong>다른 구글 계정으로 바꿀</strong> 수도 있습니다.</p>
 
 <h2>3-2. 불쾌한 것을 봤을 때 — 신고 · 차단 · 내보내기</h2>
 <ul>
-  <li><strong>신고</strong> — 친구를 눌러 열린 화면에서 «신고». 정해진 사유 넷 중에서 고릅니다
+  <li><strong>신고</strong> — 친구를 눌러 열린 화면에서 「신고」. 정해진 사유 넷 중에서 고릅니다
       (자유롭게 적는 칸은 없습니다). 신고는 <strong>운영자에게만</strong> 가고, 상대는 신고된 사실을 알 수 없습니다.
       운영자에게 가는 알림에는 <strong>사유와 시각만</strong> 담기며, 누가 신고했는지는 담기지 않습니다.
       접수된 내용은 확인 뒤 필요한 조치(사진 삭제 · 이용 제한)를 합니다.</li>
@@ -143,12 +144,12 @@
 <h2>5. 권한</h2>
 <p>앱이 요구하는 권한은 <strong>인터넷 연결</strong>과, <strong>알림</strong>(하루 알림을 켤 때만 물어봅니다)뿐입니다.
 알림을 켜지 않으면 묻지도 않고, 켰다가 꺼도 됩니다.</p>
-<p><strong>하루 알림은 이 기기 안에서만 돕니다.</strong> 정한 시각에 «오늘 땀방울 찍었나요?» 를 띄우는 것이
+<p><strong>하루 알림은 이 기기 안에서만 돕니다.</strong> 정한 시각에 「오늘 땀방울 찍었나요?」 를 띄우는 것이
 전부이고, 그 시각도 알림을 켰다는 사실도 <strong>서버로 보내지 않습니다</strong>(폰 안 기록에만 있습니다).
 푸시 서비스를 쓰지 않으므로 계정이 없어도 됩니다.</p>
 <p>인증샷은 <strong>안드로이드의 사진 선택기와 카메라 앱을 거쳐</strong> 받습니다.
 여러분이 고른 사진 한 장만 앱으로 넘어오며, 앨범 전체를 읽는 권한을 요구하지 않습니다.
-사진 없이 «완료»만 눌러도 인증은 끝납니다.</p>
+사진 없이 「완료」만 눌러도 인증은 끝납니다.</p>
 
 <h2>6. 서버 운영 위탁</h2>
 <table>
@@ -168,23 +169,23 @@
 <h2>7. 보관 기간과 삭제</h2>
 <ul>
   <li>기록은 여러분이 지울 때까지 보관합니다.</li>
-  <li><strong>공유방에 올린 인증샷만 30일 뒤 서버에서 지워집니다.</strong> 공유방 화면은 «오늘» 만
-      보여 주기 때문입니다. <strong>내 기록의 사진은 그대로</strong>입니다 — 폰 안에 남고, 구글 계정으로
+  <li><strong>공유방에 올린 인증샷만 30일 뒤 서버에서 지워집니다.</strong> 공유방에서는 지난 날도
+      볼 수 있지만 사진은 30일까지만 보입니다. 그 사진에 받은 물방울도 함께 지워집니다. <strong>내 기록의 사진은 그대로</strong>입니다 — 폰 안에 남고, 구글 계정으로
       연결한 경우 본인만 보는 사진 보관함에도 남습니다. 인증한 날짜·운동 한 줄도 지워지지 않습니다.</li>
   <li>다만 <strong>웹(브라우저)에서는</strong> 브라우저가 내주는 저장 공간이 가득 차면
       <strong>오래된 인증샷부터 앱이 스스로 지웁니다</strong>(운동한 기록 자체는 남습니다).
-      지워진 날짜는 앱이 알려 드리니, 남기고 싶은 사진은 달력에서 «사진 저장»으로
+      지워진 날짜는 앱이 알려 드리니, 남기고 싶은 사진은 달력에서 「사진 저장」으로
       기기에 내려받아 주세요. 앱(안드로이드)에서는 이런 일이 없습니다.</li>
   <li><strong>내정보 &gt; 전부 지우기</strong>를 누르면 이 기기의 기록과 함께
-      <strong>서버에 있는 인증 기록·인증샷·공유방 참가 기록이 모두 지워집니다.</strong>
+      <strong>서버에 있는 인증 기록·인증샷·공유방 참가 기록·주고받은 물방울이 모두 지워집니다.</strong>
       남는 것은 이름도 내용도 없는 임의의 식별자뿐입니다.</li>
-  <li>구글 계정으로 연결한 경우 «전부 지우기»는 <strong>내 기록 보관본</strong>도 함께 지웁니다.
+  <li>구글 계정으로 연결한 경우 「전부 지우기」는 <strong>내 기록 보관본</strong>도 함께 지웁니다.
       다만 구글로 연결한 <strong>소담 계정 자체</strong>(다른 소담 앱과 함께 쓰는 계정)는 남습니다.
       계정까지 지우려면 <a href="https://sya-apps.github.io/delete-account.html">계정 삭제 안내</a>를
       따르거나 아래 문의처로 알려 주세요.</li>
   <li>🚨 <strong>앱만 삭제하면 서버 사본은 남습니다.</strong> 이 기기의 기록은 사라지지만,
       공유방에 올린 것은 서버에 그대로 있습니다. 완전히 지우려면
-      <strong>앱을 지우기 전에 «전부 지우기»를 먼저</strong> 눌러 주세요.</li>
+      <strong>앱을 지우기 전에 「전부 지우기」를 먼저</strong> 눌러 주세요.</li>
   <li>이미 앱을 지우셨다면 아래 문의처로 알려 주시면 지워 드립니다. 다만 계정이 익명이라
       <strong>어느 기록이 여러분 것인지 확인할 방법이 필요합니다</strong> — 공유방 이름과
       초대 코드, 닉네임을 함께 알려 주세요.</li>
@@ -200,13 +201,13 @@
 <p>만 14세 미만 아동을 대상으로 하지 않으며, 그 나이의 아동으로부터 개인정보를 수집하지
 않습니다. 만 14세 미만임을 알게 되면 해당 기록을 지웁니다.
 공유방과 구글 계정 연결은 <strong>만 14세 이상인지 앱에서 먼저 확인</strong>합니다(나이는 저장하지 않습니다).</p>
-<p class="muted">📌 «만 14세» 는 개인정보를 받을 때 법이 정한 기준입니다. 이와 별개로 이 앱은
+<p class="muted">📌 「만 14세」 는 개인정보를 받을 때 법이 정한 기준입니다. 이와 별개로 이 앱은
 스토어에 <strong>16세 이상 이용자를 대상</strong>으로 등록되어 있습니다 — 사람끼리 사진을 주고받는 앱이기 때문입니다.</p>
 
 <h2>10. 안전조치</h2>
 <ul>
   <li>기기와 서버 사이의 모든 통신은 암호화(HTTPS)됩니다.</li>
-  <li>서버에 저장된 기록은 <strong>행 수준 보안 정책</strong>으로 «같은 방 사람만» 읽도록
+  <li>서버에 저장된 기록은 <strong>행 수준 보안 정책</strong>으로 「같은 방 사람만」 읽도록
       막혀 있습니다. 앱에 실려 나가는 접속 키로는 이 제한을 넘을 수 없습니다.</li>
   <li>인증샷 보관함은 비공개이며, 경로만으로는 열리지 않습니다.</li>
 </ul>
@@ -214,14 +215,17 @@
 <h2>11. 방침의 변경</h2>
 <p>이 방침이 바뀌면 이 페이지에 시행일과 함께 알립니다. 서버로 보내는 항목이 늘어나는 등
 중요한 변경은 앱 안에서도 알려 드립니다.</p>
+<p class="muted">2026년 10월 2일 — 친구 사진에 주는 <strong>물방울</strong>을 2항에 적었고(누가 어느 사진에 주었는지 저장 · 친구에게는 개수만),
+하루 인증샷이 4장까지 늘어난 것과 공유방에서 지난 날도 볼 수 있게 된 것을 2·7항에 적었으며,
+1항의 닉네임 기본값 표기를 뺐습니다(지금은 기본 이름이 따로 정해집니다).</p>
 <p class="muted">2026년 9월 16일(두 번째) — <strong>신고·차단·내보내기</strong>를 3-2항에 적었고,
-1항 제목을 «실명도 연락처도 받지 않습니다» 로 좁혔으며(닉네임은 서버에 저장됩니다),
+1항 제목을 「실명도 연락처도 받지 않습니다」 로 좁혔으며(닉네임은 서버에 저장됩니다),
 <strong>공유방을 하나도 안 고르면 서버로 아무것도 보내지 않도록 앱을 고쳤습니다</strong>(3항).
-운동 기록이 «활동·피트니스 정보» 라는 것과 스토어 대상 연령(16세 이상)도 나란히 적었습니다.</p>
+운동 기록이 「활동·피트니스 정보」 라는 것과 스토어 대상 연령(16세 이상)도 나란히 적었습니다.</p>
 <p class="muted">2026년 9월 16일 — <strong>공유방에 올린 인증샷의 보관 기간(30일)</strong>을 7항에 적었고,
 하루 알림을 넣으면서 <strong>알림 권한</strong>을 5항에 적었고(그 알림은 서버로 아무것도 보내지 않습니다),
 연결을 끊거나 다른 계정으로 바꾸는 방법(3-1항)을 적었고,
-광고는 «현재 없음»으로 고쳤으며(넣게 되면 넣기 전에 이 방침을 먼저 고칩니다),
+광고는 「현재 없음」으로 고쳤으며(넣게 되면 넣기 전에 이 방침을 먼저 고칩니다),
 웹에서 저장 공간이 모자랄 때 오래된 인증샷이 지워지는 것을 7항에 적었습니다.</p>
 <p class="muted">2026년 9월 13일 — 구글 계정 연결(3-1항)과 그때 받는 정보·내 기록 보관본, 구글 로그인(6항),
 연결한 경우의 삭제(7항)를 더했습니다.</p>
@@ -234,7 +238,7 @@
 <hr>
 
 <h1 lang="en">Sweatdrop — Privacy Policy</h1>
-<p class="muted" lang="en">Effective: September 10, 2026 · Last updated: September 16, 2026</p>
+<p class="muted" lang="en">Effective: September 10, 2026 · Last updated: October 2, 2026</p>
 
 <div class="box" lang="en">
   <strong>You can use Sweatdrop without signing up.</strong> We never ask for your email, phone number, or a
@@ -246,7 +250,7 @@
 
 <p lang="en"><strong>1. Account (no real name, no contact details) —</strong> On first launch the
 server issues a random identifier. That is the entire account. No email, phone, or password.
-Your <strong>nickname</strong> (default "나") and avatar are stored on the server so friends can tell
+Your <strong>nickname</strong> and avatar are stored on the server so friends can tell
 who is who; you do not have to use your real name. Linking a Google account is optional (3-1);
 without it, every feature works the same.</p>
 
@@ -256,7 +260,7 @@ your device, and are sent to the server <em>only for the rooms you choose to sha
 (plus your private record store if you linked a Google account, 3-1). <strong>If you check in without
 choosing a room, nothing is sent to the server at all.</strong> Your <strong>daily goals and your profile
 photo never leave the device</strong>. Your nickname and avatar are stored on the server so
-friends can see them. Photos are re-encoded as JPEG of at most 1280&nbsp;px (800&nbsp;KB) before
+friends can see them. You can share up to 4 photos a day. When you give a <strong>drop</strong> (a small cheer) to a friend's photo, the server stores who gave it to which photo; room members see only the count per photo. Photos are re-encoded as JPEG of at most 1280&nbsp;px (800&nbsp;KB) before
 storage, and <strong>all embedded metadata such as GPS location and device details is removed</strong>.</p>
 
 <p lang="en"><strong>3. Who can see it —</strong> Only members of the same shared room. There is
@@ -303,7 +307,7 @@ If you link a Google account, Google LLC (Google Sign-In) verifies your identity
 information in 3-1, and your workout photos are stored with Cloudflare, Inc. (R2, Asia-Pacific).</p>
 
 <p lang="en"><strong>7. Retention and deletion —</strong> Records are kept until you delete them.
-Workout photos shared to a room are removed from the server after 30 days (a room only ever shows today);
+Workout photos shared to a room are removed from the server after 30 days (past days can be browsed in a room, but photos only for 30 days), together with the drops they received;
 your own copy stays on your device, and in your private photo store if you linked a Google account.
 On the <strong>web</strong>, when the browser runs out of the storage it grants us, the app deletes
 the oldest workout photos first (the check-in records themselves stay); the app tells you which dates
