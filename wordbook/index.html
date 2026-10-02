@@ -118,7 +118,7 @@
        그때는 오늘까지와 똑같이(캐시 없이) 돈다. -->
   <script>
     (function () {
-      var B = '8718654085d1';
+      var B = 'c7ac58bd16cc';
       if (!('serviceWorker' in navigator) || B.charAt(0) === '_') return;
       // 🔁 새 판이 깔리면 띠를 띄우고, **사람이 누를 때만** 넘겨받는다(2026-10-01 ADMIN · 사용자 승인).
       //    저절로 넘겨받으면 옛 main.dart.js 와 새 자료가 섞이고, 아예 안 넘기면 옛 판이 오래 남는다.
@@ -170,13 +170,16 @@
           bar.querySelector('b').textContent = '바꾸는 중이에요';
           bar.querySelector('small').textContent = '잠깐이면 돼요';
           bar.querySelector('.b').innerHTML = '<span class="s"></span>';
-          w.postMessage({ skip: true });
+          // 🪤 띠를 띄운 뒤 더 새 판이 깔리면 처음 잡아 둔 w 는 버려진 워커라 「바꾸는 중」에 멈춘다(10/2 학원비서) → 지금 기다리는 워커에
+          (swReg && swReg.waiting || w).postMessage({ skip: true });
         };
         document.body.appendChild(bar);
         requestAnimationFrame(function () { requestAnimationFrame(function () { bar.classList.add('on'); }); });
       }
       navigator.serviceWorker.addEventListener('controllerchange', function () { if (asked) location.reload(); });
+      var swReg = null;
       navigator.serviceWorker.register('sw.js?b=' + B).then(function (reg) {
+        swReg = reg;
         if (reg.waiting) offer(reg.waiting);
         reg.addEventListener('updatefound', function () {
           var w = reg.installing;
