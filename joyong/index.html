@@ -80,7 +80,7 @@
        그때는 오늘까지와 똑같이(캐시 없이) 돈다. -->
   <script>
     (function () {
-      var B = 'b3e51057fc33';
+      var B = '3549ec69cf3a';
       if (!('serviceWorker' in navigator) || B.charAt(0) === '_') return;
       // 새 판이 깔려 기다리면 띠를 띄우고, 사람이 누를 때만 바꾼다(2026-10-01 ADMIN · 판이 섞이지 않게)
       var asked = false;
@@ -130,13 +130,15 @@
           bar.querySelector('b').textContent = '바꾸는 중이에요…';
           bar.querySelector('small').textContent = '잠깐이면 돼요';
           bar.querySelector('.b').innerHTML = '<span class="s"></span>';
-          w.postMessage({ skip: true });
+          (swReg && swReg.waiting || w).postMessage({ skip: true }); // 띠멈춤 막기: 지금 기다리는 워커로(10/2 학원비서)
         };
         document.body.appendChild(bar);
         requestAnimationFrame(function () { requestAnimationFrame(function () { bar.classList.add('on'); }); });
       }
       navigator.serviceWorker.addEventListener('controllerchange', function () { if (asked) location.reload(); });
+      var swReg = null;
       navigator.serviceWorker.register('sw.js?b=' + B).then(function (reg) {
+        swReg = reg;
         if (reg.waiting) offer(reg.waiting);
         reg.addEventListener('updatefound', function () {
           var w = reg.installing;
