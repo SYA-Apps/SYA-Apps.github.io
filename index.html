@@ -183,14 +183,18 @@
     dl{ grid-template-columns:1fr; gap:2px; }
     dt{ margin-top:10px; }
   }
-  /* 앱 카드 — 2열(2026-10-02 사용자: 모든 앱을 같은 카드로 · 게시된 앱 위로) */
+  /* 앱 카드 — 2열 · 아이콘 왼쪽 · 이름·설명은 그 오른쪽 · 단추는 아래 한 줄(2026-10-02 사용자) */
   .apps.reps{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
-  .apps.reps li{ flex-direction:column; align-items:flex-start; gap:6px; padding:16px; }
-  .apps.reps .ico{ width:64px; height:64px; border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
-  .apps.reps .desc{ flex:1; }
-  .apps.reps .actions{ width:100%; display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
+  .apps.reps li{ display:grid; grid-template-columns:64px minmax(0,1fr); grid-template-rows:auto 1fr auto;
+                 column-gap:14px; row-gap:4px; align-items:start; padding:16px; }
+  .apps.reps .ico{ grid-row:1 / span 2; width:64px; height:64px; border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+  .apps.reps .name{ grid-column:2; margin-top:2px; }
+  .apps.reps .desc{ grid-column:2; margin-top:0; }
+  .apps.reps .actions{ grid-column:1 / -1; width:100%; display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
   .apps.reps .btn{ flex:1 1 auto; text-align:center; }
-  @media (max-width:420px){ .apps.reps{ gap:10px; } .apps.reps li{ padding:12px; } .apps.reps .desc{ font-size:13px; } }
+  @media (max-width:640px){ .apps.reps{ grid-template-columns:1fr; } }
+  @media (max-width:420px){ .apps.reps li{ padding:12px; grid-template-columns:56px minmax(0,1fr); }
+    .apps.reps .ico{ width:56px; height:56px; border-radius:14px; } .apps.reps .desc{ font-size:13px; } }
 </style>
 </head>
 <body>
