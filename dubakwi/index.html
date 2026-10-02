@@ -81,15 +81,16 @@
   -->
   <script src="flutter_bootstrap.js" async></script>
   <!-- 🐌 앱 파일을 폰에 붙들어 두는 캐시(web/sw.js · 2026-09-30 땀방울 본보기).
-       6c96daff61be 는 배포 때 tool/stamp_web.py 가 이번 빌드 지문으로 바꾼다. 안 바꾸면 캐시를 켜지 않고
+       2f07b94694e2 는 배포 때 tool/stamp_web.py 가 이번 빌드 지문으로 바꾼다. 안 바꾸면 캐시를 켜지 않고
        예전처럼(캐시 없이) 돈다. -->
   <script>
     (function () {
-      var B = '6c96daff61be';
+      var B = '2f07b94694e2';
       if (!('serviceWorker' in navigator) || B.charAt(0) === '_') return;
       // 🔄 새 판이 기다리고 있으면 아래에 띠를 띄운다 — 누르면 새 워커로 넘기고 **통째로 다시 연다**(판이 섞이지 않게).
       //    그전엔 «앱을 완전히 닫았다 두 번 열어야» 바뀌어 폰에 옛 판이 오래 남았다(2026-10-01 사용자 «아까와 똑같은 말이 나와»)
       var asked = false;
+      var swReg = null; // 띠를 누른 순간 실제로 기다리는 워커에게 보낸다(10/2 학원비서 · 띠가 「바꾸는 중」 에서 멈추는 함정)
       // 띠 겉모양 — 앱 글씨체(주아) · 앱 색(크림 바탕 · 잎새 초록) · 🚲. 동작은 그대로(playbook/templates/웹-새판-띠-꾸밈.md · 2026-10-01)
       //   🚨 주아에는 「…」 가 없다 → 말줄임표를 쓰지 않는다. 띠 글자는 tool/subset_jua.py 가 이 파일에서 읽어 담는다
       var T = {
@@ -137,13 +138,14 @@
           bar.querySelector('b').textContent = '바꾸는 중이에요';
           bar.querySelector('small').textContent = '잠깐이면 돼요';
           bar.querySelector('.b').innerHTML = '<span class="s"></span>';
-          w.postMessage({ skip: true });
+          (swReg && swReg.waiting || w).postMessage({ skip: true });
         };
         document.body.appendChild(bar);
         requestAnimationFrame(function () { requestAnimationFrame(function () { bar.classList.add('on'); }); });
       }
       navigator.serviceWorker.addEventListener('controllerchange', function () { if (asked) location.reload(); });
       navigator.serviceWorker.register('sw.js?b=' + B).then(function (reg) {
+        swReg = reg;
         if (reg.waiting) offer(reg.waiting);
         reg.addEventListener('updatefound', function () {
           var w = reg.installing;
