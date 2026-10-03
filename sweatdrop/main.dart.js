@@ -41683,7 +41683,7 @@ $S:3}
 A.b6o.prototype={
 $1(a){var s=A.eD().b
 s=s==null?null:s.canvasKitBaseUrl
-return(s==null?"canvaskit/":s)+a},
+return(s==null?"https://www.gstatic.com/flutter-canvaskit/83675ed27633283e7fc296c8bca22e841224c096/":s)+a},
 $S:32}
 A.a0Y.prototype={
 gq(a){var s=this.a
