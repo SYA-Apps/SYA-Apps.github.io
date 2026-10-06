@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/parkgolf/">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="파크골프딩동 - 예약 오픈 알림">
+
+<!-- 카톡·메신저 링크 미리보기(Open Graph). 이미지는 절대 주소여야 한다. make_og.py 가 넣었다. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="파크골프딩동">
+<meta property="og:title" content="파크골프딩동 · 예약 오픈 알림">
+<meta property="og:description" content="내가 다니는 파크골프장의 예약이 열리는 시각을 미리 알려 드려요. 큰 글씨로 쉽게.">
+<meta property="og:url" content="https://sya-apps.github.io/parkgolf/">
+<meta property="og:image" content="https://sya-apps.github.io/parkgolf/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="파크골프딩동 — 노란 바탕의 주황 종">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="파크골프딩동">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>파크골프딩동</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <!-- 첫 화면이 뜨기 전 흰 화면 대신(공통 규칙 «웹 첫 로딩») -->
+  <style>
+    #sya-splash{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;gap:14px;background:#FFF4D6;color:#7A6E4E;
+      font:15px/1.5 -apple-system,BlinkMacSystemFont,"Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+      transition:opacity .25s ease}
+    #sya-splash .t{font-size:22px;color:#2B2A20}
+    #sya-splash .i{border-radius:16px}
+    #sya-splash .bar{width:124px;height:4px;border-radius:99px;background:#F0DFA8;overflow:hidden}
+    #sya-splash .bar i{display:block;width:40%;height:100%;border-radius:99px;background:#E8890C;
+      animation:sya-slide 1.1s ease-in-out infinite}
+    @keyframes sya-slide{0%{transform:translateX(-110%)}100%{transform:translateX(310%)}}
+  </style>
+  <style id="sya-splash-font">@font-face{font-family:'SyaSplash';src:url(data:font/woff2;base64,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) format('woff2');font-display:block}#sya-splash,#sya-splash *{font-family:'SyaSplash',-apple-system,BlinkMacSystemFont,'Malgun Gothic','Apple SD Gothic Neo',sans-serif !important}</style>
+  <div id="sya-splash">
+    <img class="i" src="icons/Icon-192.png" alt="" width="64" height="64"><div class="t">파크골프딩동</div><div>불러오는 중</div><div class="bar"><i></i></div>
+  </div>
+  <script>
+    addEventListener('flutter-first-frame', function () {
+      var s = document.getElementById('sya-splash');
+      if (!s) return;
+      s.style.opacity = '0';
+      setTimeout(function () { s.remove(); }, 300);
+    });
+  </script>
+  <!--
+    You can customize the "flutter_bootstrap.js" script.
+    This is useful to provide a custom configuration to the Flutter loader
+    or to give the user feedback during the initialization process.
+
+    For more details:
+    * https://docs.flutter.dev/platform-integration/web/initialization
+  -->
+  <script src="flutter_bootstrap.js" async></script>
+  <!-- 🐌 앱 파일을 폰에 붙들어 두는 캐시(web/sw.js · 2026-09-30 땀방울 본보기).
+       8efae9518d11 는 배포 때 tool/stamp_web.py 가 이번 빌드 지문으로 바꾼다. 안 바꾸면 캐시를 켜지 않고
+       예전처럼(캐시 없이) 돈다. -->
+  <script>
+    (function () {
+      var B = '8efae9518d11';
+      if (!('serviceWorker' in navigator) || B.charAt(0) === '_') return;
+      // 🔄 새 판이 기다리고 있으면 아래에 띠를 띄운다 — 누르면 새 워커로 넘기고 **통째로 다시 연다**(판이 섞이지 않게).
+      //    그전엔 «앱을 완전히 닫았다 두 번 열어야» 바뀌어 폰에 옛 판이 오래 남았다(2026-10-01 사용자 «아까와 똑같은 말이 나와»)
+      var asked = false;
+      var swReg = null; // 띠를 누른 순간 실제로 기다리는 워커에게 보낸다(10/2 학원비서 · 띠가 「바꾸는 중」 에서 멈추는 함정)
+      // 띠 겉모양 — 앱 글씨체(주아) · 앱 색(크림 바탕 · 잎새 초록) · 🔔. 동작은 그대로(playbook/templates/웹-새판-띠-꾸밈.md · 2026-10-01)
+      //   🚨 주아에는 「…」 가 없다 → 말줄임표를 쓰지 않는다. 띠 글자는 tool/subset_jua.py 가 이 파일에서 읽어 담는다
+      var T = {
+        font: 'assets/assets/fonts/Jua-Regular.ttf',
+        icon: '🔔', title: '새 판이 나왔어요!', sub: '눌러서 바로 바꿔요', btn: '바꾸기',
+        bg: '#FFF4D6', fg: '#2B2A20', subc: '#7A6E4E', accent: '#E8890C', accentFg: '#FFFFFF', ring: '#F0DFA8'
+      };
+      function offer(w) {
+        if (!w || !navigator.serviceWorker.controller || document.getElementById('sya-update')) return;
+        if (!document.getElementById('sya-update-css')) {
+          var st = document.createElement('style');
+          st.id = 'sya-update-css';
+          st.textContent =
+            "@font-face{font-family:'SyaUpd';src:url('" + T.font + "');font-display:swap}" +
+            '#sya-update{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));z-index:9999;' +
+            'transform:translate(-50%,140%);width:calc(100% - 28px);max-width:480px;box-sizing:border-box;' +
+            'display:flex;align-items:center;gap:12px;padding:12px 12px 12px 14px;border:1px solid ' + T.ring + ';' +
+            'border-radius:20px;background:' + T.bg + ';color:' + T.fg + ';text-align:left;cursor:pointer;' +
+            "font-family:'SyaUpd',system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.16),0 2px 6px rgba(0,0,0,.08);" +
+            'transition:transform .45s cubic-bezier(.2,.9,.3,1.2);-webkit-tap-highlight-color:transparent}' +
+            '#sya-update.on{transform:translate(-50%,0)}' +
+            '#sya-update .i{flex:0 0 42px;height:42px;border-radius:50%;background:' + T.ring + ';display:grid;place-items:center;font-size:22px}' +
+            '#sya-update .t{flex:1;min-width:0;line-height:1.3}' +
+            '#sya-update .t b{display:block;font-weight:normal;font-size:17px}' +
+            '#sya-update .t small{display:block;font-size:13px;color:' + T.subc + '}' +
+            '#sya-update .b{flex:0 0 auto;padding:9px 16px;border-radius:999px;background:' + T.accent + ';color:' + T.accentFg + ';font-size:15px}' +
+            '#sya-update .s{display:inline-block;width:14px;height:14px;border:2px solid ' + T.accentFg + ';border-right-color:transparent;' +
+            'border-radius:50%;animation:syaspin .8s linear infinite;vertical-align:-2px}' +
+            '@keyframes syaspin{to{transform:rotate(360deg)}}' +
+            '@media (prefers-reduced-motion:reduce){#sya-update{transition:none}#sya-update .s{animation:none}}';
+          document.head.appendChild(st);
+        }
+        var bar = document.createElement('button');
+        bar.id = 'sya-update';
+        bar.type = 'button';
+        bar.setAttribute('aria-label', T.title + ' ' + T.sub);
+        bar.innerHTML = '<span class="i" aria-hidden="true"></span><span class="t"><b></b><small></small></span><span class="b"></span>';
+        bar.querySelector('.i').textContent = T.icon;
+        bar.querySelector('b').textContent = T.title;
+        bar.querySelector('small').textContent = T.sub;
+        bar.querySelector('.b').textContent = T.btn;
+        bar.onclick = function () {
+          if (asked) return;
+          asked = true;
+          bar.querySelector('b').textContent = '바꾸는 중이에요';
+          bar.querySelector('small').textContent = '잠깐이면 돼요';
+          bar.querySelector('.b').innerHTML = '<span class="s"></span>';
+          (swReg && swReg.waiting || w).postMessage({ skip: true });
+        };
+        document.body.appendChild(bar);
+        requestAnimationFrame(function () { requestAnimationFrame(function () { bar.classList.add('on'); }); });
+      }
+      navigator.serviceWorker.addEventListener('controllerchange', function () { if (asked) location.reload(); });
+      navigator.serviceWorker.register('sw.js?b=' + B).then(function (reg) {
+        swReg = reg;
+        if (reg.waiting) offer(reg.waiting);
+        reg.addEventListener('updatefound', function () {
+          var w = reg.installing;
+          if (w) w.addEventListener('statechange', function () { if (w.state === 'installed') offer(w); });
+        });
+      }).catch(function () {});
+      addEventListener('flutter-first-frame', function () {
+        setTimeout(function () {
+          navigator.serviceWorker.ready.then(function (r) {
+            var list = performance.getEntriesByType('resource').map(function (e) { return e.name; });
+            if (r.active) r.active.postMessage({ warm: list });
+          }).catch(function () {});
+        }, 2000); // 첫 화면이 뜬 뒤 글꼴·그림까지 다 받은 다음에
+      });
+    })();
+  </script>
+</body>
+</html>

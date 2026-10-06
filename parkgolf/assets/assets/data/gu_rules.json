@@ -1,0 +1,23 @@
+[
+  {
+    "id": "yangcheon-anyangcheon",
+    "name": "안양천 파크골프장",
+    "area": "양천구",
+    "url": "https://www.yangcheon.go.kr/reservation/reservation/ex/reservationCal/View.do?riIdx=RI001677",
+    "mode": 2,
+    "useDays": [7],
+    "before": 10,
+    "hour": 10,
+    "minute": 0,
+    "note": "추첨 신청",
+    "caution": "양천구청 안내 기준(2026-10-07 확인)이에요. 접수 시각이 바뀔 수 있으니 구청 예약 페이지에서 꼭 다시 확인해 주세요."
+  },
+  {
+    "id": "gwangjin-jungnangcheon",
+    "name": "중랑천 파크골프장",
+    "area": "광진구",
+    "url": "https://booking.gwangjin.or.kr/fmcs/47",
+    "mode": 3,
+    "caution": "광진구시설관리공단 사전예약이에요. 예약이 열리는 때는 공단(02-458-9062)에 확인해 주세요."
+  }
+]

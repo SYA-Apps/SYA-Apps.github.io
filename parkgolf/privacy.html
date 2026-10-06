@@ -1,0 +1,78 @@
+<!--
+  파크골프딩동 개인정보처리방침 — **이 파일이 원본이다.**
+  =====================================================================
+  구글은 두 곳을 다 요구한다(하나만 있으면 정책 위반):
+    1) 웹: https://sya-apps.github.io/parkgolf/privacy.html → 플레이 콘솔 「개인정보처리방침」 칸
+    2) 앱 안 링크(정보 화면) — 다음 판에 같이 넣는다
+  아래 내용은 실제 코드 기준이다(2026-10-07):
+    · 저장: 내 구장 · 직접 넣은 구장 · 알림 켜고 끄기 · 글씨 크기 → 기기 안(shared_preferences). 서버로 안 간다
+    · 서버로 가는 요청: 서울 파크골프 접수 목록 · 전국 구장 목록을 **읽기만** 한다(통합 서버 parkgolf 스키마). 요청에 사용자 값을 싣지 않는다
+    · 알림: 기기 안에서 예약한다(서버·푸시 서비스 없음)
+    · 위치 · 계정 · 광고 · 분석 도구: 없음
+  ⚠️ 코드를 고치면 여기도 고친다. 가까운 순 정렬(위치) · 광고 · 계정을 넣는 날은 이 파일과 스토어 「데이터 보안」 답을 같은 판에서 바꾼다.
+  ⚠️ 사용자에게 보이는 글에 «» 를 쓰지 않는다(C:\SYA\CLAUDE.md).
+-->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>파크골프딩동 개인정보처리방침</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 720px; margin: 0 auto; padding: 24px 18px 64px;
+         font: 17px/1.75 system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+         color: #1a1a1a; background: #fff; }
+  @media (prefers-color-scheme: dark) { body { color: #e6e6e6; background: #16171a; } }
+  h1 { font-size: 1.5rem; } h2 { font-size: 1.15rem; margin-top: 2em; }
+  .box { border: 1px solid currentColor; border-radius: 10px; padding: 12px 16px; opacity: .95; }
+  .muted { opacity: .7; font-size: .9rem; }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+
+<h1>파크골프딩동 개인정보처리방침</h1>
+<p class="muted">시행일: 2026년 10월 7일 · 최종 수정: 2026년 10월 7일</p>
+
+<div class="box">
+  <strong>파크골프딩동은 회원가입 없이 씁니다.</strong> 이름 · 이메일 · 전화번호 · 비밀번호를 묻지 않습니다.<br>
+  내가 고른 구장과 알림 설정은 <strong>이 기기 안에만</strong> 저장되고 서버로 보내지 않습니다.<br>
+  위치를 쓰지 않으며, 광고와 분석 도구는 현재 없습니다.
+</div>
+
+<h2>1. 이 기기 안에만 저장하는 것</h2>
+<p>내가 고른 구장, 직접 넣은 구장(이름 · 예약이 열리는 때 · 예약 사이트 주소), 알림을 켜고 끈 설정, 글씨 크기는
+이 기기에만 저장됩니다(안드로이드 앱은 앱 전용 저장 공간, 웹판은 그 브라우저의 저장 공간).
+앱을 지우거나 브라우저 기록을 지우면 함께 사라집니다.</p>
+
+<h2>2. 인터넷으로 받아 오는 것</h2>
+<p>서울시 공공서비스예약의 파크골프 접수 일정과 전국 파크골프장 목록(공공데이터포털)을
+운영자의 서버(Supabase)에서 <strong>읽어 오기만</strong> 합니다. 요청에는 사용자에 관한 값을 싣지 않습니다.
+다만 인터넷 요청의 특성상 서버가 접속 기록(IP 주소 등)을 잠시 남길 수 있습니다.</p>
+
+<h2>3. 알림</h2>
+<p>예약이 열리기 전 알림(하루 전 · 10분 전 · 정각)은 이 기기 안에서 예약됩니다.
+별도의 알림 서버나 푸시 서비스를 쓰지 않고, 알림을 위해 개인정보를 보내지 않습니다.
+알림 권한은 기기 설정에서 언제든 끌 수 있습니다.</p>
+
+<h2>4. 다른 곳으로 넘어가는 것</h2>
+<ul>
+  <li><strong>예약하러 가기</strong>를 누르면 서울시 또는 해당 구청의 예약 페이지가 열립니다. 그 이후는 해당 사이트의 방침을 따릅니다.
+    이 앱은 대신 예약해 드리지 않고, 로그인 정보를 다루지 않습니다.</li>
+  <li><strong>예약 부탁하기 · 친구에게 추천하기</strong>를 누르면 기기의 공유 화면이 열리고,
+    사용자가 고른 앱(카카오톡 등)으로 구장 이름 · 열리는 시각 · 주소가 담긴 글이 넘어갑니다.</li>
+</ul>
+
+<h2>5. 기능이 바뀌면</h2>
+<p>위치(가까운 순 정렬), 계정, 광고처럼 새로 정보를 다루는 기능을 넣게 되면 이 방침을 먼저 고친 뒤 알립니다.</p>
+
+<h2>6. 문의</h2>
+<p>개인정보에 관한 문의는
+<a href="mailto:sya.apps.dev@gmail.com?subject=%5B%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EB%94%A9%EB%8F%99%5D%20%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%20%EB%AC%B8%EC%9D%98">sya.apps.dev@gmail.com</a>
+으로 보내 주세요.</p>
+
+<p class="muted">파크골프딩동은 서울시 공식 앱이 아닙니다. 서울 열린데이터광장과 공공데이터포털의 공개 자료를 씁니다.</p>
+
+</body>
+</html>
