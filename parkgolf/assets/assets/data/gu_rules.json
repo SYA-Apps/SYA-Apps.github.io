@@ -5,7 +5,9 @@
     "area": "양천구",
     "url": "https://www.yangcheon.go.kr/reservation/reservation/ex/reservationCal/View.do?riIdx=RI001677",
     "mode": 2,
-    "useDays": [7],
+    "useDays": [
+      7
+    ],
     "before": 10,
     "hour": 10,
     "minute": 0,
@@ -19,5 +21,27 @@
     "url": "https://booking.gwangjin.or.kr/fmcs/47",
     "mode": 3,
     "caution": "광진구시설관리공단 사전예약이에요. 예약이 열리는 때는 공단(02-458-9062)에 확인해 주세요."
+  },
+  {
+    "id": "gangseo-seonam",
+    "name": "서남물재생센터 파크골프장",
+    "area": "강서구",
+    "url": "https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S230131090246367142",
+    "mode": 2,
+    "useDays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "before": 10,
+    "hour": 6,
+    "minute": 0,
+    "rolling": true,
+    "replaces": "서남물재생센터|강서구",
+    "note": "매일 오전 6시에 10일 뒤 이용분이 열려요",
+    "caution": "서울물재생시설공단 안내 기준(2026-10-07 확인)이에요. 월요일은 쉬고, 4월부터 12월까지 운영해요. 접수는 이용 1일 전 오후 9시까지예요."
   }
 ]
