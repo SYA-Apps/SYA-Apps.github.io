@@ -1,11 +1,11 @@
 {
-    "name": "조용조용",
-    "short_name": "조용조용",
+    "name": "쉿조용히",
+    "short_name": "쉿조용히",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#2B3A67",
     "theme_color": "#2B3A67",
-    "description": "조용조용 - 소리 신호등",
+    "description": "쉿조용히 - 소리 신호등",
     "orientation": "any",
     "prefer_related_applications": false,
     "icons": [
