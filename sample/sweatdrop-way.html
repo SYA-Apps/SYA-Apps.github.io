@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>땀방울 (샘플 B · 자동 이동 방식)</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="땀방울 - 하루 10초 운동 인증">
+<meta property="og:description" content="누르면 바로 들어와요 · 안드로이드는 앱, 아이폰·PC는 웹">
+<meta property="og:image" content="https://sya-apps.github.io/sweatdrop/og-image.png">
+<style>
+  html,body{margin:0;background:#fff4ec;color:#3a2a22;font-family:system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;text-align:center}
+  main{max-width:420px;margin:0 auto;padding:64px 20px}
+  img{width:96px;height:96px;border-radius:22px}
+  h1{font-size:1.6rem;margin:16px 0 6px}
+  p{margin:0 0 20px;color:#6a5348}
+  .tag{display:inline-block;margin-bottom:18px;font-size:.8rem;padding:3px 10px;border-radius:999px;background:#fff;border:1px solid #3a2a22}
+  .btn{display:block;text-decoration:none;background:#ff8a4c;color:#fff;font-weight:700;border-radius:16px;padding:16px;margin:10px 0}
+  .btn.sub{background:#fff;color:#3a2a22;border:1.5px solid #3a2a22;font-weight:400}
+  #msg{font-size:.9rem;color:#6a5348;min-height:1.4em}
+</style>
+</head>
+<body>
+<main>
+  <span class="tag">샘플 B · 자동 이동 방식(땀방울)</span>
+  <img src="https://sya-apps.github.io/sweatdrop/icons/Icon-192.png" alt="">
+  <h1>땀방울</h1>
+  <p>하루 10초, 운동했다 인증해요</p>
+  <p id="msg">기기를 확인하는 중…</p>
+  <a id="go" class="btn" href="https://sya-apps.github.io/sweatdrop/">바로 열기</a>
+  <a id="alt" class="btn sub" href="https://sya-apps.github.io/sweatdrop/" style="display:none"></a>
+</main>
+<script>
+  /* 샘플: 주소 뒤에 ?stay 를 붙이면 자동으로 넘어가지 않고 이 화면에 머문다 */
+  var android = /Android/i.test(navigator.userAgent);
+  var stay = /[?&]stay/.test(location.search);
+  var play = 'https://play.google.com/store/apps/details?id=com.sya.sweatdrop';
+  var web = 'https://sya-apps.github.io/sweatdrop/';
+  var go = document.getElementById('go'), alt = document.getElementById('alt'), msg = document.getElementById('msg');
+  if (android) {
+    msg.textContent = '안드로이드예요 · 앱을 열거나 스토어로 가요';
+    go.textContent = 'Google Play 에서 앱 받기'; go.href = play;
+    alt.style.display = 'block'; alt.textContent = '웹으로 먼저 써 보기'; alt.href = web;
+    if (!stay) setTimeout(function(){ location.href = play; }, 1500);
+  } else {
+    msg.textContent = '아이폰·PC예요 · 웹으로 열어요';
+    go.textContent = '웹으로 열기'; go.href = web;
+    alt.style.display = 'block'; alt.textContent = '아이폰이면 앱처럼 쓰기 안내'; alt.href = 'https://sya-apps.github.io/ios/';
+    if (!stay) setTimeout(function(){ location.href = web; }, 1500);
+  }
+</script>
+</body>
+</html>
