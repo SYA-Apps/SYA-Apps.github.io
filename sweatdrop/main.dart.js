@@ -139534,20 +139534,21 @@ aHv(a){var s=this.c
 s.toString
 return A.jd(new A.b3c(this,a),s,t.H)},
 uX(a){return this.aHj(a)},
-aHj(a){var s=0,r=A.p(t.H),q,p=this,o,n,m,l
+aHj(a){var s=0,r=A.p(t.H),q,p=this,o,n,m,l,k
 var $async$uX=A.l(function(b,c){if(b===1)return A.m(c,r)
-for(;;)switch(s){case 0:n=a.b
-m=a.c
-l="[\ub540\ubc29\uc6b8] \u201c"+n+"\u201d \uacf5\uc720\ubc29\uc5d0\uc11c \uac19\uc774 \uc6b4\ub3d9\ud574\uc694 (\ucf54\ub4dc "+m+")"
-n="[Sweatdrop] Work out together in the shared room \u201c"+n+"\u201d (Code "+m+")"
-n=A.w()?n:l
-l=A.w()?"Tap to join (Android opens the app, iPhone and PC open the web)":"\ub204\ub974\uba74 \ubc14\ub85c \ub4e4\uc5b4\uc640\uc694 (\uc548\ub4dc\ub85c\uc774\ub4dc\ub294 \uc571, \uc544\uc774\ud3f0\xb7PC\ub294 \uc6f9)"
-o=n+"\n"+l+"\n\n"+("https://sya-apps.github.io/sweatdrop/join.html?c="+m)
+for(;;)switch(s){case 0:m=a.b
+l=a.c
+k="[\ub540\ubc29\uc6b8] \u201c"+m+"\u201d \uacf5\uc720\ubc29\uc5d0\uc11c \uac19\uc774 \uc6b4\ub3d9\ud574\uc694 (\ucf54\ub4dc "+l+")"
+m="[Sweatdrop] Work out together in the shared room \u201c"+m+"\u201d (Code "+l+")"
+m=A.w()?m:k
+k=A.w()?"Tap to join (Android opens the app, iPhone and PC open the web)":"\ub204\ub974\uba74 \ubc14\ub85c \ub4e4\uc5b4\uc640\uc694 (\uc548\ub4dc\ub85c\uc774\ub4dc\ub294 \uc571, \uc544\uc774\ud3f0\xb7PC\ub294 \uc6f9)"
+o=A.w()?"On iPhone, use it like an app: sya-apps.github.io/ios":"\uc544\uc774\ud3f0\uc774\uba74 \uc571\ucc98\ub7fc \uc4f0\uae30: sya-apps.github.io/ios"
+n=m+"\n"+k+"\n\n"+("https://sya-apps.github.io/sweatdrop/join.html?c="+l)+"\n\n"+o
 s=3
-return A.f(A.amy(o),$async$uX)
+return A.f(A.amy(n),$async$uX)
 case 3:if(c){s=1
 break}s=4
-return A.f(A.vf(new A.oK(o)),$async$uX)
+return A.f(A.vf(new A.oK(n)),$async$uX)
 case 4:p.pW(A.w()?"Invite text copied. Paste it into a chat or message":"\ucd08\ub300 \ubb38\uad6c\ub97c \ubcf5\uc0ac\ud588\uc5b4\uc694 \u2014 \uce74\ud1a1\uc774\ub098 \ubb38\uc790\uc5d0 \ubd99\uc5ec \ub123\uc5b4 \uc8fc\uc138\uc694")
 case 1:return A.n(q,r)}})
 return A.o($async$uX,r)},
