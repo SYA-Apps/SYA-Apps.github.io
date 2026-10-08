@@ -111,7 +111,9 @@
          "Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     -webkit-text-size-adjust:100%;
   }
-  .wrap{ max-width:660px; margin:0 auto; padding:56px 24px 72px; }
+  .wrap{ max-width:660px; margin:0 auto; padding:56px 24px 72px; position:relative; }
+  .ioslink{ position:absolute; top:16px; right:24px; font-size:12px; color:var(--muted); text-decoration:none; border:1px solid #e4ddd2; border-radius:999px; padding:5px 11px; background:#fff; }
+  .ioslink:hover{ text-decoration:underline; }
   header{ margin-bottom:44px; }
   h1{ font-size:32px; font-weight:400; margin:0 0 8px; letter-spacing:.4px;
       display:flex; align-items:center; gap:14px; }
@@ -199,6 +201,7 @@
 </head>
 <body>
 <div class="wrap">
+  <a class="ioslink" href="./ios/">아이폰에서 앱처럼 쓰기</a>
 
   <header>
     <h1><svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><rect width="512" height="512" rx="116" fill="#6d4f9c"/><circle cx="196" cy="232" r="40" fill="#7FD1B9"/><circle cx="262" cy="196" r="48" fill="#FFD166"/><circle cx="330" cy="238" r="34" fill="#FF8FA3"/><path d="M122 262H390V328A66 66 0 0 1 324 394H188A66 66 0 0 1 122 328Z" fill="#fbfaf8"/><rect x="94" y="249" width="324" height="26" rx="13" fill="#fbfaf8"/></svg><span class="title">Sodam Apps<span class="ko">소담</span></span></h1>
@@ -312,7 +315,6 @@
     © 2026 Sodam Apps
     <!-- 홈화면 «앱 창» 에는 주소창이 없어서, 여기 링크가 없으면 앱 창 안에서 점검 페이지를
          열 방법이 없다. 사용자가 겪는 문제는 바로 그 앱 창 안에서 난다(2026-09-11). -->
-    <a class="diag" href="./ios/">아이폰에서 앱처럼 쓰기</a>
     <a class="diag" href="./diag.html">앱이 안 열리나요? 점검하기</a>
   </footer>
 
