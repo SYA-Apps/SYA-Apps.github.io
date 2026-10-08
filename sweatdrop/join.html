@@ -69,7 +69,7 @@
     };
 
     var q = new URLSearchParams(location.search);
-    var code = (q.get('code') || '').replace(/[\s-]/g, '').toUpperCase();
+    var code = (q.get('c') || q.get('code') || '').replace(/[\s-]/g, '').toUpperCase();
     var web = new URL('./?join=' + encodeURIComponent(code), location.href).href;
     var $ = function (id) { return document.getElementById(id); };
 
