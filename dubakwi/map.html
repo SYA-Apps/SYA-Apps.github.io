@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="robots" content="noindex">
+<title>두바퀴환승 지도</title>
+<!--
+  두바퀴환승 길 지도(2026-10-08 사용자 6-2). 앱이 주소 # 뒤에 길을 담아 연다(lib/core/route_map.dart).
+  # 뒤는 서버로 가지 않는다. 카카오 지도 JS 키는 등록 도메인(sya-apps.github.io)에서만 열린다.
+-->
+<style>
+  html, body { margin: 0; height: 100%; background: #FFF9EF; font-family: -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  #map { position: absolute; inset: 0; }
+  #msg { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; padding: 24px; text-align: center; color: #867D72; line-height: 1.6; }
+  .pin { padding: 4px 10px; border-radius: 14px; color: #fff; font-size: 13px; font-weight: 600; box-shadow: 0 1px 4px rgba(0,0,0,.25); white-space: nowrap; }
+  .dock { min-width: 22px; height: 22px; padding: 0 5px; border-radius: 11px; background: #fff; border: 2px solid #6B6760; color: #3A3632; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 3px rgba(0,0,0,.2); cursor: pointer; }
+  .dock.used { background: #6B6760; color: #fff; }
+  .dock.empty { border-color: #C9C1B5; color: #B7AFA2; }
+  .tip { position: absolute; left: 12px; right: 12px; bottom: 14px; background: rgba(255,255,255,.95); border-radius: 12px; padding: 10px 14px; font-size: 13px; color: #3A3632; box-shadow: 0 2px 8px rgba(0,0,0,.15); display: none; }
+  .legend { position: absolute; left: 10px; top: 10px; background: rgba(255,255,255,.92); border-radius: 10px; padding: 6px 10px; font-size: 12px; color: #3A3632; box-shadow: 0 1px 4px rgba(0,0,0,.15); z-index: 2; line-height: 1.7; }
+  .legend i { display: inline-block; width: 14px; height: 14px; border-radius: 7px; vertical-align: -2px; margin-right: 4px; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div id="msg"></div>
+<div class="legend"><i style="background:#6B6760"></i>빌리고 돌려줄 곳 · <i style="background:#fff;border:2px solid #6B6760;box-sizing:border-box"></i>근처 대여소 · 숫자는 남은 자전거</div>
+<div class="tip" id="tip"></div>
+<script>
+  // 카카오 지도 JS 키 — 공개용 키(도메인 등록으로 막는다). REST 키는 여기에 넣지 않는다
+  var KAKAO_JS_KEY = '68fd5a05599228ca073fdc57258e7653';
+  function say(t) { var m = document.getElementById('msg'); m.textContent = t; m.style.display = 'flex'; }
+  var data = null;
+  try { data = JSON.parse(decodeURIComponent(location.hash.slice(1))); } catch (e) {}
+  if (!data) { say('보여 줄 길이 없어요. 앱에서 길을 찾은 뒤 지도로 보기를 눌러 주세요.'); }
+  else {
+    var s = document.createElement('script');
+    s.src = 'https://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=' + KAKAO_JS_KEY;
+    s.onerror = function () { say('지도를 불러오지 못했어요. 잠시 뒤 다시 열어 주세요.'); };
+    s.onload = function () { kakao.maps.load(draw); };
+    document.head.appendChild(s);
+  }
+  function ll(p) { return new kakao.maps.LatLng(p[0], p[1]); }
+  function draw() {
+    var map = new kakao.maps.Map(document.getElementById('map'), { center: ll(data.o), level: 6 });
+    var bounds = new kakao.maps.LatLngBounds();
+    (data.L || []).forEach(function (g) {
+      var path = g.p.map(ll); path.forEach(function (q) { bounds.extend(q); });
+      var walk = g.k === 'w';
+      new kakao.maps.Polyline({
+        map: map, path: path,
+        strokeWeight: walk ? 4 : (g.k === 'b' ? 7 : 6),
+        strokeColor: walk ? '#9A9184' : g.c,
+        strokeOpacity: walk ? 0.9 : 0.95,
+        strokeStyle: walk ? 'shortdot' : (g.k === 'b' ? 'shortdash' : 'solid')
+      });
+    });
+    var tip = document.getElementById('tip');
+    (data.D || []).forEach(function (d) {
+      var el = document.createElement('div');
+      el.className = 'dock' + (d[4] ? ' used' : '') + (d[2] === 0 ? ' empty' : '');
+      el.textContent = d[2];
+      el.onclick = function () { tip.textContent = d[3] + ' · 자전거 ' + d[2] + '대'; tip.style.display = 'block'; };
+      new kakao.maps.CustomOverlay({ map: map, position: ll(d), content: el, zIndex: d[4] ? 4 : 3 });
+    });
+    function pin(p, label, color) {
+      var el = document.createElement('div'); el.className = 'pin'; el.style.background = color; el.textContent = label;
+      new kakao.maps.CustomOverlay({ map: map, position: ll(p), content: el, yAnchor: 1.4, zIndex: 5 });
+      bounds.extend(ll(p));
+    }
+    pin(data.o, '출발', '#3D8B5F');
+    pin(data.d, '도착', '#C46A54');
+    map.setBounds(bounds, 40, 40, 40, 40);
+    map.addControl(new kakao.maps.ZoomControl(), kakao.maps.ControlPosition.RIGHT);
+  }
+</script>
+</body>
+</html>
