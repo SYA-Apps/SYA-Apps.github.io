@@ -103171,7 +103171,7 @@ s=p}for(;;)switch(s){case 0:m=$.b6()
 l=A.c([J.b(m.a,"en")?"Alert voices (Microsoft Azure synthetic speech)":"\uc54c\ub9bc \ubaa9\uc18c\ub9ac (Microsoft Azure \ud569\uc131 \uc74c\uc131)"],t.s)
 s=3
 q=[1]
-return A.kZ(A.aLx(new A.nw(l,J.b(m.a,"en")?'The woman, man and child alert voices ("Shh!", "Quiet, please!", "Too loud!", "No running!") are not recordings of real people. They are synthetic speech made with Microsoft Azure AI Speech.':"\uc5ec\uc131 \xb7 \ub0a8\uc131 \xb7 \uc5b4\ub9b0\uc774 \uc54c\ub9bc \ubaa9\uc18c\ub9ac(\u300c\uc27f!\u300d \xb7 \u300c\uc870\uc6a9!\u300d \xb7 \u300c\uc2dc\ub044\ub7ec\uc6cc\uc694!\u300d \xb7 \u300c\ub6f0\uc9c0 \ub9c8\uc138\uc694\u300d)\ub294 \uc2e4\uc81c \uc0ac\ub78c\uc774 \ub179\uc74c\ud55c \uac83\uc774 \uc544\ub2c8\ub77c Microsoft Azure AI Speech \ub85c \ub9cc\ub4e0 \ud569\uc131 \uc74c\uc131\uc785\ub2c8\ub2e4.")),$async$$0,r)
+return A.kZ(A.aLx(new A.nw(l,J.b(m.a,"en")?'The woman, man and child alert voices ("Shh!", "Quiet!", "Too loud!", "No running!") are not recordings of real people. They are synthetic speech made with Microsoft Azure AI Speech.':"\uc5ec\uc131 \xb7 \ub0a8\uc131 \xb7 \uc5b4\ub9b0\uc774 \uc54c\ub9bc \ubaa9\uc18c\ub9ac(\u300c\uc27f!\u300d \xb7 \u300c\uc870\uc6a9!\u300d \xb7 \u300c\uc2dc\ub044\ub7ec\uc6cc\uc694!\u300d \xb7 \u300c\ub6f0\uc9c0 \ub9c8\uc138\uc694\u300d)\ub294 \uc2e4\uc81c \uc0ac\ub78c\uc774 \ub179\uc74c\ud55c \uac83\uc774 \uc544\ub2c8\ub77c Microsoft Azure AI Speech \ub85c \ub9cc\ub4e0 \ud569\uc131 \uc74c\uc131\uc785\ub2c8\ub2e4.")),$async$$0,r)
 case 3:case 1:return A.kZ(null,0,r)
 case 2:return A.kZ(o.at(-1),1,r)}})
 var s=0,r=A.aLZ($async$$0,t.hz),q,p=2,o=[],n=[],m,l
