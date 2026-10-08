@@ -48861,7 +48861,7 @@ if(p.gNw()<d)d=p.gNw()
 if(p.gNv()<e)e=p.gNv()}a5=A.b([],a5)
 for(a6=a7.length,s=d+300,r=e+300,q=0;q<a7.length;a7.length===a6||(0,A.n)(a7),++q){p=a7[q]
 o=!0
-if(p.gEV())if(!f.$1(p))if(b5.$1(p)<=1500){if(!p.gKk()||p.gNw()<=s)k=!p.gKj()||p.gNv()<=r
+if(p.gEV())if(!f.$1(p))if(b5.$1(p)<=2500){if(!p.gKk()||p.gNw()<=s)k=!p.gKj()||p.gNv()<=r
 else k=!1
 if(!k)o=p.gyD()<b1.gyD()&&p.gfX()<=b1.gfX()+300}else o=!1
 if(o)a5.push(p)}a7=a5}c=new A.and(a3,new A.ann(this,b0),b0)
