@@ -66,7 +66,7 @@
     });
     function pin(p, label, color) {
       var el = document.createElement('div'); el.className = 'pin'; el.style.background = color; el.textContent = label;
-      new kakao.maps.CustomOverlay({ map: map, position: ll(p), content: el, yAnchor: 1.4, zIndex: 5 });
+      new kakao.maps.CustomOverlay({ map: map, position: ll(p), content: el, yAnchor: 2.3, zIndex: 9 }); // 대여소 동그라미 위로 띄운다(10/9 S8 · 출발 딱지가 숫자를 가렸다)
       bounds.extend(ll(p));
     }
     pin(data.o, '출발', '#3D8B5F');
