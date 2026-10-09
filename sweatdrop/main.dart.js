@@ -137434,7 +137434,7 @@ p=p?r:this.e
 o=$.P?B.w:B.x
 o=A.fv(r,r,r,r,r,r,r,r,r,o,r,B.Xo,r,r,new A.cG(A.bE(20),B.D),r,r,r,r,r)
 p=A.cp(A.O(A.w()?"Done without a photo":"\uc0ac\uc9c4 \uc5c6\uc774 \uc644\ub8cc",r,r,r,r,B.le,r,r),r,p,o)
-o=A.w()?"You can also turn your phone sideways to log":"\ud3f0\uc744 \uac00\ub85c\ub85c \ub3cc\ub824\ub3c4 \ubc14\ub85c \ub4f1\ub85d\ud560 \uc218 \uc788\uc5b4\uc694"
+o=A.w()?"You can also turn your phone sideways to take the photo":"\ud3f0\uc744 \uac00\ub85c\ub85c \ub3cc\ub824\uc11c \uc0ac\uc9c4\uc744 \ucc0d\uc5b4\ub3c4 \ub3fc\uc694"
 return A.bT(A.b([q,B.yR,p,new A.aV(B.BZ,A.O(o,r,r,r,r,A.aw(r,r,$.P?B.w:B.x,r,r,r,r,r,r,r,r,12,r,r,r,r,r,!0,r,r,r,r,r,r,r,r),B.aX,r),r)],t.p),B.q,B.p,B.A)}}
 A.ad0.prototype={
 I(a0){var s,r,q,p,o,n,m,l,k,j,i,h,g,f=this,e=null,d=f.c,c=d.d.a,b=A.v(c).i("aR<1>"),a=A.N(new A.aR(c,b),b.i("y.E"))
@@ -138100,7 +138100,7 @@ q=A.b([q,r?B.fO:B.fK],t.W)
 q=A.bmS(A.dm(e,A.cu(B.wA,B.j,e,e,75),B.u,e,new A.cc(e,e,e,e,B.aiz,new A.iu(B.cC,B.fA,B.bK,q,e,e),B.cW),e,150,e,e,e,e,150),0.55+0.45*s)
 p=A.aes(b,0.25,0.25)
 r=A.w()?"Did you work out today?\nLog it in 10 seconds":"\uc624\ub298 \uc6b4\ub3d9\ud588\ub098\uc694?\n10\ucd08\uba74 \ub0a8\uaca8\uc694"
-return A.bT(A.b([q,B.arY,A.px(f.Cm(r,A.w()?"One button to check in for the day":"\ubc84\ud2bc \ud558\ub098\ub85c \uc624\ub298\uc758 \uc6b4\ub3d9\uc744 \uc778\uc99d\ud574\uc694"),p)],t.p),B.q,B.cm,B.A)
+return A.bT(A.b([q,B.arY,A.px(f.Cm(r,A.w()?"One button to check in for the day\nTurn your phone sideways to take the photo":"\ubc84\ud2bc \ud558\ub098\ub85c \uc624\ub298\uc758 \uc6b4\ub3d9\uc744 \uc778\uc99d\ud574\uc694\n\ud3f0\uc744 \uac00\ub85c\ub85c \ub3cc\ub824 \uc0ac\uc9c4\uc744 \ucc0d\uc5b4\ub3c4 \ub3fc\uc694"),p)],t.p),B.q,B.cm,B.A)
 case 1:r=A.aes(b,0.05,0.2)
 q=$.P
 p=q?B.X:B.Y
@@ -138112,7 +138112,7 @@ p=A.aes(b,0.3,0.2)
 o=A.w()?"Done without a photo":"\uc0ac\uc9c4 \uc5c6\uc774 \uc644\ub8cc"
 p=A.px(A.O(o,e,e,e,e,A.aw(e,e,$.P?B.w:B.x,e,e,e,e,e,e,e,e,15,e,e,e,e,e,!0,e,e,e,e,e,e,e,e),e,e),p)
 o=A.w()?"One big button":"\ud070 \ubc84\ud2bc \ud558\ub098\uba74 \ub05d"
-return A.bT(A.b([r,B.bw,p,B.yP,f.Cm(o,A.w()?"Add a photo only if you want to\nor finish without one\nTurning your phone sideways works too":"\uc0ac\uc9c4\uc740 \ub123\uace0 \uc2f6\uc744 \ub54c\ub9cc \ub123\uc5b4\uc694\n\uc0ac\uc9c4 \uc5c6\uc774\ub3c4 \uc644\ub8cc\ud560 \uc218 \uc788\uc5b4\uc694\n\ud3f0\uc744 \uac00\ub85c\ub85c \ub3cc\ub824\ub3c4 \ubc14\ub85c \ub4f1\ub85d\ud574\uc694")],q),B.q,B.cm,B.A)
+return A.bT(A.b([r,B.bw,p,B.yP,f.Cm(o,A.w()?"Add a photo only if you want to\nor finish without one":"\uc0ac\uc9c4\uc740 \ub123\uace0 \uc2f6\uc744 \ub54c\ub9cc \ub123\uc5b4\uc694\n\uc0ac\uc9c4 \uc5c6\uc774\ub3c4 \uc644\ub8cc\ud560 \uc218 \uc788\uc5b4\uc694")],q),B.q,B.cm,B.A)
 case 2:n=B.a59.am(A.aes(b,0.1,0.5))
 r=t.p
 q=A.b([],r)
