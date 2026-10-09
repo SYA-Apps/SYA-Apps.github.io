@@ -2213,6 +2213,10 @@ flutter_plugin_android_lifecycle
 image_picker_for_web
 image_picker_macos
 image_picker_platform_interface
+in_app_purchase
+in_app_purchase_android
+in_app_purchase_platform_interface
+in_app_purchase_storekit
 path_provider
 path_provider_android
 path_provider_foundation
