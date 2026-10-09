@@ -105038,7 +105038,7 @@ r=A.c([],t.sG)
 for(j=0;j<3;++j){q=n.$1(B.t5[j])
 p=$.aS()
 i=J.b(p.a,g)?"Thud":"\ucff5"
-h=J.b(p.a,g)?"Thud x2":"\ucff5\ucff5"
+h=J.b(p.a,g)?"Thuds":"\ucff5\ucff5"
 r.push(new A.a9(q,[i,h,J.b(p.a,g)?"Stomp":"\ucff5\ucf85"][j]))}q=k>0?B.js[k-1].e:null
 p=s.length===0?null:s
 return A.aSl(this.d,q,l,f,p,r)}}
