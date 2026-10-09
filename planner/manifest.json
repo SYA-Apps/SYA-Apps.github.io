@@ -1,0 +1,35 @@
+{
+    "name": "내맘다이어리",
+    "short_name": "내맘다이어리",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#FFF6F9",
+    "theme_color": "#7FB1DF",
+    "description": "내맘다이어리 - 골라서 만드는 플래너 속지",
+    "orientation": "any",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
