@@ -1,3 +1,4 @@
+if(typeof Promise.withResolvers!=='function'){Promise.withResolvers=function(){var a,b,p=new Promise(function(r,j){a=r;b=j});return{promise:p,resolve:a,reject:b}}} /* sya-polyfill */
 /**
  * @licstart The following is the entire license notice for the
  * JavaScript code in this page
