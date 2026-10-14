@@ -120210,7 +120210,7 @@ axo(a,a0){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c=this,b=null
 switch(a){case 0:s=B.So.am(A.aFH(a0,0,0.35))
 r=A.axr(A.F7(A.di(34),A.zF("assets/icon/icon.png",170,170)),0.55+0.45*s)
 q=A.aFH(a0,0.25,0.25)
-return A.c7(A.b([r,B.aYK,A.qR(c.v4("\ub0b4 \ub9c8\uc74c\ub300\ub85c\n\ub2e4\uc774\uc5b4\ub9ac\ub97c \uafb8\uba70\ubcfc\uae4c\uc694?","\uace8\ub77c\uc11c \ub9cc\ub4dc\ub294 \ub098\ub9cc\uc758 \ud50c\ub798\ub108 \uc18d\uc9c0"),q)],t.p),B.a_,B.ck,B.W)
+return A.c7(A.b([r,B.aYK,A.qR(c.v4("\ub0b4 \ub9c8\uc74c\ub300\ub85c\n\ud50c\ub798\ub108 \uc18d\uc9c0\ub97c \ub9cc\ub4e4\uc5b4 \ubcfc\uae4c\uc694?","\ub514\uc9c0\ud138\ud50c\ub798\ub108 \uc18d\uc9c0 \ub9cc\ub4e4\uae30"),q)],t.p),B.a_,B.ck,B.W)
 case 1:r=t.p
 q=A.b([],r)
 for(p=a0>0.7,o=0;o<5;++o){n=(a0-(0.08+o*0.12))/0.18
