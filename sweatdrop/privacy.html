@@ -102,13 +102,15 @@
       서버에서 함께 거둬들입니다(다른 방에 올린 것은 그대로).</li>
 </ul>
 
-<h2>3-1. 구글 계정으로 연결할 때만 저장되는 정보</h2>
-<p>공유방을 처음 쓸 때나 내정보에서 <strong>원하는 사람만</strong> 구글 계정으로 연결할 수 있습니다.
+<h2>3-1. 구글 계정(아이폰에서는 Apple 계정도)으로 연결할 때만 저장되는 정보</h2>
+<p>공유방을 처음 쓸 때나 내정보에서 <strong>원하는 사람만</strong> 구글 계정(아이폰에서는 Apple 계정도)으로 연결할 수 있습니다.
 연결하지 않으면 아래 정보는 받지도 저장하지도 않습니다. <strong>만 14세 이상만</strong> 연결할 수 있습니다.</p>
 <ul>
   <li><strong>구글 계정 정보</strong> — 구글이 알려 주는 이메일 주소, 이름, 프로필 사진 주소.
       로그인 기록에 남으며, 앱은 내정보에서 「어느 계정으로 연결했는지」 보여 줄 때 이메일만 씁니다.
       <strong>공유방 친구에게는 보이지 않습니다.</strong></li>
+  <li><strong>Apple 계정 정보(아이폰판)</strong> — Apple 로그인으로 연결하면 Apple 이 알려 주는 이메일 주소(「이메일 가리기」를 고르면 Apple 이 만든 가림 주소)와, 이용자가 허용한 경우 이름을 받습니다.
+      폰을 바꿨을 때 같은 계정으로 돌아오게 하는 데만 쓰며, <strong>공유방 친구에게는 보이지 않습니다.</strong> 앱은 이름을 쓰지 않습니다.</li>
   <li><strong>내 기록 보관본</strong> — 인증한 날짜, 운동 한 줄, 오늘의 다짐과 완료한 날, 닉네임·아바타 모양,
       한 주 시작 요일을 한 장으로 묶어 <strong>본인만 볼 수 있는 보관함</strong>에 둡니다.</li>
   <li><strong>인증샷 보관</strong> — 인증샷은 따로 <strong>본인만 볼 수 있는 사진 보관함</strong>(Cloudflare R2)에
@@ -166,6 +168,8 @@
 <p>서버 운영에 필요한 범위에서만 맡기며, 다른 용도로 쓰이지 않습니다.</p>
 <p>구글 계정으로 연결할 때 본인 확인을 위해 <strong>구글 로그인</strong>(Google LLC)을 이용합니다.
 이때 3-1항의 구글 계정 정보를 받습니다. 연결하지 않으면 구글 로그인은 쓰이지 않습니다.</p>
+<p>아이폰에서 Apple 계정으로 연결할 때 본인 확인을 위해 <strong>Sign in with Apple</strong>(Apple Inc.)을 이용합니다.
+이때 3-1항의 Apple 계정 정보를 받습니다.</p>
 <p>구글 계정으로 연결한 경우의 <strong>인증샷 보관</strong>은 <strong>Cloudflare, Inc.(R2)</strong>에 맡깁니다
 (아시아·태평양 지역 서버). 연결하지 않으면 쓰이지 않습니다.</p>
 
@@ -182,6 +186,8 @@
   <li><strong>내정보 &gt; 전부 지우기</strong>를 누르면 이 기기의 기록과 함께
       <strong>서버에 있는 인증 기록·인증샷·공유방 참가 기록·주고받은 물방울이 모두 지워집니다.</strong>
       남는 것은 이름도 내용도 없는 임의의 식별자뿐입니다.</li>
+  <li>Apple 로그인으로 연결한 계정(아이폰판)을 삭제하면 앱이 Apple 에 연결 해제(토큰 취소)를 요청하고 서버의 정보를 지웁니다.
+      삭제를 누르면 본인 확인을 위해 Apple 로그인을 한 번 더 거칩니다.</li>
   <li>구글 계정으로 연결한 경우 「전부 지우기」는 <strong>내 기록 보관본</strong>도 함께 지웁니다.
       다만 구글로 연결한 <strong>소담 계정 자체</strong>(다른 소담 앱과 함께 쓰는 계정)는 남습니다.
       계정까지 지우려면 <a href="https://sya-apps.github.io/delete-account.html">계정 삭제 안내</a>를
@@ -218,6 +224,7 @@
 <h2>11. 방침의 변경</h2>
 <p>이 방침이 바뀌면 이 페이지에 시행일과 함께 알립니다. 서버로 보내는 항목이 늘어나는 등
 중요한 변경은 앱 안에서도 알려 드립니다.</p>
+<p class="muted">2026년 10월 17일 — 아이폰판의 <strong>Apple 로그인</strong>을 3-1·6·7항에 더했습니다(안드로이드와 웹에는 Apple 로그인이 없습니다).</p>
 <p class="muted">2026년 10월 2일 — 친구 사진에 주는 <strong>물방울</strong>을 2항에 적었고(누가 어느 사진에 주었는지 저장 · 친구에게는 개수만),
 하루 인증샷이 4장까지 늘어난 것과 공유방에서 지난 날도 볼 수 있게 된 것을 2·7항에 적었으며,
 1항의 닉네임 기본값 표기를 뺐고, 새 공유방에 들어갈 때 최근 7일 인증을 올릴지 묻는 것을 2항에, 방에서 나가면 그 방에 올렸던 인증도 거둬들이는 것을 3항에 적었습니다.</p>
@@ -241,7 +248,7 @@
 <hr>
 
 <h1 lang="en">Sweatdrop — Privacy Policy</h1>
-<p class="muted" lang="en">Effective: September 10, 2026 · Last updated: October 2, 2026</p>
+<p class="muted" lang="en">Effective: September 10, 2026 · Last updated: October 17, 2026</p>
 
 <div class="box" lang="en">
   <strong>You can use Sweatdrop without signing up.</strong> We never ask for your email, phone number, or a
@@ -285,6 +292,11 @@ later restores everything (to delete, use "Delete everything" in section 7).
 The linked account is shared across Sodam apps, but Sweatdrop records stay
 inside Sweatdrop.</p>
 
+<p lang="en"><strong>3-1 (iPhone version only) —</strong> On iPhone you can also link with <strong>Sign in with Apple</strong>.
+If you do, we receive the email address Apple provides (a private relay address if you choose "Hide My Email") and,
+if you allow it, your name; the app does not use the name. This is used only to restore your account when you change phones,
+and room members never see it. Android and the web do not have Apple sign-in.</p>
+
 <p lang="en"><strong>3-2. Reporting, blocking, removing —</strong> Tap a friend to open their
 check-in and choose <strong>Report</strong> (one of four fixed reasons — there is no free-text field).
 Reports go to the operator only; the other person is never told, and the alert we receive contains only
@@ -307,7 +319,8 @@ Android's system photo picker and camera app; we do not request access to your w
 <p lang="en"><strong>6. Processors —</strong> Supabase, Inc. provides accounts, the database, and
 storage for photos and the private record copy. Servers are located in Seoul, Republic of Korea.
 If you link a Google account, Google LLC (Google Sign-In) verifies your identity and provides the
-information in 3-1, and your workout photos are stored with Cloudflare, Inc. (R2, Asia-Pacific).</p>
+information in 3-1, and your workout photos are stored with Cloudflare, Inc. (R2, Asia-Pacific).
+On iPhone, if you link with Apple, Apple Inc. (Sign in with Apple) verifies your identity and provides the Apple account information described in 3-1.</p>
 
 <p lang="en"><strong>7. Retention and deletion —</strong> Records are kept until you delete them.
 Workout photos shared to a room are removed from the server after 30 days (past days can be browsed in a room, but photos only for 30 days), together with the drops they received;
@@ -323,7 +336,9 @@ check-ins, photos, and room memberships from the server; only an empty random id
 room name, invite code, and nickname so we can identify and delete your records. If you linked a
 Google account, "Delete everything" also removes your private record copy, but the linked Sodam
 account itself (shared with other Sodam apps) remains; to delete it, follow the
-<a href="https://sya-apps.github.io/delete-account.html">account deletion guide</a> or contact us.</p>
+<a href="https://sya-apps.github.io/delete-account.html">account deletion guide</a> or contact us.
+On iPhone, deleting an account linked with Apple asks Apple to revoke the connection (token revocation) and deletes the server data;
+you sign in with Apple once more to confirm.</p>
 
 <p lang="en"><strong>8. Your rights —</strong> You may request access, correction, deletion, or
 suspension of processing.</p>
