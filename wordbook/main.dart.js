@@ -129680,7 +129680,7 @@ q.r=B.wo.hs(0.8).gv()
 q.c=1.2
 a5.jX(new A.j(28,0),new A.j(28,a1),q)
 k=a.b
-if(k!=null){j=a3*2.6
+if(k!=null){j=a3/0.52
 for(a1=s-32,q=a.c,i=a0;;){i=new A.wG(new A.fB(k,a0,a0,B.br,a0,a0,a0,a0,a0,a0,new A.F(!0,q,a0,"Andika",a0,a0,j,a0,a0,j*0.04,a0,a0,1,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0)),B.bg,B.aE,new A.j9(1),a0,a0,a0,a0,B.bA,a0)
 i.xa()
 if(i.b.c<=a1||j<14)break
