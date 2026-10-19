@@ -2,21 +2,21 @@
   숙제도장 개인정보처리방침 — **이 파일이 원본이다.**
   =====================================================================
   구글은 두 곳을 다 요구한다(하나만 있으면 정책 위반):
-    1) 웹: https://sya-apps.github.io/checkday/privacy.html → 플레이 콘솔 «개인정보처리방침» 칸
-    2) 앱 안 링크: 숙제 관리 맨 아래 «개인정보처리방침» (lib/core/app_info.dart 의 privacyPolicyUrl)
+    1) 웹: https://sya-apps.github.io/checkday/privacy.html → 플레이 콘솔 「개인정보처리방침」 칸
+    2) 앱 안 링크: 숙제 관리 맨 아래 「개인정보처리방침」 (lib/core/app_info.dart 의 privacyPolicyUrl)
   web/ 에 두었으므로 `flutter build web` 이 산출물에 그대로 실어 Pages 로 올라간다.
 
   아래 내용은 실제 코드 기준이다(2026-09-16):
-    · 혼자 쓰면 서버에 아무것도 안 간다 — 익명 계정도 «함께 쓰기» 를 켜거나 코드로 들어갈 때 처음 만든다
+    · 혼자 쓰면 서버에 아무것도 안 간다 — 익명 계정도 「함께 쓰기」 를 켜거나 코드로 들어갈 때 처음 만든다
       (lib/services/share_api.dart 의 _ensureUser · boot)
     · 서버로 가는 줄   : lib/services/snapshot.dart (children · items · completions · claims)
     · 서버 표 · 누가 보나: supabase/migrations/0002 · 0003 · 0004 (같은 숙제장 · 아이 코드 기기는 그 아이만)
     · 한 달 정리        : AppState._prune (keepWeeks = 4)
     · 마지막 기기가 나가면 숙제장이 통째로 지워진다: 0002 의 members 삭제 트리거
-  대상 연령에 13세 미만을 넣는다(2026-09-15 사용자 결정) → 9항 «아이의 개인정보» 를 지우지 말 것.
+  대상 연령에 13세 미만을 넣는다(2026-09-15 사용자 결정) → 9항 「아이의 개인정보」 를 지우지 말 것.
 
   ⚠️ **코드를 고치면 여기도 고친다.** 서버로 보내는 항목이 늘거나, 광고·분석 도구를 붙이거나,
-     권한을 추가할 때. 스토어 «데이터 보안» 답(store/content-answers.md)과 어긋나면 반려된다.
+     권한을 추가할 때. 스토어 「데이터 보안」 답(store/content-answers.md)과 어긋나면 반려된다.
 -->
 <!doctype html>
 <html lang="ko">
@@ -50,7 +50,7 @@
 <div class="box">
   <strong>숙제도장은 회원가입 없이 씁니다.</strong> 이메일 · 전화번호 · 비밀번호를 묻지 않습니다.<br>
   <strong>혼자 쓰면 모든 기록이 이 기기 안에만</strong> 남고, 서버로 아무것도 보내지 않습니다.<br>
-  <strong>«가족과 함께 쓰기»를 켰을 때만</strong> 숙제장이 서버를 거쳐 <strong>같은 가족 기기에만</strong> 전달됩니다.
+  <strong>「가족과 함께 쓰기」를 켰을 때만</strong> 숙제장이 서버를 거쳐 <strong>같은 가족 기기에만</strong> 전달됩니다.
 </div>
 
 <h2>1. 혼자 쓸 때 — 이 기기 안에만</h2>
@@ -58,7 +58,7 @@
 (안드로이드 앱은 앱 전용 저장 공간, 웹판은 그 브라우저의 저장 공간). 서버에 계정도 기록도 만들지 않습니다.
 앱을 지우거나 브라우저 기록을 지우면 함께 사라집니다.</p>
 
-<h2>2. «가족과 함께 쓰기»를 켰을 때 — 서버에 저장되는 것</h2>
+<h2>2. 「가족과 함께 쓰기」를 켰을 때 — 서버에 저장되는 것</h2>
 <p>공유를 켜거나 아이 코드로 들어가면, 서버가 이 기기에 <strong>임의의 식별자 하나</strong>(익명 계정)를 만들어 줍니다.
 이름 · 이메일 · 전화번호와 연결되지 않습니다. 그리고 아래 내용이 서버에 저장됩니다.</p>
 <div class="table-wrap">
@@ -82,11 +82,11 @@
 
 <h2>3-1. 이상한 내용을 봤을 때 (신고 · 코드 새로 만들기)</h2>
 <ul>
-  <li><strong>신고</strong> — «가족과 함께 쓰기» 화면 맨 아래 «이상한 내용 신고하기». 사유는 <strong>고르는 네 가지</strong>뿐이고
+  <li><strong>신고</strong> — 「가족과 함께 쓰기」 화면 맨 아래 「이상한 내용 신고하기」. 사유는 <strong>고르는 네 가지</strong>뿐이고
       따로 적는 칸은 없습니다. 신고는 <strong>만든 사람만</strong> 보며, 누가 신고했는지는 같은 숙제장 사람도 알 수 없습니다.
       저장되는 것은 숙제장 번호 · (고른 경우) 아이 번호 · 사유 · 시각입니다.</li>
   <li><strong>코드 새로 만들기 · 기기 내보내기</strong> — 공유를 켠 기기에서 아이 코드를 새로 만들 수 있습니다.
-      옛 코드는 그때부터 쓸 수 없고, «다른 기기 내보내기» 를 고르면 그 코드로 들어와 있던 다른 기기가 숙제장에서 빠집니다
+      옛 코드는 그때부터 쓸 수 없고, 「다른 기기 내보내기」 를 고르면 그 코드로 들어와 있던 다른 기기가 숙제장에서 빠집니다
       (그 기기에 있던 숙제는 그 기기에 그대로 남습니다).</li>
   <li>신고 내용이 규정을 어겼다고 판단되면 그 숙제장의 기록을 지울 수 있습니다. 문의처는 12항입니다.</li>
 </ul>
@@ -98,7 +98,7 @@
   <li><strong>어떤 정보도 팔거나 제3자에게 제공하지 않습니다</strong>(아래 6항의 서버 운영 위탁은 제외).</li>
   <li>위치 · 연락처 · 사진 · <strong>기기의 센서 · 하드웨어 정보</strong>(모델명 · 광고 식별자 등)를 읽지 않습니다.</li>
   <li class="muted">다만 2항의 <strong>임의 식별자</strong>(함께 쓸 때 서버가 이 기기에 붙이는 번호)는
-      구글플레이 «데이터 보안» 분류에서 <strong>«기기 또는 기타 ID»</strong> 에 들어가므로, 스토어에는 그렇게 신고합니다.</li>
+      구글플레이 「데이터 보안」 분류에서 <strong>「기기 또는 기타 ID」</strong> 에 들어가므로, 스토어에는 그렇게 신고합니다.</li>
 </ul>
 
 <h2>5. 권한</h2>
@@ -117,10 +117,12 @@
 <ul>
   <li><strong>체크 기록은 한 달쯤(4주) 지나면 앱이 지웁니다.</strong> 모은 도장 개수만 숫자로 남습니다.</li>
   <li>숙제 · 아이 · 보상은 여러분이 지울 때까지 보관합니다. 앱에서 숙제나 아이를 지우면 <strong>서버에서도 함께 지워집니다.</strong></li>
-  <li><strong>«그만 같이 쓰기»</strong>를 누르면 이 기기는 숙제장에서 빠집니다(이 기기의 숙제는 기기 안에 남습니다).
+  <li><strong>「그만 같이 쓰기」</strong>를 누르면 이 기기는 숙제장에서 빠집니다(이 기기의 숙제는 기기 안에 남습니다).
       <strong>마지막 기기가 빠지면 그 숙제장은 서버에서 통째로 지워집니다.</strong></li>
+  <li><strong>「계정·기록 삭제」</strong>(숙제 관리 맨 아래)를 누르면 이 기기의 아이 · 숙제 · 체크 · 도장 기록이 모두 지워지고,
+      「가족과 함께 쓰기」를 켠 적이 있으면 <strong>서버의 숙제장 참가 기록과 익명 서버 계정도 함께 지워집니다.</strong> 되돌릴 수 없습니다.</li>
   <li>🚨 <strong>앱만 지우면 서버 사본은 남습니다.</strong> 완전히 지우려면 앱을 지우기 전에
-      모든 기기에서 «그만 같이 쓰기»를 눌러 주세요.</li>
+      모든 기기에서 「그만 같이 쓰기」를 눌러 주세요.</li>
   <li>이미 앱을 지우셨다면 아래 문의처로 알려 주시면 지워 드립니다. 계정이 익명이라
       <strong>어느 숙제장인지 알 수 있도록 아이 코드를 함께</strong> 알려 주세요.</li>
   <li>앱 없이 삭제를 요청하는 안내는 <a href="https://sya-apps.github.io/delete-account.html">계정 · 데이터 삭제 안내</a>에도 있습니다.</li>
@@ -134,8 +136,8 @@
 <ul>
   <li>숙제도장은 <strong>보호자와 아이가 함께 쓰는 앱</strong>입니다. 아이 이름과 숙제는 <strong>보호자가 입력</strong>하고,
       아이는 숙제를 체크합니다.</li>
-  <li>아이 정보가 서버로 가는 것은 <strong>보호자가 «가족과 함께 쓰기»를 켰을 때뿐</strong>이며, 이것을 켜는 것을
-      법정대리인(보호자)의 동의로 봅니다. 공유는 언제든 «그만 같이 쓰기»로 멈출 수 있습니다.</li>
+  <li>아이 정보가 서버로 가는 것은 <strong>보호자가 「가족과 함께 쓰기」를 켰을 때뿐</strong>이며, 이것을 켜는 것을
+      법정대리인(보호자)의 동의로 봅니다. 공유는 언제든 「그만 같이 쓰기」로 멈출 수 있습니다.</li>
   <li>아이 이름은 <strong>실명 대신 별명</strong>을 권합니다. 앱은 나이 · 학교 · 사진 · 연락처를 묻지 않습니다.</li>
   <li>아이 코드로 들어온 아이 기기는 보호자가 만든 숙제를 보고 체크 기록만 남깁니다. 아이를 새로 만들거나 지울 수 없습니다.</li>
   <li>현재 광고 · 분석 도구가 없어 아이의 정보가 광고에 쓰이지 않습니다.</li>
@@ -144,7 +146,7 @@
 <h2>10. 안전조치</h2>
 <ul>
   <li>기기와 서버 사이의 모든 통신은 암호화(HTTPS)됩니다.</li>
-  <li>서버 기록은 행 수준 보안 정책으로 «같은 숙제장 · 그 아이» 만 읽도록 막혀 있습니다.</li>
+  <li>서버 기록은 행 수준 보안 정책으로 「같은 숙제장 · 그 아이」 만 읽도록 막혀 있습니다.</li>
   <li>숙제장 코드는 데이터베이스 함수만 읽을 수 있고, 앱이나 다른 이용자가 직접 꺼내 볼 수 없습니다.</li>
 </ul>
 
@@ -204,7 +206,9 @@ Servers are located in Seoul, Republic of Korea.</p>
 only the stamp count remains. Deleting a homework item or a child in the app also deletes it from the server.
 "Stop sharing" removes this device from the homework book; when the last device leaves, the whole homework book is
 deleted from the server. <strong>Uninstalling the app alone does not delete the server copy</strong> — please use
-"Stop sharing" on every device first. If you have already uninstalled, contact us with a child code so we can find
+"Stop sharing" on every device first. "Delete account and records" (bottom of Manage homework) erases this device's
+children, homework, checks and stamps, and, if you ever used shared mode, also deletes the server participation record and the
+anonymous server account; it cannot be undone. If you have already uninstalled, contact us with a child code so we can find
 and delete the homework book.</p>
 
 <p lang="en"><strong>8. Children —</strong> The app is used by parents and children together. Parents enter child names
