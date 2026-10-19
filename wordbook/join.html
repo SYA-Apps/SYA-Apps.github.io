@@ -95,10 +95,18 @@
     alt.style.display = 'block'; alt.textContent = '웹으로 받기'; alt.href = web;
     if (!stay) setTimeout(function () { location.href = intent; }, 400);
   } else if (iphone) {
-    msg.textContent = '웹에서 단어장을 받아요. 홈 화면에 추가하면 앱처럼 써요.';
-    go.textContent = '이 단어장 받기'; go.href = web;
+    /* 아이폰: 홈 화면에 둔 앱은 링크로 바로 열 수 없다(사파리와 저장 공간이 따로다). 링크를 복사해 앱 설정에서 붙여 넣는다 */
+    msg.textContent = '아이폰은 링크를 복사해서 콕콕단어 앱의 설정 「링크로 단어장 받기」에 붙여 넣어요';
+    go.textContent = '링크 복사'; go.href = '#';
+    go.onclick = function (e) {
+      e.preventDefault();
+      var url = location.href.replace(/[?&]stay/, '');
+      function done() { go.textContent = '복사했어요. 앱을 열어 붙여 넣어요'; }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, function () { prompt('이 링크를 복사해 주세요', url); });
+      else { prompt('이 링크를 복사해 주세요', url); }
+    };
+    alt.style.display = 'block'; alt.textContent = '웹에서 바로 받기'; alt.href = web;
     document.getElementById('guide').style.display = 'block';
-    if (!stay) setTimeout(openWeb, 800);
   } else {
     msg.textContent = '웹에서 단어장을 받아요';
     go.textContent = '이 단어장 받기'; go.href = web;
