@@ -100,7 +100,8 @@
     go.textContent = '링크 복사'; go.href = '#';
     go.onclick = function (e) {
       e.preventDefault();
-      var url = location.href.replace(/[?&]stay/, '');
+      /* 주소 모양(http://…)이면 아이폰이 주소로 다뤄 붙여 넣을 때 앞부분만 들어오는 일이 있어, 주소가 아닌 글로 복사한다 */
+      var url = '콕콕단어 단어장 b=' + data;
       function done() { go.textContent = '복사했어요. 앱을 열어 붙여 넣어요'; }
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, function () { prompt('이 링크를 복사해 주세요', url); });
       else { prompt('이 링크를 복사해 주세요', url); }
