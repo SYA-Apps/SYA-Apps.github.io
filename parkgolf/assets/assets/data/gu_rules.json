@@ -4,16 +4,9 @@
     "name": "안양천 파크골프장",
     "area": "양천구",
     "url": "https://www.yangcheon.go.kr/reservation/reservation/ex/reservationCal/View.do?riIdx=RI001677",
-    "mode": 2,
-    "useDays": [
-      7
-    ],
-    "before": 10,
-    "hour": 10,
-    "minute": 0,
-    "note": "추첨 신청",
-    "checked": "2026-10-07",
-    "caution": "양천구청 안내 기준이에요. 접수 시각이 바뀔 수 있으니 구청 예약 페이지에서 꼭 다시 확인해 주세요."
+    "mode": 3,
+    "checked": "2026-10-20",
+    "caution": "양천구청 안내로 매달 한 번 추첨으로 정해요. 다음 달 이용분은 보통 이용월 약 10일 전 오전 10시부터 5일 전 오후 5시까지 신청하고, 11월 이용분은 10/19 오전 10시부터 10/23 오후 5시까지, 당첨 확정은 10/26 오전 10시예요. 주말과 연휴에 따라 날짜가 바뀌어서 알림 시각은 못 드려요. 구청 예약 페이지에서 꼭 확인해 주세요."
   },
   {
     "id": "gwangjin-jungnangcheon",
