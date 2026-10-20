@@ -95100,7 +95100,7 @@ o.push(B.hN)
 o.push(s.ud(B.IC,"\uac1c\uc778\uc815\ubcf4\ucc98\ub9ac\ubc29\uce68",new A.a1r()))
 o.push(B.hN)
 o.push(s.ud(B.Ix,"\uc624\ud508\uc18c\uc2a4 \ub77c\uc774\uc120\uc2a4",new A.a1s(a)))
-return A.m3(q,A.iA(!0,A.cY(new A.cZ(B.d0,A.lB(A.b([s.Fq(o),s.Fq(A.b([new A.aj(B.kx,A.cv(A.aT("\uc608\uc57d\uc774 \uc5f4\ub9ac\ub294 \uc2dc\uac01\uc740 \uc11c\uc6b8 \uc5f4\ub9b0\ub370\uc774\ud130\uad11\uc7a5(\uc11c\uc6b8\uc2dc \uacf5\uacf5\uc11c\ube44\uc2a4\uc608\uc57d)\uc758 \uc790\ub8cc\uc640 \uad6c\uccad \uc548\ub0b4\ub97c \ubc14\ud0d5\uc73c\ub85c \uc54c\ub824 \ub4dc\ub824\uc694. \uc804\uad6d \uad6c\uc7a5 \ubaa9\ub85d\uc740 \uacf5\uacf5\ub370\uc774\ud130\ud3ec\ud138(\uac01 \uc9c0\uc790\uccb4)\uc758 \uc790\ub8cc\uc608\uc694. \uc2e4\uc81c \uc811\uc218 \uc2dc\uac01\uacfc \uc608\uc57d\uc740 \uc11c\uc6b8\uc2dc \uc608\uc57d \ud398\uc774\uc9c0\uc5d0\uc11c \uaf2d \ub2e4\uc2dc \ud655\uc778\ud574 \uc8fc\uc138\uc694.\n\n\uc774 \uc571\uc740 \uc11c\uc6b8\uc2dc\uc640 \uad00\uacc4\uc5c6\ub294 \uac1c\uc778 \uc571\uc774\uace0, \ub300\uc2e0 \uc608\uc57d\ud574 \ub4dc\ub9ac\uc9c0 \uc54a\uc544\uc694.",r,r,r,r,B.BN,r,r,r),r,1/0),r)],p)),s.Fq(A.b([new A.aj(B.kx,A.cv(A.aT("\ub0b4\uac00 \uace0\ub978 \uad6c\uc7a5\uacfc \uc54c\ub9bc \uc124\uc815\uc740 \uc774 \uae30\uae30 \uc548\uc5d0\ub9cc \uc800\uc7a5\ub3fc\uc694. \ud68c\uc6d0\uac00\uc785\uc774 \uc5c6\uace0, \uc774\ub984\uc774\ub098 \uc5f0\ub77d\ucc98\ub97c \ubc1b\uc9c0 \uc54a\uc544\uc694.",r,r,r,r,B.BN,r,r,r),r,1/0),r)],p)),B.my,A.a7v(new A.a1t(),A.adu(),t.A9)],p),B.Hy,r,B.a3),r),r,r),B.a7,!0),r)}}
+return A.m3(q,A.iA(!0,A.cY(new A.cZ(B.d0,A.lB(A.b([s.Fq(o),s.Fq(A.b([new A.aj(B.kx,A.cv(A.aT("\uc9c0\uae08 \uc608\uc57d \uc5f4\ub9ac\ub294 \uc2dc\uac01\uc744 \uc54c\ub824 \ub4dc\ub9ac\ub294 \uacf3\uc740 \uc11c\uc6b8(\uc11c\uc6b8\uc2dc \uacf5\uacf5\uc11c\ube44\uc2a4\uc608\uc57d\uc5d0 \uc62c\ub77c\uc628 14\uac1c \uad6c)\uacfc \uad6c\uccad \uc548\ub0b4\ub97c \ud655\uc778\ud55c \uba87 \uacf3(\uc591\ucc9c\uad6c \uc548\uc591\ucc9c, \uac15\uc11c\uad6c \uc11c\ub0a8\ubb3c\uc7ac\uc0dd\uc13c\ud130, \uc778\ucc9c \uc1a1\ub3c4)\uc774\uc5d0\uc694. \uad11\uc9c4\uad6c \uc911\ub791\ucc9c, \ub300\uad6c, \uacbd\uae30 \uace0\uc591 \uc131\uc800, \uacbd\uae30 \uc5ec\uc8fc \uc624\ud559\uc740 \uc2dc\uac01\uc744 \ubab0\ub77c \uc608\uc57d \ud398\uc774\uc9c0 \uc5f0\uacb0\ub9cc \ud574 \ub4dc\ub824\uc694. \uadf8 \ubc16\uc758 \uc9c0\uc5ed\uc740 \u300c\uad6c\uc7a5 \uc9c1\uc811 \ub123\uae30\u300d \ub85c \uc2dc\uac01\uc744 \ub123\uc5b4 \uc54c\ub9bc\uc744 \ubc1b\uc744 \uc218 \uc788\uc5b4\uc694.\n\n\uc804\uad6d \uad6c\uc7a5 \ubaa9\ub85d\uc740 \uacf5\uacf5\ub370\uc774\ud130\ud3ec\ud138(\uac01 \uc9c0\uc790\uccb4)\uc758 \uc790\ub8cc\uc774\uace0 \uc774\ub984\uacfc \uc608\uc57d \uc8fc\uc18c\ub97c \ucc3e\ub294 \ub370\ub9cc \uc368\uc694. \uc2e4\uc81c \uc811\uc218 \uc2dc\uac01\uacfc \uc608\uc57d\uc740 \uac01 \uc608\uc57d \ud398\uc774\uc9c0\uc5d0\uc11c \uaf2d \ub2e4\uc2dc \ud655\uc778\ud574 \uc8fc\uc138\uc694.\n\n\uc774 \uc571\uc740 \uc11c\uc6b8\uc2dc \xb7 \uad6c\uccad\uacfc \uad00\uacc4\uc5c6\ub294 \uac1c\uc778 \uc571\uc774\uace0, \ub300\uc2e0 \uc608\uc57d\ud574 \ub4dc\ub9ac\uc9c0 \uc54a\uc544\uc694.",r,r,r,r,B.BN,r,r,r),r,1/0),r)],p)),s.Fq(A.b([new A.aj(B.kx,A.cv(A.aT("\ub0b4\uac00 \uace0\ub978 \uad6c\uc7a5\uacfc \uc54c\ub9bc \uc124\uc815\uc740 \uc774 \uae30\uae30 \uc548\uc5d0\ub9cc \uc800\uc7a5\ub3fc\uc694. \ud68c\uc6d0\uac00\uc785\uc774 \uc5c6\uace0, \uc774\ub984\uc774\ub098 \uc5f0\ub77d\ucc98\ub97c \ubc1b\uc9c0 \uc54a\uc544\uc694.",r,r,r,r,B.BN,r,r,r),r,1/0),r)],p)),B.my,A.a7v(new A.a1t(),A.adu(),t.A9)],p),B.Hy,r,B.a3),r),r,r),B.a7,!0),r)}}
 A.a1n.prototype={
 $1(a){var s=null
 return A.a4h(s,B.j,A.aCR(A.bK(A.b([B.Z_,B.ej,new A.Ar(A.aU3(s,s,new A.uV("https://sya-apps.github.io/guide/ios-add-to-home.png",1,s,B.a_R)),new A.a1l(),s),B.ej,new A.Mt(new A.a1m(a),s,s,s,s,B.q,s,!1,s,!0,s,B.YI,s)],t.p),B.z,B.n,B.bc,0,B.D),B.f9,s,B.a3),s,s,s,s,B.mf,s,s,s)},
@@ -95610,7 +95610,7 @@ if(g==null){l=m.a0r(j.f)
 h.b=l
 g=l}}g=t.p
 r=A.b([B.YJ,B.Bb,new A.YJ(j.a.c,i),B.ej],g)
-if(f.length===0)r.push(A.bK(A.b([B.T_,B.a0p,B.Ba,B.YN,B.my,new A.rv("\ub0b4 \uad6c\uc7a5 \uace0\ub974\uae30",j.gTQ(),B.IB,!1,i)],g),B.z,B.n,B.u,0,B.D))
+if(f.length===0)r.push(A.bK(A.b([B.T_,B.a0p,B.Ba,B.YM,B.my,new A.rv("\ub0b4 \uad6c\uc7a5 \uace0\ub974\uae30",j.gTQ(),B.IB,!1,i)],g),B.z,B.n,B.u,0,B.D))
 else{p=h.a
 o=h.b
 n=t.Y
@@ -95626,7 +95626,7 @@ o.push(j.a9b())
 o.push(j.ajb(f))
 B.b.T(r,o)}r.push(B.mx)
 r.push(A.cY(A.aIU(B.IJ,B.YH,new A.are(j,a)),i,i))
-r.push(new A.yM(A.bK(A.b([A.cY(A.aIU(B.IK,B.Z2,new A.arf(a)),i,i),B.fW,B.YM],g),B.z,B.n,B.u,0,B.D),i))
+r.push(new A.yM(A.bK(A.b([A.cY(A.aIU(B.IK,B.Z2,new A.arf(a)),i,i),B.fW,B.YQ],g),B.z,B.n,B.u,0,B.D),i))
 return A.m3(i,A.iA(!0,A.cY(new A.cZ(B.d0,A.lB(r,B.HB,i,B.a3),i),i,i),B.a7,!0),i)},
 ahU(a,b){var s,r,q=null
 if(a!=null){s=a.f
@@ -95636,7 +95636,7 @@ s=a.b
 if(s.length!==0)r.push(new A.aj(B.Hq,A.aT(s,q,q,q,q,B.WL,B.aM,q,q),q))
 r.push(B.fW)
 return A.bK(r,B.z,B.n,B.u,0,B.D)}if(b!=null)return A.bK(A.b([B.YW,B.fV,A.aT(b.c,q,q,q,q,B.XR,B.aM,q,q),A.aT(b.d,q,q,q,q,B.h1,q,q,q),B.fW],t.p),B.z,B.n,B.u,0,B.D)
-return A.bK(A.b([B.YV,B.fW,B.YQ,B.fW],t.p),B.z,B.n,B.u,0,B.D)},
+return A.bK(A.b([B.YV,B.fW,B.YP,B.fW],t.p),B.z,B.n,B.u,0,B.D)},
 a9b(){var s=this,r=null,q=A.i2(s.a.c.a.a.i(0,"parkgolf.alarm.day")),p=A.i2(s.a.c.a.a.i(0,"parkgolf.alarm.ten")),o=A.i2(s.a.c.a.a.i(0,"parkgolf.alarm.now"))
 return new A.HU("\uc54c\ub9bc",A.bK(A.b([new A.wo("\ud558\ub8e8 \uc804",q!==!1,new A.ar0(s),r),new A.wo("10\ubd84 \uc804",p!==!1,new A.ar1(s),r),new A.wo("\uc815\uac01\uc5d0",o!==!1,new A.ar2(s),r),B.P0],t.p),B.z,B.n,B.u,0,B.D),r,r)},
 uo(a){return this.aaK(a)},
@@ -95760,7 +95760,7 @@ A.wo.prototype={
 E(a){var s=null
 return new A.aj(B.a7,A.co(A.b([A.aT(this.c,s,s,s,s,B.mL,s,s,s),A.aJd(new A.R7(this.d,this.e,B.j,B.cy,B.w9,s),1.1)],t.p),B.z,B.cG,B.u,0,s),s)}}
 A.SU.prototype={
-E(a){var s=null,r=this.c,q=r.xp().lw(324e8),p=B.e.dH(this.d.f3(r).a,864e8),o=p>30,n=p<=0?"\uc624\ub298":""+p+"\uc77c \uc804"
+E(a){var s=null,r=this.c,q=r.xp().lw(324e8),p=B.e.dH(this.d.f3(r).a,864e8),o=p>7,n=p<=0?"\uc624\ub298":""+p+"\uc77c \uc804"
 r=o?""+A.cG(q)+"/"+A.fH(q)+" \ud655\uc778("+n+")\uc774\ub77c \ubc14\ub00c\uc5c8\uc744 \uc218 \uc788\uc5b4\uc694. \uad6c\uccad\uc5d0\uc11c \ub2e4\uc2dc \ud655\uc778\ud574 \uc8fc\uc138\uc694.":""+A.cG(q)+"/"+A.fH(q)+" \ud655\uc778("+n+")"
 return new A.aj(B.oV,A.aT(r,s,s,s,s,A.fc(s,s,o?B.bV:B.aA,s,s,s,s,s,s,s,s,16,s,s,s,s,1.35,!0,s,s,s,s,s,s,s,s),s,s,s),s)}}
 A.Wq.prototype={
@@ -96004,7 +96004,7 @@ j=A.b([new A.fo(o.b,new A.l(!0,j,d,d,d,d,24,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,
 if(o.d){i=l?B.k8:B.aA
 j.push(new A.fo("\uad6c\uccad \uc790\uccb4 \uc608\uc57d",new A.l(!0,i,d,d,d,d,16,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d),B.by,d))}j=A.bK(j,B.al,B.n,B.u,0,B.D)
 i=l?B.In:B.Iw
-b.push(new A.aj(B.kz,new A.nw(A.fm(!1,new A.bG(k,k,k,k),!0,new A.aj(B.f9,A.co(A.b([new A.ig(1,B.bW,j,d),A.k_(i,l?B.k8:B.aA,d,34)],c),B.z,B.n,B.u,0,d),d),d,!0,d,d,d,d,d,d,d,d,d,d,new A.atT(e,l,o),d,d,d,d),B.aD,!1,0,n,d,d,d,d,!0,B.q,B.C,new A.bG(m,m,m,m),d),d))}s=A.l1(B.fl,d,d,!0,!0,B.cx,d,1,d,d,d,!1,d,!1,d,d,d,d,!0,d,d,d,d,d,B.YO,d,d,d,1,d,!0)
+b.push(new A.aj(B.kz,new A.nw(A.fm(!1,new A.bG(k,k,k,k),!0,new A.aj(B.f9,A.co(A.b([new A.ig(1,B.bW,j,d),A.k_(i,l?B.k8:B.aA,d,34)],c),B.z,B.n,B.u,0,d),d),d,!0,d,d,d,d,d,d,d,d,d,d,new A.atT(e,l,o),d,d,d,d),B.aD,!1,0,n,d,d,d,d,!0,B.q,B.C,new A.bG(m,m,m,m),d),d))}s=A.l1(B.fl,d,d,!0,!0,B.cx,d,1,d,d,d,!1,d,!1,d,d,d,d,!0,d,d,d,d,d,B.YN,d,d,d,1,d,!0)
 r=A.aT8(d,d,d,d,d,d,d,d,d,d,d,B.SR,d,d,new A.cI(A.dE(16),B.p),B.Dh,d,d,d,d)
 n=A.b([e.Qa("\uc804\uccb4",e.e==null,new A.atU(e))],c)
 for(m=e.ga9p(),k=m.length,p=0;p<m.length;m.length===k||(0,A.u)(m),++p){h=m[p]
@@ -102040,8 +102040,8 @@ B.lY=new A.Ow(1,"end")
 B.OW=new A.Ox(0,"nearestOverlay")
 B.OX=new A.Ox(1,"rootOverlay")
 B.j3=new A.l(!0,B.aA,null,null,null,null,18,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.YP=new A.bI("\uae00\uc528",null,B.j3,null,null,null,null,null,null,null,null)
-B.OY=new A.aj(B.kv,B.YP,null)
+B.YO=new A.bI("\uae00\uc528",null,B.j3,null,null,null,null,null,null,null,null)
+B.OY=new A.aj(B.kv,B.YO,null)
 B.BJ=new A.l(!0,B.j,null,null,null,null,28,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Yx=new A.bI("\uc800\uc7a5\ud558\uae30",null,B.BJ,null,null,null,null,null,null,null,null)
 B.EU=new A.h0(B.O,null,null,B.Yx,null)
@@ -102827,11 +102827,11 @@ B.YH=new A.bI("\uc9c0\uc5ed\ubcc4 \ud30c\ud06c\uace8\ud504\uc7a5 \ud604\ud669",n
 B.YI=new A.bI("\ub2eb\uae30",null,B.eo,null,null,null,null,null,null,null,null)
 B.YJ=new A.bI("\ud30c\ud06c\uace8\ud504\ub529\ub3d9",null,B.BI,B.aM,null,null,null,null,null,null,null)
 B.YK=new A.bI("\uc815\ubcf4",null,B.dy,null,null,null,null,null,null,null,null)
-B.YM=new A.bI("\uc790\ub8cc: \uc11c\uc6b8 \uc5f4\ub9b0\ub370\uc774\ud130\uad11\uc7a5(\uc11c\uc6b8\uc2dc \uacf5\uacf5\uc11c\ube44\uc2a4\uc608\uc57d)\n\uc608\uc57d\uc740 \uc11c\uc6b8\uc2dc \uc608\uc57d \ud398\uc774\uc9c0\uc5d0\uc11c \uc9c1\uc811 \ud558\ub294 \uac70\uc608\uc694.\n\uc774 \uc571\uc740 \uc5f4\ub9ac\ub294 \uc2dc\uac01\uc744 \uc54c\ub824 \ub4dc\ub9b4 \ubfd0, \ub300\uc2e0 \uc608\uc57d\ud574 \ub4dc\ub9ac\uc9c0 \uc54a\uc544\uc694.",null,B.BK,B.aM,null,null,null,null,null,null,null)
 B.Wa=new A.l(!0,null,null,"Jua",null,null,28,null,null,null,null,null,1.3,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.YN=new A.bI("\ub2e4\ub2c8\ub294 \ud30c\ud06c\uace8\ud504\uc7a5\uc744\n\uba3c\uc800 \uace8\ub77c \uc8fc\uc138\uc694",null,B.Wa,B.aM,null,null,null,null,null,null,null)
-B.YO=new A.bI("\ub0b4 \uad6c\uc7a5 \uace0\ub974\uae30",null,B.dy,null,null,null,null,null,null,null,null)
-B.YQ=new A.bI("\uc11c\uc6b8\uc2dc\uc5d0 \uc0c8 \uc77c\uc815\uc774 \uc62c\ub77c\uc624\uba74 \uc5ec\uae30\uc5d0 \ub098\uc640\uc694",null,B.h0,B.aM,null,null,null,null,null,null,null)
+B.YM=new A.bI("\ub2e4\ub2c8\ub294 \ud30c\ud06c\uace8\ud504\uc7a5\uc744\n\uba3c\uc800 \uace8\ub77c \uc8fc\uc138\uc694",null,B.Wa,B.aM,null,null,null,null,null,null,null)
+B.YN=new A.bI("\ub0b4 \uad6c\uc7a5 \uace0\ub974\uae30",null,B.dy,null,null,null,null,null,null,null,null)
+B.YP=new A.bI("\uc11c\uc6b8\uc2dc\uc5d0 \uc0c8 \uc77c\uc815\uc774 \uc62c\ub77c\uc624\uba74 \uc5ec\uae30\uc5d0 \ub098\uc640\uc694",null,B.h0,B.aM,null,null,null,null,null,null,null)
+B.YQ=new A.bI("\uc9c0\uae08\uc740 \uc11c\uc6b8 \xb7 \uc778\ucc9c \uc1a1\ub3c4 \uc77c\ubd80 \uad6c\uc7a5\uc758 \uc5f4\ub9ac\ub294 \uc2dc\uac01\uc744 \uc54c\ub824 \ub4dc\ub824\uc694.\n\uacbd\uae30 \xb7 \ub300\uad6c \uc77c\ubd80\ub294 \uc608\uc57d \ud398\uc774\uc9c0 \uc5f0\uacb0\ub9cc \ub418\uace0, \ub2e4\ub978 \uc9c0\uc5ed\uc740 \u300c\uad6c\uc7a5 \uc9c1\uc811 \ub123\uae30\u300d \ub85c \ub123\uc744 \uc218 \uc788\uc5b4\uc694.\n\uc608\uc57d\uc740 \uac01 \uc608\uc57d \ud398\uc774\uc9c0\uc5d0\uc11c \uc9c1\uc811 \ud558\ub294 \uac70\uc608\uc694.\n\uc774 \uc571\uc740 \uc5f4\ub9ac\ub294 \uc2dc\uac01\uc744 \uc54c\ub824 \ub4dc\ub9b4 \ubfd0, \ub300\uc2e0 \uc608\uc57d\ud574 \ub4dc\ub9ac\uc9c0 \uc54a\uc544\uc694.",null,B.BK,B.aM,null,null,null,null,null,null,null)
 B.X_=new A.l(!0,B.aA,null,null,null,null,16,null,null,null,null,null,1.4,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.YR=new A.bI("\uacf5\uacf5\ub370\uc774\ud130\ud3ec\ud138\uc5d0 \uad6c\uc7a5 \ubaa9\ub85d\uc774 \uc62c\ub77c\uc628 \uc9c0\uc5ed\ub9cc \ubcf4\uc5ec\uc694. \uc5c6\ub294 \uc9c0\uc5ed\uc740 \u300c\uc9c1\uc811 \ub123\uae30\u300d \ub85c \ub123\uc744 \uc218 \uc788\uc5b4\uc694.",null,B.X_,null,null,null,null,null,null,null,null)
 B.YS=new A.bI("\uad6c\uc7a5 \uc815\ubcf4",null,B.dy,null,null,null,null,null,null,null,null)
