@@ -1,0 +1,92 @@
+[
+  {
+    "id": "yangcheon-anyangcheon",
+    "name": "안양천 파크골프장",
+    "area": "양천구",
+    "url": "https://www.yangcheon.go.kr/reservation/reservation/ex/reservationCal/View.do?riIdx=RI001677",
+    "mode": 3,
+    "checked": "2026-10-20",
+    "caution": "양천구청 안내로 매달 한 번 추첨으로 정해요. 다음 달 이용분은 보통 이용월 약 10일 전 오전 10시부터 5일 전 오후 5시까지 신청하고, 11월 이용분은 10/19 오전 10시부터 10/23 오후 5시까지, 당첨 확정은 10/26 오전 10시예요. 주말과 연휴에 따라 날짜가 바뀌어서 알림 시각은 못 드려요. 구청 예약 페이지에서 꼭 확인해 주세요."
+  },
+  {
+    "id": "gwangjin-jungnangcheon",
+    "name": "중랑천 파크골프장",
+    "area": "광진구",
+    "url": "https://booking.gwangjin.or.kr/fmcs/47",
+    "mode": 3,
+    "checked": "2026-10-20",
+    "caution": "광진구시설관리공단 사전예약이에요. 예약이 열리는 때는 공단(02-458-9062)에 확인해 주세요."
+  },
+  {
+    "id": "gangseo-seonam",
+    "name": "서남물재생센터 파크골프장",
+    "area": "강서구",
+    "url": "https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S230131090246367142",
+    "mode": 2,
+    "useDays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "before": 10,
+    "hour": 6,
+    "minute": 0,
+    "rolling": true,
+    "replaces": "서남물재생센터|강서구",
+    "note": "매일 오전 6시에 10일 뒤 이용분이 열려요",
+    "checked": "2026-10-20",
+    "caution": "서울시 공공서비스예약 안내 기준이에요. 월요일은 쉬고, 4월부터 12월까지 운영해요. 접수는 이용 1일 전 밤 12시까지예요."
+  },
+  {
+    "id": "incheon-songdo",
+    "name": "송도 파크골프장",
+    "area": "인천 연수구",
+    "url": "https://reserve.insiseol.or.kr/see/info_songdo.jsp",
+    "mode": 2,
+    "useDays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "before": 0,
+    "hour": 7,
+    "minute": 0,
+    "rolling": true,
+    "note": "이용하는 날 오전 7시에 그날 분이 열려요",
+    "checked": "2026-10-20",
+    "caution": "인천시설공단 예약 페이지 안내 기준이에요. 월요일은 쉬고 1~3월은 운영하지 않아요. 지금은 시범운영이라 현장 발권도 있고 바뀔 수 있어요. 문의 032-456-5501"
+  },
+  {
+    "id": "goyang-seongjeo",
+    "name": "성저 파크골프장",
+    "area": "경기 고양",
+    "url": "https://yeyak.gys.or.kr/fmcs/102",
+    "mode": 3,
+    "checked": "2026-10-20",
+    "caution": "고양도시관리공사 온라인 예약이에요. 예약이 열리는 때는 공식 안내에 없어서 예약 페이지나 공사(031-929-4800)에 확인해 주세요."
+  },
+  {
+    "id": "yeoju-ohak",
+    "name": "여주 오학 파크골프장",
+    "area": "경기 여주",
+    "url": "https://yeojuuc.or.kr/reservation/yjpg",
+    "mode": 3,
+    "checked": "2026-10-20",
+    "caution": "여주도시공사 안내로 여주시 밖에 사는 분은 이용일 7일 전에 온라인으로 예약해요. 몇 시에 열리는지는 안내에 없어서 예약 페이지에서 확인해 주세요. 오학은 화요일, 점동은 월요일, 대신은 수요일에 쉬어요."
+  },
+  {
+    "id": "daegu-booking",
+    "name": "대구 파크골프장 예약",
+    "area": "대구",
+    "url": "https://dgpg.daegu.go.kr/",
+    "mode": 3,
+    "checked": "2026-10-20",
+    "caution": "대구시 파크골프 예약시스템이에요. 예약이 열리는 때는 안내에 없어서 예약 페이지에서 구장마다 확인해 주세요(불로 053-982-8322)."
+  }
+]
