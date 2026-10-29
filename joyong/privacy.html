@@ -10,8 +10,9 @@
     · «내 목소리» 녹음은 앱 폴더 voice_alarm.wav(소리용) · voice_thump.wav(쿵쿵용) 둘까지 — lib/services/alarm.dart
     · 쿵쿵(흔들림 센서)은 켰을 때만 — 크기만 계산하고 버린다: lib/services/motion.dart · thump.dart
     · 설정은 앱 폴더 joyong.json(웹은 localStorage) — lib/services/store*.dart
-    · 서버 · 로그인 · 광고 · 분석 없음. 안드로이드 릴리스 권한은 마이크(RECORD_AUDIO) 하나 — 화면 켜 두기는 창 설정이라 권한이 아니다 —
-      인터넷 권한이 없다(android/app/src/main/AndroidManifest.xml)
+    · 서버 · 로그인 · 분석 없음. 광고는 안드로이드 광고판(1.1.1+8)부터 화면 맨 아래 AdMob 배너 한 줄(웹은 광고 없음).
+      안드로이드 권한은 마이크(RECORD_AUDIO) + 광고용 INTERNET · AD_ID — 화면 켜 두기는 창 설정이라 권한이 아니다
+      (android/app/src/main/AndroidManifest.xml). 2026-10-29 광고 문구 반영(ADMIN 요청)
   대상 연령에 13세 미만을 넣지 않는다(LAB 인계 — 가족 정책 피하기). 쓰는 사람은 부모 · 선생님.
 
   ⚠️ **코드를 고치면 여기도 고친다.** 권한을 더하거나, 광고 · 분석 도구를 붙이거나, 무언가를 기기 밖으로 보낼 때.
@@ -39,7 +40,7 @@
 <body>
 
 <h1>쉿조용히 개인정보처리방침</h1>
-<p class="muted">시행일: 2026년 9월 27일 · 최종 수정: 2026년 9월 27일</p>
+<p class="muted">시행일: 2026년 9월 27일 · 최종 수정: 2026년 10월 29일</p>
 
 <div class="box">
   <strong>쉿조용히는 회원가입 없이 씁니다.</strong> 이름 · 이메일 · 전화번호를 묻지 않습니다.<br>
@@ -68,20 +69,30 @@
 
 <h2>3. 하지 않는 것</h2>
 <ul>
-  <li><strong>서버가 없습니다.</strong> 계정을 만들지 않고, 어떤 정보도 개발자에게 전송되지 않습니다.</li>
-  <li><strong>현재 광고가 없습니다.</strong> 광고 식별자도 쓰지 않습니다. 광고를 넣게 되면 넣기 전에 이 방침을 먼저 고쳐 알립니다.</li>
+  <li><strong>서버가 없습니다.</strong> 계정을 만들지 않고, 어떤 정보도 개발자에게 전송되지 않습니다(광고 제공자인 구글에는 5-1항의 정보가 전달될 수 있습니다).</li>
+  <li><strong>광고가 나옵니다.</strong> 화면 맨 아래에 구글 AdMob 배너 광고 한 줄이 나오며, 이를 위해 광고 식별자(광고 ID)가 쓰입니다. 자세한 내용은 5-1항.</li>
   <li><strong>분석 · 추적 도구를 쓰지 않습니다.</strong></li>
   <li>위치 · 연락처 · 사진을 읽지 않습니다.</li>
 </ul>
 
 <h2>4. 권한</h2>
-<p>앱이 요구하는 권한은 <strong>마이크 하나뿐</strong>입니다 — 소리 크기를 재고, 원할 때 「내 목소리」를 녹음하려고.
+<p>앱이 요구하는 권한은 마이크입니다 — 소리 크기를 재고, 원할 때 「내 목소리」를 녹음하려고.
 재는 동안 화면이 꺼지지 않게 해 두지만 이것은 따로 권한이 필요하지 않습니다.
-안드로이드 앱은 <strong>인터넷 권한을 요청하지 않습니다.</strong></p>
+광고를 보여 주기 위해 인터넷 권한과 광고 ID 권한을 요청합니다. 마이크는 소리 크기를 재는 데만 쓰입니다.</p>
 
 <h2>5. 이용 대상</h2>
 <p>쉿조용히는 <strong>보호자와 선생님이 쓰는 앱</strong>입니다. 아이는 화면을 볼 뿐이고, 앱은 아이에 대한 정보를
 묻거나 저장하지 않습니다.</p>
+
+<h2>5-1. 광고</h2>
+<p>이 앱은 <strong>화면 맨 아래에 광고(배너) 한 줄</strong>을 게재합니다. 광고는 구글 AdMob 이 보여 주며,
+이를 위해 <strong>광고 식별자(광고 ID)와 기기 정보(기기 종류 · OS 버전 · IP 주소로 알 수 있는 대략적인 위치 등)</strong>가
+광고 제공자에게 전달될 수 있습니다. 광고 ID 는 폰의 설정에서 재설정하거나 개인 맞춤 광고를 끌 수 있습니다.</p>
+<p>마이크로 잰 소리와 설정, 「내 목소리」 녹음은 광고 제공자에게 <strong>전달하지 않습니다.</strong>
+광고는 소리 없이 표시되며 측정에는 쓰이지 않습니다.</p>
+<p>유럽 · 영국 등 동의가 필요한 지역에서는 광고를 보여 드리기 전에 동의를 여쭙습니다.
+이 앱은 만 18세 이상을 대상으로 하며, 광고는 아동 대상이 아닌 일반 광고입니다.
+구글의 개인정보 처리는 <a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a> 에서 볼 수 있습니다.</p>
 
 <h2>6. 삭제</h2>
 <p>저장된 것이 모두 이 기기 안에 있으므로, 앱을 지우면 설정과 녹음이 모두 지워집니다.
@@ -98,7 +109,7 @@
 <hr>
 
 <h1 lang="en">Shh Light (Noise Level Light) — Privacy Policy</h1>
-<p class="muted" lang="en">Effective: September 27, 2026 · Last updated: September 27, 2026</p>
+<p class="muted" lang="en">Effective: September 27, 2026 · Last updated: October 29, 2026</p>
 
 <div class="box" lang="en">
   <strong>No sign-up.</strong> We never ask for a name, email, or phone number.
@@ -117,14 +128,22 @@ value) and, only if you record one, a 3-second voice clip used as an alert sound
 on the web) and are removed when you uninstall. On the web, the voice clip stays only in that browser's storage and is removed when you clear the site data.</p>
 
 <p lang="en"><strong>3. What we do not do —</strong> There is no server and no account; nothing is transmitted to the
-developer. There are currently no ads and no advertising identifiers (if ads are ever added, this policy will be updated
-first). No analytics or tracking. We do not read location, contacts, or photos.</p>
+developer (the ad provider, Google, may receive the information described in section 5-1). The app shows one banner ad at the bottom of the screen (Google AdMob), which uses the advertising ID. See section 5-1. No analytics or tracking. We do not read location, contacts, or photos.</p>
 
-<p lang="en"><strong>4. Permissions —</strong> Microphone only (to measure loudness and, optionally, record your voice clip).
-The screen is kept on while measuring, which needs no permission. The Android app does not request Internet access.</p>
+<p lang="en"><strong>4. Permissions —</strong> Microphone (to measure loudness and, optionally, record your voice clip).
+The screen is kept on while measuring, which needs no permission.
+To show the ad, the Android app requests internet and advertising ID permissions. The microphone is used only to measure loudness.</p>
 
 <p lang="en"><strong>5. Audience —</strong> The app is used by parents and teachers. Children only look at the screen;
 the app does not ask for or store any information about them.</p>
+
+<h2 lang="en">5-1. Advertising</h2>
+<p lang="en">The app shows <strong>one banner ad at the bottom of the screen</strong>, served by Google AdMob. To serve it, the
+<strong>advertising ID and basic device information</strong> (device type, OS version, approximate location derived from the IP address)
+may be sent to the ad provider. You can reset the advertising ID or turn off ad personalization in your phone settings.</p>
+<p lang="en">The sound level, your settings and your recorded voice are <strong>never sent</strong> to the ad provider. Ads are muted and are not used for measurement.</p>
+<p lang="en">Where consent is required (for example in the UK and EU), we ask before showing ads. The app is intended for adults (18+); the ads are not child-directed.
+Google's privacy information: <a href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</a>.</p>
 
 <p lang="en"><strong>6. Deletion —</strong> Everything is on the device, so uninstalling removes it all. The developer
 keeps no data.</p>
