@@ -77,8 +77,8 @@
   var android = /Android/i.test(ua);
   var iphone = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
   var stay = /[?&]stay/.test(location.search);
-  /* 스토어에 공개되면 Play 주소를 넣는다: https://play.google.com/store/apps/details?id=com.sya.parkgolf */
-  var play = '';
+  /* Play 공개됨(2026-10-21) */
+  var play = 'https://play.google.com/store/apps/details?id=com.sya.parkgolf';
   var web = 'https://sya-apps.github.io/parkgolf/';
   var go = document.getElementById('go'), alt = document.getElementById('alt'), msg = document.getElementById('msg');
   if (android && play) {
