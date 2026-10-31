@@ -1,0 +1,151 @@
+<!--
+  콕콕단어 개인정보처리방침 — **이 파일이 원본이다.**
+  =====================================================================
+  구글은 두 곳을 다 요구한다(하나만 있으면 정책 위반):
+    1) 웹: https://sya-apps.github.io/wordbook/privacy.html → 플레이 콘솔 「개인정보처리방침」 칸
+    2) 앱 안 링크: ⚙ 설정 → 「개인정보처리방침」 (lib/screens/settings.dart)
+  web/ 에 두었으므로 `flutter build web` 이 산출물에 그대로 실어 대문(Pages)으로 올라간다.
+
+  실제 코드 기준(2026-10-02):
+    · 기기 안 저장      : lib/store.dart (단어장 · 공부 기록 · 고른 목소리) — shared_preferences
+    · 사진 읽기(폰 앱)  : lib/ocr.dart — 구글 ML Kit **기기 안** 인식. 사진은 저장·전송하지 않는다
+    · 발음 서버         : lib/speak.dart → supabase/functions/sodam-tts — 영어 단어 글자와 고른 목소리만 보낸다
+    · 단어장 보내기     : lib/share.dart — 단어장을 링크 안에 담는다(우리 서버를 거치지 않는다)
+    · 공부방 공유       : lib/share/ — 익명 로그인 뒤 단어장·단어를 Supabase wordbook 칸에 올린다(2026-10-18 방침 반영). 지우기: 설정 「내 공유 데이터 모두 지우기」 → sodam-delete-account
+    · 뜻 견주기         : lib/meaning_check.dart → sodam-translate — 영어 단어 글자만 보낸다
+    · 웹 사진 읽기    : lib/ocr_cloud.dart → supabase/functions/sodam-ocr(Azure AI Vision) — 2026-10-02 켜짐. 사진은 읽고 버린다
+      (폰 앱(AAB)은 ML Kit 기기 안이라 사진이 안 나간다 → 데이터 보안 답은 그대로)
+  대상 연령에 13세 미만을 넣는다(2026-10-02 사용자 1-1) → 8항 「아이의 개인정보」 를 지우지 말 것.
+
+  ⚠️ 코드를 고치면 여기도 고친다(서버로 보내는 것 · 광고 · 분석 · 권한). store/content-answers.md 와 어긋나면 반려된다.
+  ⚠️ 심사 중에는 이 파일을 바꾸지 않는다(공통 규칙) — 다음 AAB 를 낼 때 같이.
+-->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>콕콕단어 개인정보처리방침</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 720px; margin: 0 auto; padding: 24px 18px 64px;
+         font: 16px/1.7 system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+         color: #1a1a1a; background: #fff; }
+  @media (prefers-color-scheme: dark) { body { color: #e6e6e6; background: #16171a; } }
+  h1 { font-size: 1.5rem; } h2 { font-size: 1.15rem; margin-top: 2em; }
+  .box { border: 1px solid currentColor; border-radius: 10px; padding: 12px 16px; opacity: .95; }
+  .muted { opacity: .7; font-size: .9rem; }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; margin: .6em 0; }
+  th, td { border: 1px solid currentColor; padding: 8px 10px; text-align: left; vertical-align: top; font-size: .95rem; }
+  th { opacity: .75; font-weight: 600; }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+
+<h1>콕콕단어 개인정보처리방침</h1>
+<p class="muted">시행일: 2026년 10월 18일 · 운영: 소담(Sodam Apps)</p>
+
+<div class="box">
+  <strong>콕콕단어에는 이름·이메일로 가입하는 계정이 없습니다.</strong>
+  단어장과 공부 기록은 <strong>이 기기 안에</strong> 저장됩니다.
+  서버로 가는 것은 <strong>발음을 들을 때의 영어 단어 글자</strong>(3항), <strong>뜻을 견줄 때의 영어 단어 글자</strong>(4항),
+  그리고 <strong>공부방 공유를 쓸 때만</strong> 올리는 단어장(4항)입니다.
+  웹에서 사진으로 단어장을 만들 때만 사진이 글자 읽기 서비스로 갑니다(2항).
+</div>
+
+<h2>1. 이 기기 안에만 저장되는 것</h2>
+<ul>
+  <li>단어장: 이름, 색, 영어 단어, 뜻, 품사</li>
+  <li>공부 기록: 외운 단어 표시, 모른 횟수</li>
+  <li>설정: 고른 발음 목소리</li>
+</ul>
+<p>공부방 공유를 켜지 않으면 이 정보는 우리 서버로 보내지 않습니다. 앱을 지우면 이 기기의 기록이 함께 지워집니다.</p>
+
+<h2>2. 사진</h2>
+<ul>
+  <li><strong>폰 앱</strong>: 단어 프린트를 찍거나 사진 보관함에서 고르면, 폰 안에서(구글 ML Kit) 글자를 읽어 단어장을 만듭니다.
+      사진은 <strong>저장하지 않고 어디로도 보내지 않습니다.</strong> 읽은 글자만 단어장에 들어갑니다.</li>
+  <li><strong>웹(브라우저)</strong>: 브라우저에는 글자 읽기 기능이 없어, 고른 사진을 소담 서버를 거쳐 Microsoft Azure 글자 읽기(AI Vision)로 보냅니다.
+      사진은 글자를 읽는 데에만 쓰이고 <strong>저장하지 않으며</strong>, 읽은 글자만 돌아와 이 기기의 단어장에 들어갑니다. 서버는 하루에 몇 장을 읽었는지(날짜·건수)만 셉니다.</li>
+  <li>구글 ML Kit은 기능을 개선하려고 사용 통계(기기 종류, 처리 시간 등)를 구글에 보낼 수 있습니다. 사진과 글자 내용은 보내지 않습니다.</li>
+</ul>
+
+<h2>3. 발음 (서버로 가는 것)</h2>
+<div class="table-wrap">
+<table>
+  <tr><th>무엇을</th><th>언제</th><th>어디로</th><th>얼마나 보관</th></tr>
+  <tr>
+    <td>영어 단어 글자, 고른 목소리(여자·남자·어린이)</td>
+    <td>앱에 미리 녹음되지 않은 단어의 발음을 들을 때</td>
+    <td>소담 서버(Supabase) → Microsoft Azure 음성 합성</td>
+    <td>만들어진 발음 파일(단어별)은 모든 사용자가 함께 쓰도록 서버에 남습니다. 누가 들었는지는 남기지 않습니다</td>
+  </tr>
+</table>
+</div>
+<p>이때 이름·기기 번호 같은 신원 정보는 보내지 않습니다. 서버는 하루에 몇 글자를 만들었는지(날짜·건수)만 셉니다.</p>
+
+<h2>4. 단어장 보내기와 공부방 공유</h2>
+<p>「보내기」로 만든 링크 안에 단어장(이름·단어·뜻)이 담깁니다. 이 링크는 우리 서버를 거치지 않고,
+여러분이 고른 카톡·문자 등으로 바로 전해집니다. 링크를 가진 사람은 그 단어장을 볼 수 있으니 필요한 사람에게만 보내세요.
+외운 기록은 링크에 들어가지 않습니다.</p>
+<p><strong>공부방 공유</strong>를 켜거나 친구의 코드를 넣으면, 앱이 서버에 <strong>익명 번호</strong>(이름·이메일 없는 임의의 번호)를 하나 만들고
+공부방 이름, 단어장 이름, 영어 단어·품사·뜻, 외운 표시와 모른 횟수, 순서를 소담 서버(Supabase)에 올립니다.
+같은 코드를 넣은 사람만 그 공부방의 단어장을 볼 수 있고, 코드를 가진 사람이 공부방 안의 단어장을 고칠 수 있습니다.
+공유를 켜지 않은 기기는 서버에 아무것도 올리지 않고 익명 번호도 만들지 않습니다.
+이상한 내용은 공부방 메뉴의 「이상한 내용 신고」로 알려 주세요(고정된 사유 중에서 고릅니다).
+단어의 뜻이 맞는지 견주는 기능은 영어 단어 글자만 번역 서비스(Microsoft)로 보내고 저장하지 않습니다.
+공유 글에는 아이의 실명·연락처·주소를 쓰지 마세요.</p>
+
+<h2>5. 하지 않는 것</h2>
+<ul>
+  <li>이름·이메일·전화번호로 가입하거나 로그인하게 하지 않습니다(공유를 쓸 때의 익명 번호만 있습니다).</li>
+  <li>현재 광고와 분석 도구가 없습니다.</li>
+  <li>위치·연락처·마이크를 쓰지 않습니다.</li>
+</ul>
+
+<h2>6. 권한</h2>
+<ul>
+  <li>인터넷: 미리 녹음되지 않은 단어의 발음을 받아 올 때</li>
+  <li>사진 고르기·카메라: 폰의 기본 사진 고르기 화면과 카메라 앱을 통해 여러분이 고른 사진 한 장만 받습니다</li>
+</ul>
+
+<h2>7. 처리 위탁</h2>
+<div class="table-wrap">
+<table>
+  <tr><th>받는 곳</th><th>하는 일</th></tr>
+  <tr><td>Supabase Inc. (서버, 서울 지역)</td><td>발음 요청과 웹 사진 읽기 요청을 받아 전달하고 발음 파일을 보관, 공부방 공유로 올린 단어장 보관</td></tr>
+  <tr><td>Microsoft (Azure 음성)</td><td>영어 단어를 발음 파일로 만듦</td></tr>
+  <tr><td>Microsoft (번역)</td><td>영어 단어의 뜻 후보를 얻음(저장 안 함)</td></tr>
+  <tr><td>Microsoft (Azure AI Vision)</td><td>웹에서 고른 사진의 글자를 읽음(저장 안 함)</td></tr>
+</table>
+</div>
+
+<h2>8. 아이의 개인정보</h2>
+<ul>
+  <li>콕콕단어는 <strong>보호자와 아이가 함께 쓰는 앱</strong>입니다. 보호자가 단어장을 만들고 아이가 외웁니다.</li>
+  <li>앱은 이름·나이·학교·연락처를 묻지 않습니다. 단어장 이름에도 아이 실명 대신 별명을 권합니다.</li>
+  <li>서버로 가는 것은 3항의 영어 단어 글자, 웹에서 고른 사진(읽고 버림), 그리고 보호자가 공부방 공유를 켰을 때 올리는 단어장(4항)뿐이며, 이름 같은 아이를 알아볼 수 있는 정보는 보내지 않습니다.
+      사진에 아이 얼굴이나 이름이 나오지 않게 단어 부분만 찍어 주세요.</li>
+  <li>현재 광고가 없어 아이의 정보가 광고에 쓰이지 않습니다.</li>
+</ul>
+
+<h2>9. 지우기</h2>
+<ul>
+  <li>단어장은 앱에서 밀거나 단어장 화면의 지우기로 언제든 지울 수 있습니다.</li>
+  <li>앱을 지우면 이 기기의 모든 기록이 지워집니다.</li>
+  <li>공부방 공유를 썼다면 설정의 <strong>「내 공유 데이터 모두 지우기」</strong>로 서버의 익명 번호와 공유 기록을 지우고 모든 공부방에서 나갈 수 있습니다(이 기기의 단어장은 남습니다).
+      다른 사람이 아직 남아 있는 공부방의 단어장은 그 사람들에게 남습니다. 공부방에서 나가기만 해도 내 참여는 지워지고, 마지막 사람이 나가면 그 공부방의 서버 기록은 모두 지워집니다.</li>
+  <li>앱을 지우기만 하면 서버의 공유 기록은 남을 수 있으니, 지우기 전에 위 단추를 먼저 눌러 주세요. 도움이 필요하면 sya.apps.dev@gmail.com 으로 알려 주세요.</li>
+</ul>
+
+<h2>10. 방침의 변경</h2>
+<p>바뀌면 이 페이지에 시행일과 함께 알립니다.</p>
+
+<h2>11. 문의</h2>
+<p><a href="mailto:sya.apps.dev@gmail.com?subject=%5B%EC%BD%95%EC%BD%95%EB%8B%A8%EC%96%B4%5D%20%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%20%EB%AC%B8%EC%9D%98">sya.apps.dev@gmail.com</a>
+(제목에 [콕콕단어]를 넣어 주세요)</p>
+
+</body>
+</html>
