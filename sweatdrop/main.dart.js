@@ -143918,7 +143918,7 @@ b.push(new A.Fm(s,A.l()?a:o,a0,i))
 r.push(A.kP(A.bH(b,B.q,B.o,B.y),i,B.a8))
 r.push(B.aI)
 f=A.l()?"Sweatdrop":"\ub540\ubc29\uc6b8"
-r.push(A.dk(A.C(f+" \xb7 1.0.3",i,i,i,i,A.ak(i,i,$.E?B.r:B.t,i,i,i,i,i,i,i,i,11.5,i,i,i,i,i,!0,i,i,i,i,i,i,i,i),i,i),i,i))
+r.push(A.dk(A.C(f+" \xb7 1.0.4",i,i,i,i,A.ak(i,i,$.E?B.r:B.t,i,i,i,i,i,i,i,i,11.5,i,i,i,i,i,!0,i,i,i,i,i,i,i,i),i,i),i,i))
 return A.mR(c,i,A.xc(i,r,B.CB,i,i,B.ai),i,i)}}
 A.aKh.prototype={
 $1(a){var s,r=null,q=A.cp(B.mX,$.E?B.ci:B.cj,r,r,r)
@@ -144130,7 +144130,7 @@ $0(){return this.a.yb(this.b,"mailto:sya.apps.dev@gmail.com?subject=%5B\ub540\ub
 $S:0}
 A.aKt.prototype={
 $0(){var s=A.l()?"Sweatdrop":"\ub540\ubc29\uc6b8",r=A.l()?"Sodam":"\uc18c\ub2f4"
-return A.bTI(r,s,"1.0.3",this.a)},
+return A.bTI(r,s,"1.0.4",this.a)},
 $S:0}
 A.aKu.prototype={
 $0(){return this.a.BR(this.b)},
