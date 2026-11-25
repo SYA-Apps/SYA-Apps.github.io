@@ -79,7 +79,7 @@
 </table>
 <p><strong>다짐은 개인적인 것이라 서버에 올리지 않습니다.</strong> 프로필 사진도 마찬가지로
 이 기기 안에만 있습니다. 인증할 때 <strong>어느 공유방에 올릴지 직접 고르며</strong>,
-아무 방도 고르지 않으면 그 기록은 이 기기 밖으로 나가지 않습니다.
+아무 방도 고르지 않으면 그 기록은 이 기기 밖으로 나가지 않습니다. 애플워치에서 인증한 경우에는 지난번에 고른 공유방에 올라갑니다(3-3항).
 새 공유방에 들어갈 때는 <strong>최근 7일의 지난 인증도 그 방에 올릴지</strong> 한 번 묻습니다 —
 「올리기」를 누를 때만 올라갑니다.</p>
 <p class="muted">인증샷은 저장·전송 전에 가로세로 1280픽셀 이하의 JPEG로 다시 만듭니다(한 장 800KB 이하).
@@ -140,6 +140,14 @@
       인증도 함께 빠집니다(그 사람 폰에 있는 기록은 그대로입니다). 이어서
       <strong>초대 코드를 새로 만들면</strong> 옛 코드로는 다시 들어올 수 없습니다.</li>
 </ul>
+
+<h2>3-3. 애플워치 앱 (아이폰만)</h2>
+<p>애플워치를 연결해 아이폰용 땀방울과 함께 쓰면, 마지막 인증 날짜 · 연속 일수 · 최근 14일의 인증 날짜가
+연결된 <strong>내 아이폰에서 내 애플워치로</strong> 전달돼 표시됩니다(사진 · 공유방 · 친구 · 닉네임 · 메모 · 식단 · 건강 정보는 보내지 않습니다).
+워치에서 「오늘 운동 완료」를 누르면 그 날짜 하나만 아이폰으로 전달되고, 아이폰 앱이 「사진 없이 완료」로 기록합니다.
+<strong>이때 지난번 인증에서 고른 공유방에도 같이 올라갑니다</strong>(아이폰에서 사진 없이 완료하고 같은 방을 고른 것과 같은 결과이며, 기존 서버와 기존 공유 경로만 씁니다).
+아이폰 앱이 꺼져 있었다면 다음에 열 때 반영되며, 최대 7일 전 날짜까지 반영됩니다. 이미 사진으로 인증한 날은 덮어쓰지 않습니다. 그 밖에 새로 수집하는 정보는 없습니다.
+기기 사이 전달은 내 아이폰과 내 애플워치 사이에서만 이루어지고, 애플워치 앱은 아이폰 앱에만 있습니다(안드로이드 앱과 웹판에는 없습니다).</p>
 
 <h2>4. 하지 않는 것</h2>
 <ul>
@@ -281,7 +289,7 @@ your device, and are sent to the server <em>only for the rooms you choose to sha
 (plus your private record store if you linked a Google account, 3-1). <strong>If you check in without
 choosing a room, nothing is sent to the server at all.</strong> Your <strong>daily goals and your profile
 photo never leave the device</strong>. Your nickname and avatar are stored on the server so
-friends can see them. You can share up to 4 photos a day. When you give a <strong>drop</strong> (a small cheer) to a friend's photo, the server stores who gave it to which photo; room members see only the count per photo. When you join a new room, the app asks once whether to also share your check-ins from the last 7 days with it; they are sent only if you tap Share. Photos are re-encoded as JPEG of at most 1280&nbsp;px (800&nbsp;KB) before
+friends can see them. You can share up to 4 photos a day. When you give a <strong>drop</strong> (a small cheer) to a friend's photo, the server stores who gave it to which photo; room members see only the count per photo. When you join a new room, the app asks once whether to also share your check-ins from the last 7 days with it; they are sent only if you tap Share. A check-in made from Apple Watch is posted to the rooms you chose last time (section 3-3). Photos are re-encoded as JPEG of at most 1280&nbsp;px (800&nbsp;KB) before
 storage, and <strong>all embedded metadata such as GPS location and device details is removed</strong>.
 <strong>Meal records</strong> (meal photos, foods and rough calorie estimates) and the height, weight and age you enter to estimate calories burned stay <strong>on this device only</strong>. We do not send them to our servers, to friends in shared rooms, or to ad providers. They are included only if you export a backup file yourself. Calorie and energy figures are rough estimates for reference and are not medical advice.</p>
 
@@ -317,6 +325,14 @@ photos <em>from your screen only</em>; nothing is deleted and the other person i
 in Profile &gt; Blocked people. The person who created a room can <strong>remove</strong> a member — their
 posts leave that room (their own device keeps their records) — and then <strong>issue a new invite
 code</strong> so the old one stops working.</p>
+
+<p lang="en"><strong>3-3. Apple Watch app (iPhone only) —</strong> If you use the Apple Watch app together with the iPhone app,
+your last check-in date, streak, and check-in dates for the last 14 days are passed <strong>from your iPhone to your Apple Watch</strong>
+(photos, rooms, friends, nickname, notes, meals and health information are not sent).
+When you tap "Done today" on the watch, only that date is passed to the iPhone, and the iPhone app records it as a check-in without a photo.
+<strong>This check-in is also posted to the shared rooms you chose last time</strong> (the same result as completing without a photo on the iPhone and choosing those rooms, using only the existing server and sharing path).
+If the iPhone app was closed, it is applied the next time you open it, for dates up to 7 days back. A day you already checked in with a photo is not overwritten. No other information is collected.
+Transfers happen only between your iPhone and your Apple Watch. The Apple Watch app exists only with the iPhone app, not in the Android app or the web version.</p>
 
 <p lang="en"><strong>4. What we do not do —</strong> Ads are limited to one Google AdMob banner at the bottom of the Android Home screen and no advertising ID is used (see 6-1); we use no analytics or tracking tools of our own,
 and no sale or sharing of your information with third parties (other
