@@ -83,6 +83,30 @@
     if (APP.store) $('getApp').href = APP.store;
 
     var android = /Android/i.test(navigator.userAgent);
+    // 아이폰(2026-11-27): 앱이 공개돼 웹으로 보내지 않고 App Store 로 안내한다. 앱이 직접 열리는 길(유니버설 링크)은 아직 없어
+    // 코드를 복사해 두고 앱에 넣게 한다. 웹은 작게만 남긴다(to=web 이면 지금처럼 웹으로).
+    var ua0 = navigator.userAgent;
+    var iphone = /iPhone|iPad|iPod/i.test(ua0) || (/Macintosh/i.test(ua0) && navigator.maxTouchPoints > 1);
+    if (iphone && q.get('to') !== 'web') {
+      $('title').textContent = '초대받았어요';
+      $('msg').textContent = '앱을 받은 뒤, 아래 초대 코드를 앱에 넣어 주세요.';
+      $('code').hidden = false;
+      $('getApp').textContent = 'App Store에서 앱 받기';
+      $('getApp').href = 'https://apps.apple.com/kr/app/id6823488490';
+      $('getApp').hidden = false;
+      var cp = document.createElement('a');
+      cp.className = 'btn'; cp.href = '#'; cp.textContent = '초대 코드 복사';
+      cp.onclick = function (e) {
+        e.preventDefault();
+        var done = function () { cp.textContent = '복사했어요'; };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code).then(done, done);
+        else done();
+      };
+      $('getApp').parentNode.insertBefore(cp, $('toWeb'));
+      $('toWeb').textContent = '앱 없이 웹으로 계속하기';
+      $('toWeb').hidden = false;
+      return;
+    }
     if (q.get('to') === 'web' || !android) {
       $('msg').textContent = '웹으로 여는 중이에요…';
       location.replace(web);
