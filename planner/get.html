@@ -3,8 +3,9 @@
   내맘다이어리 받기 페이지 - 「친구에게 추천하기」 글에 들어가는 링크 하나.
     https://sya-apps.github.io/planner/get.html
   본보기 = 학원시간표 get.html. 디자인은 이 앱 것(크림 바탕 · 잉크 남색 · 연필 노랑 · 고운돋움).
-  지금은 스토어 심사 중이라 Google Play 단추가 없다 - 공개되면 안드로이드 줄에 단추와 1.5초 자동 이동을 더한다.
-  안드로이드·아이폰: 자동 이동 없음, 「웹으로 열기」 / 아이폰: 안내 그림을 페이지 안에 / PC: 1.5초 뒤 웹 / 주소 뒤 ?stay 면 이동 안 함.
+  2026-11-27 현재: 안드로이드는 Google Play 로 1.5초 뒤 자동 이동(보조 웹 단추 없음). 아이폰은 아직 출시 전이라 준비 중 안내만.
+  PC 는 웹으로 보내지 않고 안드로이드 앱 안내(Google Play 단추). 주소 뒤 ?stay 면 자동 이동 안 함.
+  주소 뒤 ?from=threads 면 Play 주소에 referrer=utm_source%3Dthreads 를 붙여 쓰레드 유입을 센다.
   카톡 미리보기는 아래 og 태그를 쓴다.
   사용자에게 보이는 글에는 「」만 쓰고 큰따옴표 꺾쇠 · 가운뎃점 · 긴 줄표는 쓰지 않는다.
 -->
@@ -61,7 +62,7 @@
     <h1>내맘다이어리</h1>
     <p class="lead">골라서 만드는<br>나만의 플래너 속지</p>
     <p id="msg">기기를 확인하고 있어요</p>
-    <a id="go" class="btn" href="./">웹으로 열기</a>
+    <a id="go" class="btn" href="./">앱 받기</a>
     <a id="alt" class="btn sub" href="./" style="display:none"></a>
     <div id="guide">
       <img src="https://sya-apps.github.io/guide/ios-add-to-home.png" alt="아이폰에서 앱처럼 쓰기 안내 그림"
@@ -78,20 +79,20 @@
   var stay = /[?&]stay/.test(location.search);
   var web = 'https://sya-apps.github.io/planner/';
   var play = 'https://play.google.com/store/apps/details?id=com.sya.planner';
+  var threads = /[?&]from=threads(&|$)/.test(location.search);
+  if (threads) play += '&referrer=utm_source%3Dthreads';
   var go = document.getElementById('go'), alt = document.getElementById('alt'), msg = document.getElementById('msg');
   if (android) {
     msg.textContent = '안드로이드예요. Google Play로 가서 앱을 받아요.';
     go.textContent = 'Google Play'; go.href = play;
-    alt.style.display = 'block'; alt.textContent = '웹으로 열기'; alt.href = web;
     if (!stay) setTimeout(function () { location.href = play; }, 1500);
   } else if (iphone) {
     /* 아이폰은 자동으로 넘기지 않는다. 앱스토어에 공개되면 이 줄의 주소만 넣는다 */
     msg.textContent = '아이폰 앱스토어 출시를 준비하고 있어요.';
     go.textContent = 'App Store 준비 중'; go.removeAttribute('href'); go.style.pointerEvents = 'none'; go.style.opacity = '.6';
   } else {
-    msg.textContent = '컴퓨터예요. 웹으로 열어요.';
-    go.textContent = '웹으로 열기'; go.href = web;
-    if (!stay) setTimeout(function () { location.href = web; }, 1500);
+    msg.textContent = '내맘다이어리는 안드로이드 앱이에요. 안드로이드 폰에서 이 주소를 열어 주세요.';
+    go.textContent = 'Google Play에서 보기'; go.href = play;
   }
 </script>
 </body>
