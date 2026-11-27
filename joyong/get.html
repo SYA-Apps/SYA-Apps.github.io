@@ -73,6 +73,8 @@
   var stay = /[?&]stay/.test(location.search);
   var en = !/^ko/i.test(navigator.language || 'ko');
   var play = 'https://play.google.com/store/apps/details?id=com.sya.joyong';
+  var threads = /[?&]from=threads(&|$)/.test(location.search);
+  if (threads) play += '&referrer=utm_source%3Dthreads';
   var web = 'https://sya-apps.github.io/joyong/';
   function $(i){return document.getElementById(i)}
   var go = $('go'), alt = $('alt'), msg = $('msg');
@@ -93,12 +95,11 @@
   $('foot').textContent = T.foot; $('guideText').textContent = T.gt;
   if (android) {
     msg.textContent = T.a; go.textContent = T.ag; go.href = play;
-    alt.style.display = 'block'; alt.textContent = T.aa; alt.href = web;
     if (!stay) setTimeout(function () { location.href = play; }, 1500);
   } else if (iphone) {
     /* 아이폰은 자동으로 넘기지 않는다. 2026-11-28 앱스토어 공개(ios_release_switch.py) */
     msg.textContent = en ? 'iPhone detected. Get the app on the App Store.' : '아이폰이에요. App Store에서 앱을 받아요.';
-    go.textContent = en ? 'Get it on the App Store' : 'App Store에서 앱 받기'; go.href = 'https://apps.apple.com/kr/app/id6823826868';
+    go.textContent = en ? 'Get it on the App Store' : 'App Store에서 앱 받기'; go.href = 'https://apps.apple.com/kr/app/id6823826868' + (threads ? '?ct=threads' : '');
   } else {
     msg.textContent = T.p; go.textContent = T.pg; go.href = web;
     if (!stay) setTimeout(function () { location.href = web; }, 1500);
